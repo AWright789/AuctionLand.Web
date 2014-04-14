@@ -1,0 +1,45 @@
+﻿@model AuctionLand.Web.Startup
+
+@{
+    ViewBag.Title = "Index";
+}
+<!-- START content-->
+<div class="container text-center" id="ContainerMaxWidth980">
+    <!-- START main image of home-->
+    <div class="jumbotron text-center">
+        <img src="~/Images/home1.jpg" class="img-responsive"/>
+    </div>
+    <!-- END main image-->
+
+    <!-- START bid dates-->
+    <div class="row">
+        <div class="col-xs-6 text-center">
+            <p>Starting Bid Date</p>
+        </div>
+        <div class="col-xs-6 text-center">
+            <p>Ending Bid Date</p>
+        </div>
+    </div>
+    <!-- END bid dates-->
+
+    <!-- START price-->
+    <div class="row">
+        <div class="col-xs-6 text-center">
+            <p>Starting Bid Price</p>
+        </div>
+
+
+        <div class="col-xs-6 text-center">
+            <p>Final Bid Price</p>
+        </div>
+    </div>
+    <!-- END price-->
+
+
+
+</div>
+<!-- END contents-->
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
