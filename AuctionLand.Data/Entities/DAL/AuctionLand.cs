@@ -8,9 +8,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace AuctionLand.Data.Entities.DAL
 {
-    class RealEstateContext:DbContext
+    class AuctionLand: DbContext
     {
-        public RealEstateContext():base("AuctionLand")
+        public AuctionLand():base("AuctionLand")
         {
 
         }

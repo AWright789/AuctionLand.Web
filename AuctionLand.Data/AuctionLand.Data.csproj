@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Entities\DAL\RealEstateContext.cs" />
+    <Compile Include="Entities\DAL\AuctionLand.cs" />
     <Compile Include="Entities\RealEstate.cs" />
     <Compile Include="Entities\RealEstateAddress.cs" />
     <Compile Include="Entities\RealEstateAuction.cs" />
