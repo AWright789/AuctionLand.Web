@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AuctionLand.Data.Entities
 {
-    class RealEstateAuction
+    public class RealEstateAuction:BaseEntity
     {
-        public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double StartingBid { get; set; }

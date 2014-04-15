@@ -8,12 +8,9 @@ namespace AuctionLand.Data.Entities
 {
     public enum ListingStatus
     {
-        Active, Sold
+        Active, Sold, Inactive
     }
-    public enum Featured
-    {
-        Yes, No
-    }
+
     public enum ListingType
     {
         Auction, BankOwned
@@ -22,19 +19,8 @@ namespace AuctionLand.Data.Entities
     {
         Occupied, Vacant
     }
-    public enum TypeDescription
+    public enum RealEstateType
     {
         MultiFamily, SingleFamily, Other, Land, CondoTownhome
-    }
-    class RealEstateTypes
-    {
-        public int Id { get; set; }
-        public ListingStatus? ListingStatus { get; set; }
-        public Featured? Featured { get; set; }
-        public ListingType? ListingType { get; set; }
-        public OccupancyStatus? OccupancyStatus { get; set; }
-        public TypeDescription TypeDescription { get; set; }
-        public virtual RealEstate RealEstate { get; set; }
-
     }
 }
