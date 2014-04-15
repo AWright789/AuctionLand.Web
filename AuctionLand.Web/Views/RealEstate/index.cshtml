@@ -3,41 +3,78 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <!-- START content-->
-<div class="container text-center" id="ContainerMaxWidth980">
-    <!-- START main image of home-->
-    <div class="jumbotron text-center">
-        <img src="~/Images/home1.jpg" class="img-responsive"/>
-    </div>
-    <!-- END main image-->
+<div class="container" id="ContainerMaxWidth980">
 
-    <!-- START bid dates-->
+    <!-- START main image and bid time-->
+        <div class="row">
+            <img src="~/Images/home1.jpg" class="img-responsive" />
+        </div>
+    <div class="row" id="belowMainImage">
+        <!-- bid end date-->
+        <div class="col-xs-3 text-center">
+            <p>5/6/2014</p>
+        </div>
+        <!-- bid end time-->
+        <div class="col-xs-3 text-center">
+            <p>12:00 pm</p>
+        </div>
+        <!-- time left to bid in Days:Hours:Minutes-->
+        <div class="col-xs-6 text-center">
+            <p>21:02:21</p>
+        </div>
+    </div>
+    <!-- END main image and bid time-->
+
+    <!-- START second row of content-->
     <div class="row">
-        <div class="col-xs-6 text-center">
-            <p>Starting Bid Date</p>
+
+        <!-- START bidding price section-->
+        <div class="col-sm-6">
+            <a href="#" class="list-group-item list-group-item-info"><h4><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
+            <div class="panel-body">
+                Starting Bid
+                <p id="boldText"> Current Bid</p>
+            </div>
         </div>
-        <div class="col-xs-6 text-center">
-            <p>Ending Bid Date</p>
+        <!-- END bidding price section-->
+        <!-- START Map section-->
+        <div class="col-sm-6" id="contentWithPadding">
+            <a href="#" class="list-group-item list-group-item-info"><h4><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
+            <div class="panel-body">
+                <p>123 Street Name</p>
+                <p>City, State ZipCode</p>
+            </div>
         </div>
+        <!-- END Map section-->
+
     </div>
-    <!-- END bid dates-->
+    <!-- END second row of content-->
 
-    <!-- START bid price-->
-    <div class="row" id="testRow">
-        <div class="col-xs-4 text-center">
-            <p>Starting Bid Price</p>
+    <!-- START bathroom bedroom sizes -->
+   
+        <div class="btn-group">
+            <ul class="list-inline">
+                <li><a href="#"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /> Bathroom </a> </li>
+                <li><a href="#"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a> Bedroom </li>
+                <li><a href="#"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a> Property Size </li>
+                <li><a href="#"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a> Lot Size </li>
+            </ul>
         </div>
+    
+        <!-- END bathroom bedroom sizes -->
 
-        <div class="col-xs-4 text-center">
-            <p>Bid Increment</p>
-        </div>
+   
+    <!-- END second row of content-->
 
-        <div class="col-xs-4 text-center">
-            <p>Final Bid Price</p>
-        </div>
+    <!-- START social media links-->
+    <div class="btn-group">
+        <ul class="list-inline">
+            <li><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
+            <li><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+        </ul>
     </div>
-    <!-- END bid price-->
-
-
+    <!-- END social media links--> 
 </div>
-<!-- END contents-->
+<!-- END content-->
