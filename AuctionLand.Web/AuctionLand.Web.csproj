@@ -274,7 +274,10 @@
     <Content Include="Content\Site.less" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="Images\facebook-512.png" />
     <Content Include="Images\home1.jpg" />
+    <Content Include="Images\marker-512.png" />
+    <Content Include="Images\Share.png" />
     <Content Include="myCustomCSS.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -292,6 +295,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Images\USD-512.png" />
     <Content Include="Views\RealEstate\home1.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
