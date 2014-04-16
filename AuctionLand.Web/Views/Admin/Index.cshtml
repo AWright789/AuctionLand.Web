@@ -11,12 +11,14 @@
 </p>
 <table class="table">
     <tr>
+        
         <th>
-            @Html.DisplayNameFor(model => model.Address.Street)
+            @Html.DisplayNameFor(model => model.Address.Id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AuctionInfo.Id)
         </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.YearBuilt)
         </th>
@@ -61,6 +63,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.AuctionInfo.Id)
         </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.YearBuilt)
         </td>
