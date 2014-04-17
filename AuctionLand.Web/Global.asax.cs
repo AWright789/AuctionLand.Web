@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuctionLand.Web.ModelBinders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,9 @@ namespace AuctionLand.Web
         protected void Application_Start()
         {
             IoC.IoCConfiguration.RegisterDependencies();
+
+
+            ModelBinderProviders.BinderProviders.Add(new EFModelBinderProvider());
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

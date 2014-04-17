@@ -117,6 +117,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -208,7 +209,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Views\Controllers\AddHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RealEstateController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\RealEstatesController.cs" />
     <Compile Include="Controllers\api\RealEstatesImageController.cs" />
@@ -219,6 +220,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IoC\IoCConfiguration.cs" />
+    <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
+    <Compile Include="ModelBinders\EFModelBinderProvider.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,15 +298,18 @@
     <Content Include="Areas\Admin\Views\DashBoard\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="Areas\Admin\Views\AddHome\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AddHome\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AddHome\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AddHome\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AddHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RealEstate\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RealEstate\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\RealEstate\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\RealEstate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\RealEstate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DbGeography.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\DbGeography.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Content\Site.less" />
+    <Content Include="Scripts\auctionland-1.0.js" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\property.png" />
     <Content Include="HtmlPage1.html" />
@@ -363,7 +369,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
