@@ -71,7 +71,7 @@ namespace AuctionLand.Web.Areas.Admin.Views.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RealEstate realestate = _realEstateService.RealEstateExists(id.value);
+            RealEstate realestate = _realEstateService.GetById(id.Value);
             if (realestate == null)
             {
                 return HttpNotFound();
