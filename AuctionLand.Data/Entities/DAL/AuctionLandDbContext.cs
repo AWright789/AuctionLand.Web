@@ -9,23 +9,23 @@ using AuctionLand.Data.Mapping;
 
 namespace AuctionLand.Data.Entities.DAL
 {
-    public class AuctionLandDbContext: DbContext
+    public class AuctionLandDbContext: DbContext, IAuctionLandDbContext
     {
         public AuctionLandDbContext():base("AuctionLandDB")
         {
 
         }
 
-        public DbSet<RealEstate> RealEstate { get; set; }
-        public DbSet<RealEstateAddress> RealEstateAddress { get; set; }
-        public DbSet<RealEstateAuction> RealEstateAuction { get; set; }
-        public DbSet<RealEstateImage> RealEstateImage { get; set; }
+        public DbSet<RealEstate> RealEstates { get; set; }
+       
+        public DbSet<RealEstateImage> RealEstateImages { get; set; }
      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new RealEstateMapping());
-
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
 

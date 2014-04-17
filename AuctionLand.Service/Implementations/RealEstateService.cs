@@ -12,34 +12,38 @@ namespace AuctionLand.Service.Implementations
 {
     public class RealEstateService :IRealEstateService
     {
-        private AuctionLandDbContext db = new AuctionLandDbContext();
+        private IAuctionLandDbContext _db;
 
+        public RealEstateService(IAuctionLandDbContext db)
+        {
+            _db = db;
+        }
         public Data.Entities.RealEstate GetById(int id)
         {
-            return db.RealEstate.Find(id);
+            return _db.RealEstates.Find(id);
         }
 
         public IQueryable<RealEstate> Query(string city, string state, int? zip, int? bedroom, int? bathroom, int? bidPriceMin, int? bidPriceMax, int? estateType, DateTime? auctionStart, DateTime? auctionEnd)
         {
-            return db.RealEstate.Where(r =>
-                (r.Address.City == city || city == null)
-                && (r.Address.State == state || state == null)
-                && (r.Address.Zip == zip.Value || zip == null)
+            return _db.RealEstates.Where(r =>
+                (r.City == city || city == null)
+                && (r.State == state || state == null)
+                && (r.Zip == zip.Value || zip == null)
                 && (r.Bedrooms == bedroom.Value || bedroom == null)
                 && (r.Bathrooms == bathroom.Value || bathroom == null)
-                && (r.AuctionInfo.StartingBid == bidPriceMax.Value || bidPriceMax == null)
-                && (r.AuctionInfo.EndingBid == bidPriceMin.Value || bidPriceMin == null)
-                && (r.AuctionInfo.StartDate == auctionStart.Value || auctionStart == null)
-                && (r.AuctionInfo.EndDate == auctionEnd.Value || auctionEnd == null));
+                && (r.StartingBid == bidPriceMax.Value || bidPriceMax == null)
+                && (r.EndingBid == bidPriceMin.Value || bidPriceMin == null)
+                && (r.StartDate == auctionStart.Value || auctionStart == null)
+                && (r.EndDate == auctionEnd.Value || auctionEnd == null));
         }
 
         public void Update(Data.Entities.RealEstate realEstate)
         {
-            db.Entry(realEstate).State = System.Data.Entity.EntityState.Modified;
+            _db.Entry(realEstate).State = System.Data.Entity.EntityState.Modified;
             try
             {
 
-                db.SaveChanges();
+                _db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -56,26 +60,26 @@ namespace AuctionLand.Service.Implementations
 
         public void Create(Data.Entities.RealEstate realEstate)
         {
-            db.RealEstate.Add(realEstate);
-            db.SaveChanges();
+            _db.RealEstates.Add(realEstate);
+            _db.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = _db.RealEstates.Find(id);
             if (realestate == null)
             {
                 //return NotFound();
             }
             else
             {
-                db.RealEstate.Remove(realestate);
-                db.SaveChanges();
+                _db.RealEstates.Remove(realestate);
+                _db.SaveChanges();
             }
         }
         private bool RealEstateExists(int id)
         {
-            return db.RealEstate.Count(e => e.Id == id) > 0;
+            return _db.RealEstates.Count(e => e.Id == id) > 0;
         }
     }
 }

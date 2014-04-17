@@ -50,14 +50,11 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\DAL\AuctionLandDbContext.cs" />
+    <Compile Include="Entities\DAL\IAuctionLandDbContext.cs" />
     <Compile Include="Entities\RealEstate.cs" />
-    <Compile Include="Entities\RealEstateAddress.cs" />
-    <Compile Include="Entities\RealEstateAuction.cs" />
     <Compile Include="Entities\RealEstateImage.cs" />
     <Compile Include="Entities\RealEstateTypes.cs" />
     <Compile Include="Mapping\BaseEntityMapping.cs" />
-    <Compile Include="Mapping\RealEstateAddressMapping.cs" />
-    <Compile Include="Mapping\RealEstateAuctionMapping.cs" />
     <Compile Include="Mapping\RealEstateImageMapping.cs" />
     <Compile Include="Mapping\RealEstateMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

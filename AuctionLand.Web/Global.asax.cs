@@ -13,6 +13,8 @@ namespace AuctionLand.Web
     {
         protected void Application_Start()
         {
+            IoC.IoCConfiguration.RegisterDependencies();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

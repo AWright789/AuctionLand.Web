@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,9 +75,23 @@ namespace AuctionLand.Data.Entities
             }
         }
 
-        public RealEstateAddress Address { get; set; }
-        public RealEstateAuction AuctionInfo { get; set; }
-       
-        public List<RealEstateImage> RealEstateImages { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public int Zip { get; set; }
+
+        public DbGeography Location { get; set; }
+
+
+
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public double StartingBid { get; set; }
+        public double EndingBid { get; set; }
+        public double BidIncrement { get; set; }
+
+
+     
+        public virtual List<RealEstateImage> RealEstateImages { get; set; }
     }
 }

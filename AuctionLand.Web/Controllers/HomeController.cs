@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuctionLand.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace AuctionLand.Web.Controllers
 {
     public class HomeController : Controller
     {
+        readonly IRealEstateService _realEstateService;
+        public HomeController(IRealEstateService realEstateService)
+        {
+            _realEstateService = realEstateService;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -23,6 +30,14 @@ namespace AuctionLand.Web.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+
+        public ActionResult Search()
+        {
+            var realEstateProperties = _realEstateService.Query(null, null, null, null, null, null, null, null, null, null);
 
             return View();
         }

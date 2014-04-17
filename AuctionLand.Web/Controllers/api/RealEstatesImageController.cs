@@ -15,104 +15,90 @@ namespace AuctionLand.Web.Controllers.api
 {
     public class RealEstatesImageController : ApiController
     {
-        private AuctionLandDbContext db = new AuctionLandDbContext();
-
+     
         // GET api/RealEstatesImage
-        public IQueryable<RealEstateImage> GetRealEstateImage()
+        public IQueryable<RealEstateImage> GetRealEstateImages()
         {
-            return db.RealEstateImage;
+            return null;
         }
 
-        // GET api/RealEstatesImage/5
-        [ResponseType(typeof(RealEstateImage))]
-        public IHttpActionResult GetRealEstateImage(int id)
-        {
-            RealEstateImage realestateimage = db.RealEstateImage.Find(id);
-            if (realestateimage == null)
-            {
-                return NotFound();
-            }
+        //// GET api/RealEstatesImage/5
+        //[ResponseType(typeof(RealEstateImage))]
+        //public IHttpActionResult GetRealEstateImages(int id)
+        //{
+        //    RealEstateImage realestateimage = db.RealEstateImages.Find(id);
+        //    if (realestateimage == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(realestateimage);
-        }
+        //    return Ok(realestateimage);
+        //}
 
-        // PUT api/RealEstatesImage/5
-        public IHttpActionResult PutRealEstateImage(int id, RealEstateImage realestateimage)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/RealEstatesImage/5
+        //public IHttpActionResult PutRealEstateImages(int id, RealEstateImage realestateimage)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != realestateimage.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != realestateimage.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(realestateimage).State = EntityState.Modified;
+        //    db.Entry(realestateimage).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RealEstateImageExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!RealEstateImagesExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST api/RealEstatesImage
-        [ResponseType(typeof(RealEstateImage))]
-        public IHttpActionResult PostRealEstateImage(RealEstateImage realestateimage)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST api/RealEstatesImage
+        //[ResponseType(typeof(RealEstateImage))]
+        //public IHttpActionResult PostRealEstateImages(RealEstateImage realestateimage)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.RealEstateImage.Add(realestateimage);
-            db.SaveChanges();
+        //    db.RealEstateImages.Add(realestateimage);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = realestateimage.Id }, realestateimage);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = realestateimage.Id }, realestateimage);
+        //}
 
-        // DELETE api/RealEstatesImage/5
-        [ResponseType(typeof(RealEstateImage))]
-        public IHttpActionResult DeleteRealEstateImage(int id)
-        {
-            RealEstateImage realestateimage = db.RealEstateImage.Find(id);
-            if (realestateimage == null)
-            {
-                return NotFound();
-            }
+        //// DELETE api/RealEstatesImage/5
+        //[ResponseType(typeof(RealEstateImage))]
+        //public IHttpActionResult DeleteRealEstateImages(int id)
+        //{
+        //    RealEstateImage realestateimage = db.RealEstateImages.Find(id);
+        //    if (realestateimage == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.RealEstateImage.Remove(realestateimage);
-            db.SaveChanges();
+        //    db.RealEstateImages.Remove(realestateimage);
+        //    db.SaveChanges();
 
-            return Ok(realestateimage);
-        }
+        //    return Ok(realestateimage);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool RealEstateImageExists(int id)
-        {
-            return db.RealEstateImage.Count(e => e.Id == id) > 0;
-        }
     }
 }

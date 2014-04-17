@@ -11,16 +11,16 @@ using System.Web.Http.Description;
 using AuctionLand.Data.Entities;
 using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
+using AuctionLand.Service.Implementations;
 
 namespace AuctionLand.Web.Controllers.api
 {
     public class RealEstatesController : ApiController
     {
         readonly IRealEstateService _realEstateService;
-        private AuctionLandDbContext db = new AuctionLandDbContext();
-        public RealEstatesController()
+         public RealEstatesController(IRealEstateService realEstateService)
         {
-
+            _realEstateService = realEstateService;
         }
         // GET api/RealEstates
         public IQueryable<RealEstate> GetRealEstate()
@@ -98,7 +98,7 @@ namespace AuctionLand.Web.Controllers.api
         public IHttpActionResult DeleteRealEstate(int id)
         {
             _realEstateService.Delete(id);
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = _realEstateService.GetById(id);
             if (realestate == null)
             {
                 return NotFound();
@@ -111,18 +111,6 @@ namespace AuctionLand.Web.Controllers.api
             return Ok(realestate);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool RealEstateExists(int id)
-        {
-            return db.RealEstate.Count(e => e.Id == id) > 0;
-        }
+      
     }
 }

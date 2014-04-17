@@ -9,27 +9,26 @@ using System.Web.Mvc;
 using AuctionLand.Data.Entities;
 using AuctionLand.Data.Entities.DAL;
 
-namespace AuctionLand.Web.Controllers
+namespace AuctionLand.Web.Areas.Admin.Controllers
 {
-    public class AdminController : Controller
+    public class DashBoardController : Controller
     {
         private AuctionLandDbContext db = new AuctionLandDbContext();
 
-        // GET: /Admin/
+        // GET: /Admin/DashBoard/
         public ActionResult Index()
         {
-            var realestate = db.RealEstate.Include(r => r.Address).Include(r => r.AuctionInfo);
-            return View(realestate.ToList());
+            return View(db.RealEstates.ToList());
         }
 
-        // GET: /Admin/Details/5
+        // GET: /Admin/DashBoard/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = db.RealEstates.Find(id);
             if (realestate == null)
             {
                 return HttpNotFound();
@@ -37,56 +36,50 @@ namespace AuctionLand.Web.Controllers
             return View(realestate);
         }
 
-        // GET: /Admin/Create
+        // GET: /Admin/DashBoard/Create
         public ActionResult Create()
         {
-            ViewBag.Id = new SelectList(db.RealEstateAddress, "Id", "Street");
-            ViewBag.Id = new SelectList(db.RealEstateAuction, "Id", "Id");
             return View();
         }
 
-        // POST: /Admin/Create
+        // POST: /Admin/DashBoard/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,Featured,ListingTypeId,OccupancyStatusId,RealEstateTypeId")] RealEstate realestate)
+        public ActionResult Create([Bind(Include="Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,Featured,ListingTypeId,OccupancyStatusId,RealEstateTypeId,Street,City,State,Zip,Location,StartDate,EndDate,StartingBid,EndingBid,BidIncrement")] RealEstate realestate)
         {
             if (ModelState.IsValid)
             {
-                db.RealEstate.Add(realestate);
+                db.RealEstates.Add(realestate);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id = new SelectList(db.RealEstateAddress, "Id", "Street", realestate.Id);
-            ViewBag.Id = new SelectList(db.RealEstateAuction, "Id", "Id", realestate.Id);
             return View(realestate);
         }
 
-        // GET: /Admin/Edit/5
+        // GET: /Admin/DashBoard/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = db.RealEstates.Find(id);
             if (realestate == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Id = new SelectList(db.RealEstateAddress, "Id", "Street", realestate.Id);
-            ViewBag.Id = new SelectList(db.RealEstateAuction, "Id", "Id", realestate.Id);
             return View(realestate);
         }
 
-        // POST: /Admin/Edit/5
+        // POST: /Admin/DashBoard/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,Featured,ListingTypeId,OccupancyStatusId,RealEstateTypeId")] RealEstate realestate)
+        public ActionResult Edit([Bind(Include="Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,Featured,ListingTypeId,OccupancyStatusId,RealEstateTypeId,Street,City,State,Zip,Location,StartDate,EndDate,StartingBid,EndingBid,BidIncrement")] RealEstate realestate)
         {
             if (ModelState.IsValid)
             {
@@ -94,19 +87,17 @@ namespace AuctionLand.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id = new SelectList(db.RealEstateAddress, "Id", "Street", realestate.Id);
-            ViewBag.Id = new SelectList(db.RealEstateAuction, "Id", "Id", realestate.Id);
             return View(realestate);
         }
 
-        // GET: /Admin/Delete/5
+        // GET: /Admin/DashBoard/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = db.RealEstates.Find(id);
             if (realestate == null)
             {
                 return HttpNotFound();
@@ -114,13 +105,13 @@ namespace AuctionLand.Web.Controllers
             return View(realestate);
         }
 
-        // POST: /Admin/Delete/5
+        // POST: /Admin/DashBoard/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RealEstate realestate = db.RealEstate.Find(id);
-            db.RealEstate.Remove(realestate);
+            RealEstate realestate = db.RealEstates.Find(id);
+            db.RealEstates.Remove(realestate);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

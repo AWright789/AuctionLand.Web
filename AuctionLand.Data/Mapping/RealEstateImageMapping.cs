@@ -14,6 +14,7 @@ namespace AuctionLand.Data.Mapping
     {
         public RealEstateImageMapping()
         {
+            this.ToTable("RealEstateImage");
 
         }
     }

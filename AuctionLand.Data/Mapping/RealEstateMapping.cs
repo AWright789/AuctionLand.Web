@@ -14,20 +14,13 @@ namespace AuctionLand.Data.Mapping
     {
         public RealEstateMapping()
         {
-
+            this.ToTable("RealEstate");
             this.Ignore(r => r.ListingStatus);
             this.Ignore(r => r.ListingType);
             this.Ignore(r => r.RealEstateType);
             this.Ignore(r => r.OccupancyStatus);
 
-
-            this.HasOptional(r => r.Address)
-                .WithRequired(a => a.RealEstate).WillCascadeOnDelete(true);
-
-            this.HasOptional(r => r.AuctionInfo)
-                .WithRequired(a => a.RealEstate).WillCascadeOnDelete(true);
-
-
+           
             this.HasMany(r => r.RealEstateImages)
                 .WithRequired(ri => ri.RealEstate)
                 .WillCascadeOnDelete(true);

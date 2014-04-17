@@ -8,8 +8,8 @@ namespace AuctionLand.Data.Entities
 {
     public class RealEstateImage : BaseEntity
     {
- 
-        public string EstateImage { get; set; }
+        
+        public string ImageUrl { get; set; }
         public virtual RealEstate RealEstate { get; set; }
     }
 }
