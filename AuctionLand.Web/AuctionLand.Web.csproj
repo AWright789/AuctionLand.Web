@@ -202,7 +202,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\api\RealEstatesAddressController.cs" />
@@ -277,11 +276,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -349,8 +343,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Controllers\" />
+    <Folder Include="Areas\Admin\Views\DashBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -360,6 +356,10 @@
     <ProjectReference Include="..\AuctionLand.Data\AuctionLand.Data.csproj">
       <Project>{77aae640-04c7-4f36-a9cb-fba0eca0b701}</Project>
       <Name>AuctionLand.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuctionLand.Service\AuctionLand.Service.csproj">
+      <Project>{f3dda8ff-3a21-48a3-a5dd-83a1f93bc4eb}</Project>
+      <Name>AuctionLand.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

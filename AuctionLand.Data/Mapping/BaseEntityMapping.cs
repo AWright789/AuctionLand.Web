@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AuctionLand.Data.Mapping
 {
-    internal class BaseEntityMappping<T> : EntityTypeConfiguration<T> where T : BaseEntity
+    public class BaseEntityMappping<T> : EntityTypeConfiguration<T> where T : BaseEntity
     {
         public BaseEntityMappping()
         {

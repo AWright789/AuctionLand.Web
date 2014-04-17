@@ -10,7 +10,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace AuctionLand.Data.Mapping
 {
-    class RealEstateImageMapping:BaseEntityMappping<RealEstateImage>
+    public class RealEstateImageMapping:BaseEntityMappping<RealEstateImage>
     {
         public RealEstateImageMapping()
         {

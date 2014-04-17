@@ -10,24 +10,29 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using AuctionLand.Data.Entities;
 using AuctionLand.Data.Entities.DAL;
+using AuctionLand.Service.Interfaces;
 
 namespace AuctionLand.Web.Controllers.api
 {
     public class RealEstatesController : ApiController
     {
+        readonly IRealEstateService _realEstateService;
         private AuctionLandDbContext db = new AuctionLandDbContext();
+        public RealEstatesController()
+        {
 
+        }
         // GET api/RealEstates
         public IQueryable<RealEstate> GetRealEstate()
         {
-            return db.RealEstate;
+            return _realEstateService.Query(null,null,null,null,null,null,null,null,null,null);
         }
 
         // GET api/RealEstates/5
         [ResponseType(typeof(RealEstate))]
         public IHttpActionResult GetRealEstate(int id)
         {
-            RealEstate realestate = db.RealEstate.Find(id);
+            RealEstate realestate = _realEstateService.GetById(id);
             if (realestate == null)
             {
                 return NotFound();
@@ -39,6 +44,7 @@ namespace AuctionLand.Web.Controllers.api
         // PUT api/RealEstates/5
         public IHttpActionResult PutRealEstate(int id, RealEstate realestate)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -49,10 +55,11 @@ namespace AuctionLand.Web.Controllers.api
                 return BadRequest();
             }
 
-            db.Entry(realestate).State = EntityState.Modified;
-
-            try
+           // db.Entry(realestate).State = EntityState.Modified;
+            _realEstateService.Update(realestate);
+            /*try
             {
+             
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -65,7 +72,8 @@ namespace AuctionLand.Web.Controllers.api
                 {
                     throw;
                 }
-            }
+            }*/
+             
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -78,9 +86,9 @@ namespace AuctionLand.Web.Controllers.api
             {
                 return BadRequest(ModelState);
             }
-
-            db.RealEstate.Add(realestate);
-            db.SaveChanges();
+            _realEstateService.Create(realestate);
+           // db.RealEstate.Add(realestate);
+            //db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = realestate.Id }, realestate);
         }
@@ -89,14 +97,16 @@ namespace AuctionLand.Web.Controllers.api
         [ResponseType(typeof(RealEstate))]
         public IHttpActionResult DeleteRealEstate(int id)
         {
+            _realEstateService.Delete(id);
             RealEstate realestate = db.RealEstate.Find(id);
             if (realestate == null)
             {
                 return NotFound();
             }
-
+            /*
             db.RealEstate.Remove(realestate);
             db.SaveChanges();
+            */
 
             return Ok(realestate);
         }

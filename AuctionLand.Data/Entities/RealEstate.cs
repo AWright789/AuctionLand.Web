@@ -74,9 +74,9 @@ namespace AuctionLand.Data.Entities
             }
         }
 
-        public  RealEstateAddress Address { get; set; }
-        public  RealEstateAuction AuctionInfo { get; set; }
+        public RealEstateAddress Address { get; set; }
+        public RealEstateAuction AuctionInfo { get; set; }
        
-        public  List<RealEstateImage> RealEstateImages { get; set; }
+        public List<RealEstateImage> RealEstateImages { get; set; }
     }
 }
