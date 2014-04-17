@@ -5,89 +5,122 @@
 }
 
 <!-- START content-->
-<div class="container">
+<div class="container" id="ContainerMaxWidth900">
 
-    <!-- START side search section-->
-    <div class="col-md-3 text-center visible-md visible-lg visible-xl">
-        <p>Filters for Search section on left side</p>
-    </div>
-    <!-- END side search section-->
+    <!-- START breadcrumbs-->
+    <ol class="breadcrumb">
+        <li id="breadCrumbs"><a href="Home">Home</a></li>
+        <li id="breadCrumbs"><a href="RealEstate">Real Estate</a></li>
+        <li class="active" id="breadCrumbs">Real Estate ID Number</li>
+    </ol>
+    <li><a href="#searchModal" data-toggle="modal">Search</a></li>
+    <!-- END breadcrumbs -->
 
-    <div class="col-md-9" id="ContainerMaxWidth980">
+    <div class="col-md-12">
 
-    <!-- START main image and bid time-->
-    <div class="row">
-        <img src="~/Images/home1.jpg" class="img-responsive" />
-    </div>
-    <div class="row" id="belowMainImage">
-        <!-- bid end date-->
-        <div class="col-xs-3 text-center">
-            <p>5/6/2014</p>
+        <!-- START main image and bid time-->
+        <div class="row">
+            <img src="~/Images/homeMainImage.jpg" class="img-responsive"/>
         </div>
-        <!-- bid end time-->
-        <div class="col-xs-3 text-center">
-            <p>12:00 pm</p>
-        </div>
-        <!-- time left to bid in Days:Hours:Minutes-->
-        <div class="col-xs-6 text-center">
-            <p>21:02:21</p>
-        </div>
-    </div>
-    <!-- END main image and bid time-->
 
-    <!-- START second row of content-->
-    <div class="row">
-
-        <!-- START bidding price section-->
-        <div class="col-sm-6">
-            <a href="#" class="list-group-item list-group-item-info"><h4><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
-            <div class="panel-body">
-                Starting Bid
-                <p id="boldText"> Current Bid</p>
+        <div class="row" id="belowMainImage">
+            <!-- bid end date-->
+            <div class="col-xs-6 col-sm-3 text-center">
+                <span class="hidden-xs">End Date</span>
+                <span class="visible-xs">Ends</span>
+                <p id="bolderLargerText">5/6/2014</p>
+            </div>
+            <!-- bid end time-->
+            <div class="col-xs-6 col-sm-3 text-center">
+                <span class="hidden-xs">End Time</span>
+                <span class="visible-xs">At</span>
+                <p id="bolderLargerText">2:00 pm</p>
+            </div>
+            <!-- time left to bid in Days:Hours:Minutes-->
+            <div class="col-xs-4 col-sm-6 text-center hidden-xs">
+                Time left
+                <p id="bolderLargerText">21:02:21</p>
             </div>
         </div>
-        <!-- END bidding price section-->
-        <!-- START Map section-->
-        <div class="col-sm-6" id="contentWithPadding">
-            <a href="#" class="list-group-item list-group-item-info"><h4><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
-            <div class="panel-body">
-                <p>123 Street Name</p>
-                <p>City, State ZipCode</p>
+        <!-- END main image and bid info-->
+
+        <!-- START second row of content-->
+        <div class="row">
+
+            <!-- START bidding price section-->
+            <div class="col-sm-5" id="boxedCol">
+                <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
+                <div class="panel-body">
+                    <p>Current Bid</p>
+                    <p id="bolderLargerText"> Users Bid</p>
+                </div>
+            </div>
+            <!-- END bidding price section-->
+
+            <div class="col-sm-2" id="dividerSpace"></div>
+
+            <!-- START Map section-->
+            <div class="col-sm-5" id="boxedCol">
+                <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
+                <div class="panel-body">
+                    <p>123 Street Name</p>
+                    <p>City, State ZipCode</p>
+                </div>
+            </div>
+            <!-- END Map section-->
+
+        </div>
+        <!-- END second row of content-->
+
+        <!-- START bottomcontent -->
+        <div class="row text-center" id="bottomContent">
+
+            <!-- START bathroom bedroom sizes -->
+            <div class="row" id="BathroomBedroomSizeSection">
+                <ul class="list-inline col-sm-10 col-md-12">
+
+                    <li class="navbar-text"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bathrooms: </span> 4 </li>
+                    <li class="navbar-text"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bedroom: </span> 2 </li>
+                    <li class="navbar-text"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Property: </span> 2,506 Sq Ft </li>
+                    <li class="navbar-text"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Lot: </span> 0.71 acres </li>
+                    <li class="navbar-text"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs" id="smallertText">Built: </span> 1978 </li>
+                </ul>
+            </div>
+            <!-- END bathroom bedroom sizes -->
+
+            <!-- START social media links-->
+            <div class="btn-group" id="socialMediaSection">
+                <ul class="list-inline">
+                    <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
+                    <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+                </ul>
+                <p >Is this the home you've been looking for? Share it with your friends!</p>
+            </div>
+            <!-- END social media links-->
+
+        </div>
+        <!-- END bathroom bedroom sizes -->
+
+    </div>
+    <p class="visible-xs" id="lightGrayText">XS This is phone size</p>
+    <p class="visible-sm" id="lightGrayText">SM This is tablet size</p>
+    <p class="visible-md" id="lightGrayText">MD This is desktop size</p>
+
+    <div class=“modal-fade” id=“searchModal” role=“dialog”>
+        <div class=“modal-dialog”>
+            <div class=“modal-content”>
+                <div class=“modal-header”>
+                    <h4>Heading of form</h4>
+                </div>
+                <div class=“modal-body”>
+                    <p> asdfadsfasdf adsfasdf asdfasdf asdfasdf </p>
+                </div>
+                <div class=“modal-footer”>
+                    <a class=“btn btn-primary” data-dismiss=“modal”>Search</a>
+                    <a class=“btn btn-default” data-dismiss=“modal”>Cancel</a>
+                </div>
             </div>
         </div>
-        <!-- END Map section-->
-
     </div>
-    <!-- END second row of content-->
-    <!-- START bathroom bedroom sizes -->
 
-    <div class="row"id="BathroomBedroomSizeSection">
-        <ul class="list-inline col-sm-10 col-md-12">
-            
-            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bathrooms: </span> 4 </a></li>
-            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bedroom: </span> 2 </a></li>
-            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Property: </span> 2,506 Sq Ft </a></li>
-            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Lot: </span> 0.71 acres  </a></li>
-            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px"/> <span class="hidden-xs" id="smallertText">Built: </span> 1978 </a></li>
-        </ul>
-    </div>
-    <!-- END bathroom bedroom sizes -->
-   
-    <!-- END second row of content-->
-
-    <!-- START social media links-->
-    <div class="btn-group" id="socialMediaSection">
-        <ul class="list-inline">
-            <li><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
-            <li><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
-        </ul>
-    </div>
-    <!-- END social media links--> 
-
-    <p class="visible-xs">This is phone size</p>
-    <p class="visible-sm">This is tablet size</p>
-    <p class="visible-md">This is desktop size</p>
-</div>
-
-</div>
 <!-- END content-->

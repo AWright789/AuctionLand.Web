@@ -1,17 +1,53 @@
-﻿#ContainerMaxWidth980 {
-    max-width: 980px!important;
+﻿.jumbotron {
+    padding-top: 8px!important;
 }
 
-#testRow {
-    background-color: lightgray;
-    padding-top: 15px;
+#breadCrumbs {
+    font-size: 11px;
+}
+
+.list-group-item, #panelHeading {
+    max-height: 40px;
+    margin-top: -5px;
+}
+
+#ContainerMaxWidth900 {
+    max-width: 900px!important;
+}
+
+.container {
+    padding: 5px!important;
+}
+
+#lightGrayText {
+    color: lightgray;
+}
+
+#mainContent{
+    background: rgb(244,255,245); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(244,255,245,1) 0%, rgba(253,255,255,1) 24%, rgba(244,255,246,1) 68%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,255,245,1)), color-stop(24%,rgba(253,255,255,1)), color-stop(68%,rgba(244,255,246,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(244,255,245,1) 0%,rgba(253,255,255,1) 24%,rgba(244,255,246,1) 68%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(244,255,245,1) 0%,rgba(253,255,255,1) 24%,rgba(244,255,246,1) 68%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(244,255,245,1) 0%,rgba(253,255,255,1) 24%,rgba(244,255,246,1) 68%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(244,255,245,1) 0%,rgba(253,255,255,1) 24%,rgba(244,255,246,1) 68%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4fff5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+#dividerSpace {
+    min-height: 30px;
+}
+
+#boxedCol {
+   background-color: white;
+   padding: 0px!important;
 }
 
 .center-y {
     vertical-align:middle;
 }
 
-#boldText {
+#bolderLargerText {
     font-weight: bolder;
     font-size: larger;
 }
@@ -38,20 +74,31 @@
 }
 
 #belowMainImage {
-    margin-top: 20px;
+    margin: 10px 0 10px 0;
 }
 
 #BathroomBedroomSizeSection {
-    background-color: #f7faff;
+    margin-top: 20px;
+}
+
+#bottomContent {
+    background: -moz-linear-gradient(top,  rgba(237,248,255,0) 0%, rgba(234,244,255,1) 93%, rgba(234,244,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,248,255,0)), color-stop(93%,rgba(234,244,255,1)), color-stop(100%,rgba(234,244,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(237,248,255,0) 0%,rgba(234,244,255,1) 93%,rgba(234,244,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(237,248,255,0) 0%,rgba(234,244,255,1) 93%,rgba(234,244,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(237,248,255,0) 0%,rgba(234,244,255,1) 93%,rgba(234,244,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(237,248,255,0) 0%,rgba(234,244,255,1) 93%,rgba(234,244,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00edf8ff', endColorstr='#eaf4ff',GradientType=0 ); /* IE6-9 */
 }
 
 #socialMediaSection {
-    padding-top: 20px;
+    margin: 0px!important;
 }
 
 /* - - - - - - - - - -- My CSS is above - - - - - - - -     */
 
 /*            Default CSS Is Below           */
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -59,8 +106,8 @@ body {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
