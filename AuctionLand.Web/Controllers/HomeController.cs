@@ -1,9 +1,12 @@
 ﻿using AuctionLand.Service.Interfaces;
+using AuctionLand.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AuctionLand.Web.Mappings;
+using AuctionLand.Data.Entities;
 
 namespace AuctionLand.Web.Controllers
 {
@@ -17,7 +20,17 @@ namespace AuctionLand.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var homeModel = new HomeViewModel();
+
+
+            homeModel.FeaturedHomes = _realEstateService.GetAll().Take(3).Select(r => r.ToModel()).ToList();
+            homeModel.HomesForSale = _realEstateService.GetAll()
+                .OrderByDescending(r => r.StartDate)
+                .Take(9)
+                .Select(r => r.ToModel()).ToList();
+
+            
+            return View(homeModel);
         }
 
         public ActionResult About()
