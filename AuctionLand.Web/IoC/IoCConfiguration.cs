@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
 using AuctionLand.Service.Implementations;
+using AuctionLand.Web.App_Start;
 
 namespace AuctionLand.Web.IoC
 {
@@ -17,6 +18,7 @@ namespace AuctionLand.Web.IoC
         public static void RegisterDependencies()
         {
 
+            AutoMapperConfiguration.Configure();
 
             var builder = new ContainerBuilder();
 

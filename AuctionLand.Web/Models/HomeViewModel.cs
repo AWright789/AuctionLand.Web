@@ -7,9 +7,15 @@ namespace AuctionLand.Web.Models
 {
     public class HomeViewModel
     {
+        public HomeViewModel()
+        {
+            FeaturedHomes = new List<RealEstateModel>();
+            HomesForSale = new List<RealEstateModel>();
+            SearchModel = new RealEstateSearchModel();
+        }
         public RealEstateSearchModel SearchModel { get; set; }
-        public ICollection<RealEstateModel> FeaturedHomes { get; set; }
+        public IList<RealEstateModel> FeaturedHomes { get; set; }
 
-        public ICollection<RealEstateModel> HomesForSale { get; set; }
+        public IList<RealEstateModel> HomesForSale { get; set; }
     }
 }
