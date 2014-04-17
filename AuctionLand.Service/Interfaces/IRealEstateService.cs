@@ -15,5 +15,7 @@ namespace AuctionLand.Service.Interfaces
         void Update(RealEstate realEstate);
         void Create(RealEstate realEstate);
         void Delete(int id);
+        IQueryable<RealEstate> GetAll();
+        bool RealEstateExists(int id);
     }
 }

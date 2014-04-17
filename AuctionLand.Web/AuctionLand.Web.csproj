@@ -208,7 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
+    <Compile Include="Areas\Admin\Views\Controllers\AddHomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\RealEstatesController.cs" />
     <Compile Include="Controllers\api\RealEstatesImageController.cs" />
@@ -294,12 +294,12 @@
     <Content Include="Areas\Admin\Views\DashBoard\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Areas\Admin\Views\AddHome\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AddHome\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AddHome\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AddHome\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AddHome\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -363,7 +363,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Controllers\" />
+    <Folder Include="Areas\Admin\Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -77,9 +77,15 @@ namespace AuctionLand.Service.Implementations
                 _db.SaveChanges();
             }
         }
-        private bool RealEstateExists(int id)
+        public bool RealEstateExists(int id)
         {
             return _db.RealEstates.Count(e => e.Id == id) > 0;
         }
+        public IQueryable<RealEstate> GetAll()
+        {
+            return _db.RealEstates;
+        }
+
+        
     }
 }
