@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AuctionLand.Service.Interfaces
 {
-    interface IImageService
+    public interface IImageService
     {
         RealEstateImage GetById(int id);
 

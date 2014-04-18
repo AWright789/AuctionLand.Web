@@ -49,6 +49,7 @@ namespace AuctionLand.Web.IoC
 
             builder.RegisterType<AuctionLandDbContext>().As<IAuctionLandDbContext>();
             builder.RegisterType<RealEstateService>().As<IRealEstateService>();
+            builder.RegisterType<ImageService>().As<IImageService>();
             #endregion
 
             #region Inject HTTP Abstractions

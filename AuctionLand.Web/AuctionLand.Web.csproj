@@ -209,6 +209,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealEstateController.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Images\yearBuilt.png" />
     <Content Include="Images\measure.png" />
     <Content Include="Images\bedroom.png" />
@@ -301,15 +303,14 @@
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Details.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\DbGeography.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DbGeography.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

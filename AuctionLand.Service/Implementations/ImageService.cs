@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AuctionLand.Service.Implementations
 {
-    class ImageService : IImageService
+    public class ImageService : IImageService
     {
         private IAuctionLandDbContext _db;
 

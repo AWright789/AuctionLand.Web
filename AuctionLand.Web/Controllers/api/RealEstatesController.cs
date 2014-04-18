@@ -97,11 +97,15 @@ namespace AuctionLand.Web.Controllers.api
         [ResponseType(typeof(RealEstate))]
         public IHttpActionResult DeleteRealEstate(int id)
         {
-            _realEstateService.Delete(id);
+            
             RealEstate realestate = _realEstateService.GetById(id);
             if (realestate == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                _realEstateService.Delete(id);
             }
             /*
             db.RealEstate.Remove(realestate);
