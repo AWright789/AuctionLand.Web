@@ -3,6 +3,7 @@ using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +20,35 @@ namespace AuctionLand.Service.Implementations
         }
         public Data.Entities.RealEstateImage GetById(int id)
         {
-            throw new NotImplementedException();
+            return _db.RealEstateImages.Find(id);
         }
 
         public IQueryable<Data.Entities.RealEstateImage> Query(int RealEstateId)
         {
-            throw new NotImplementedException();
+            return _db.RealEstateImages.Where(r =>
+                (r.RealEstate.Id == RealEstateId || RealEstateId == null));
+                
         }
 
         public void Update(Data.Entities.RealEstateImage realEstateImage)
         {
-            throw new NotImplementedException();
+            _db.Entry(realEstateImage).State = System.Data.Entity.EntityState.Modified;
+            try
+            {
+
+                _db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ImageExists(realEstateImage.Id))
+                {
+                    //return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         public void Create(Data.Entities.RealEstateImage realEstateImage)
