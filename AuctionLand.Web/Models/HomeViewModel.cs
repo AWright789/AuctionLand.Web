@@ -14,8 +14,8 @@ namespace AuctionLand.Web.Models
             SearchModel = new RealEstateSearchModel();
         }
         public RealEstateSearchModel SearchModel { get; set; }
-        public IList<RealEstateModel> FeaturedHomes { get; set; }
+        public IEnumerable<RealEstateModel> FeaturedHomes { get; set; }
 
-        public IList<RealEstateModel> HomesForSale { get; set; }
+        public IEnumerable<RealEstateModel> HomesForSale { get; set; }
     }
 }

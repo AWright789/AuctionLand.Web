@@ -23,11 +23,11 @@ namespace AuctionLand.Web.Controllers
             var homeModel = new HomeViewModel();
 
 
-            homeModel.FeaturedHomes = _realEstateService.GetAll().Take(3).Select(r => r.ToModel()).ToList();
+            homeModel.FeaturedHomes = _realEstateService.GetAll().Take(3).ToList().Select(r => r.ToModel());
             homeModel.HomesForSale = _realEstateService.GetAll()
                 .OrderByDescending(r => r.StartDate)
-                .Take(9)
-                .Select(r => r.ToModel()).ToList();
+                .Take(9).ToList()
+                .Select(r => r.ToModel());
 
             
             return View(homeModel);
