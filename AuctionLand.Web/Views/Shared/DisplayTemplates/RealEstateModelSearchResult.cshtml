@@ -1,0 +1,87 @@
+﻿@model IEnumerable<AuctionLand.Web.Models.RealEstateModel>
+
+@foreach (var houseForSale in Model) { 
+<div class="col-md-4">
+
+    <!-- START main image and bid time-->
+    <div class="row">
+        <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
+    </div>
+
+    <div class="row" id="belowMainImage">
+        <!-- bid end date-->
+        <div class="col-xs-6 col-sm-3 text-center">
+            <span class="hidden-xs">End Date</span>
+            <span class="visible-xs">Ends</span>
+            <p id="bolderLargerText">@houseForSale.EndDate.ToString("mm/dd/yyyy")</p>
+        </div>
+        <!-- bid end time-->
+        <div class="col-xs-6 col-sm-3 text-center">
+            <span class="hidden-xs">End Time</span>
+            <span class="visible-xs">At</span>
+            <p id="bolderLargerText">@houseForSale.EndDate.ToShortTimeString()</p>
+        </div>
+        <!-- time left to bid in Days:Hours:Minutes-->
+        <div class="col-xs-4 col-sm-6 text-center hidden-xs">
+            Time left
+            <p id="bolderLargerText">21:02:21</p>
+        </div>
+    </div>
+    <!-- END main image and bid info-->
+    <!-- START second row of content-->
+    <div class="row">
+
+        <!-- START bidding price section-->
+        <div class="col-sm-5" id="boxedCol">
+            <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
+            <div class="panel-body">
+                <p>Current Bid</p>
+                <p id="bolderLargerText"> Users Bid</p>
+            </div>
+        </div>
+        <!-- END bidding price section-->
+
+        <div class="col-sm-2" id="dividerSpace"></div>
+
+        <!-- START Map section-->
+        <div class="col-sm-5" id="boxedCol">
+            <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
+            <div class="panel-body">
+                <p>123 Street Name</p>
+                <p>City, State ZipCode</p>
+            </div>
+        </div>
+        <!-- END Map section-->
+
+    </div>
+    <!-- END second row of content-->
+    <!-- START bottomcontent -->
+    <div class="row text-center" id="bottomContent">
+
+        <!-- START bathroom bedroom sizes -->
+        <div class="row" id="BathroomBedroomSizeSection">
+            <ul class="list-inline col-sm-10 col-md-12">
+
+                <li class="navbar-text"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bathrooms: </span> 4 </li>
+                <li class="navbar-text"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bedroom: </span> 2 </li>
+                <li class="navbar-text"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Property: </span> 2,506 Sq Ft </li>
+                <li class="navbar-text"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Lot: </span> 0.71 acres </li>
+                <li class="navbar-text"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs" id="smallertText">Built: </span> 1978 </li>
+            </ul>
+        </div>
+        <!-- END bathroom bedroom sizes -->
+        <!-- START social media links-->
+        <div class="btn-group" id="socialMediaSection">
+            <ul class="list-inline">
+                <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
+                <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+            </ul>
+            <p>Is this the home you've been looking for? Share it with your friends!</p>
+        </div>
+        <!-- END social media links-->
+
+    </div>
+    <!-- END bathroom bedroom sizes -->
+
+</div>
+}
