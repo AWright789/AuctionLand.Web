@@ -4,38 +4,21 @@
 }
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
-        <div class="row" id="featuredHomesRow">
-            <h1>Featured Homes</h1>
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
+        <h1>Featured Homes</h1>
+@foreach (var featuredHome in Model.FeaturedHomes)
+{
+    <div class="col-sm-4" id="realEstateCell">
 
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
-
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
-
+        <div class="row">
+            <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
+            Featured Home @featuredHome.Street
+            <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
+            <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
+            <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
+            <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
+            <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
         </div>
+    </div>
+}
     </div>
 </div>
