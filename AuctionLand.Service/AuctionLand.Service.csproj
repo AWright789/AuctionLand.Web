@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Implementations\ImageService.cs" />
     <Compile Include="Implementations\RealEstateService.cs" />
+    <Compile Include="Interfaces\IImageService.cs" />
     <Compile Include="Interfaces\IRealEstateService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

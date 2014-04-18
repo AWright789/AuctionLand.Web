@@ -209,6 +209,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\RealEstateController.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -227,6 +228,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IoC\IoCConfiguration.cs" />
+    <Compile Include="Migrations\201404181625358_InitialMigration.cs" />
+    <Compile Include="Migrations\201404181625358_InitialMigration.Designer.cs">
+      <DependentUpon>201404181625358_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="ModelBinders\EFModelBinderProvider.cs" />
     <Compile Include="Mappings\DomainToViewModelMappingProfile.cs" />
@@ -303,13 +309,13 @@
     <Content Include="Areas\Admin\Views\DashBoard\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
+  
     <Content Include="Areas\Admin\Views\RealEstate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Details.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DbGeography.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\DbGeography.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -386,6 +392,11 @@
       <Project>{f3dda8ff-3a21-48a3-a5dd-83a1f93bc4eb}</Project>
       <Name>AuctionLand.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404181625358_InitialMigration.resx">
+      <DependentUpon>201404181625358_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

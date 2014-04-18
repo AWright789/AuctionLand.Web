@@ -25,7 +25,7 @@ namespace AuctionLand.Web.Controllers.api
         // GET api/RealEstates
         public IQueryable<RealEstate> GetRealEstate()
         {
-            return _realEstateService.Query(null,null,null,null,null,null,null,null,null,null);
+            return _realEstateService.Query(null,null,null,null,null,null,null,null,null,null,null);
         }
 
         // GET api/RealEstates/5
