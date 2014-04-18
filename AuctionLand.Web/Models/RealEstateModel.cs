@@ -1,6 +1,8 @@
-﻿using AuctionLand.Data.Entities;
+﻿
+using AuctionLand.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
 
@@ -35,12 +37,14 @@ namespace AuctionLand.Web.Models
         public string State { get; set; }
         public int Zip { get; set; }
 
-
+        public DbGeography Location { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double StartingBid { get; set; }
         public double EndingBid { get; set; }
         public double BidIncrement { get; set; }
+
+        
 
 
     }
