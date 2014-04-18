@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Auction Land";
 }
+
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
         <h1>Featured Homes</h1>
@@ -10,7 +11,7 @@
     <div class="col-sm-4" id="realEstateCell">
 
         <div class="row">
-            <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
+            <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
             Featured Home @featuredHome.Street
             <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
             <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
