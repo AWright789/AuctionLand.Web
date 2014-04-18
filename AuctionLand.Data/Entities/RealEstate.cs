@@ -79,13 +79,10 @@ namespace AuctionLand.Data.Entities
         public string City { get; set; }
         public string State { get; set; }
         public int Zip { get; set; }
-
         public DbGeography Location { get; set; }
-
-
-
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public DateTime? SaleDate { get; set; }
         public double StartingBid { get; set; }
         public double EndingBid { get; set; }
         public double BidIncrement { get; set; }

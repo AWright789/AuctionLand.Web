@@ -13,13 +13,16 @@ namespace AuctionLand.Web.ModelBinders
         {
             var valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
             string[] latLongStr = valueProviderResult.AttemptedValue.Split(',');
-            try{
+            try
+            {
                  string point = string.Format("POINT ({0} {1})", latLongStr[1], latLongStr[0]);
                 //4326 format puts LONGITUDE first then LATITUDE
                 DbGeography result = valueProviderResult == null ? null :
                     DbGeography.FromText(point, 4326);
                 return result;
-            }catch(Exception exc){
+            }
+            catch(Exception exc)
+            {
                 return null;
             }
                

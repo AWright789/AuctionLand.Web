@@ -159,6 +159,13 @@
                 @Html.ValidationMessageFor(model => model.EndDate)
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SaleDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SaleDate)
+                @Html.ValidationMessageFor(model => model.SaleDate)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.StartingBid, new { @class = "control-label col-md-2" })
