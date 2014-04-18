@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
+    
+
+
 
 </head>
 <body>
@@ -35,6 +38,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+        
         <hr />
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - Auction Land.</p>
@@ -43,6 +47,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootbox.js")
     @RenderSection("scripts", required: false)
+    
+    
 </body>
 </html>
