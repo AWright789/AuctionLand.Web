@@ -302,17 +302,14 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Details.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\DbGeography.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DbGeography.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
