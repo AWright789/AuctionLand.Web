@@ -9,11 +9,11 @@
         @foreach (var featuredHome in Model.FeaturedHomes)
         {
             <a href="http://www.google.com">
-                <div class="col-sm-4" id="featuredHomeCell">
+                <div class="col-sm-4 border" id="featuredHomeCell">
                     <div class="row">
                         <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
                         Featured Home @featuredHome.Street
-                        <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
+                        <p id="currentBidFeatured">@featuredHome.StartingBid.ToString("C")</p>
                         <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
                         <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
                         <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
@@ -29,11 +29,11 @@
         @foreach (var homesForSale in Model.HomesForSale)
         {
             <a href="http://www.google.com">
-                <div class="col-sm-4" id="homeForSaleCell">
+                <div class="col-sm-4 border" id="homeForSaleCell">
                     <div class="row">
                         <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
                         Featured Home @homesForSale.Street
-                        <p id="currentBid">@homesForSale.StartingBid.ToString("C")</p>
+                        <p id="currentBidSale">@homesForSale.StartingBid.ToString("C")</p>
                         <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @homesForSale.Bathrooms
                         <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@homesForSale.Bedrooms
                         <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@homesForSale.EstateSize.ToString("N") Sq Ft
