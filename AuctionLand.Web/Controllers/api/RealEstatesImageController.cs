@@ -11,10 +11,17 @@ using System.Web.Http.Description;
 using AuctionLand.Data.Entities;
 using AuctionLand.Data.Entities.DAL;
 
+
 namespace AuctionLand.Web.Controllers.api
 {
     public class RealEstatesImageController : ApiController
     {
+        /*
+        readonly IImageService _imageService;
+        public RealEstatesImageController(IImageService imageService)
+        {
+            _imageService = imageService;
+        }*/
      
         // GET api/RealEstatesImage
         public IQueryable<RealEstateImage> GetRealEstateImages()
