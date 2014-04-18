@@ -8,6 +8,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    <button class="btn" onclick="myFunc()" type="button">Click</button>
 </p>
 <table class="table">
     <tr>
@@ -152,6 +153,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            
         </td>
     </tr>
 }

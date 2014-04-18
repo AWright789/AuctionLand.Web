@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/modernizr")    
+    <script>
+        function myFunc() {
+            bootbox.dialog({
+                className:"col-md-6",
+                message: "I am a custom dialog",
+                title: "Custom title",
+                buttons: {
+                    success: {
+                        className: "btn"
+                    }
+
+                }
+            });
+        }
+               
+    </script>
+    
+
+
 
 </head>
 <body>
@@ -35,6 +54,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+        
         <hr />
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - Auction Land.</p>
@@ -43,6 +63,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootbox")
     @RenderSection("scripts", required: false)
+    
+    
 </body>
 </html>
