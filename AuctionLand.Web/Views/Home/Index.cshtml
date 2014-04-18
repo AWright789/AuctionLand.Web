@@ -5,22 +5,40 @@
 
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
-        <h1>Featured Homes</h1>
-@foreach (var featuredHome in Model.FeaturedHomes)
-{
-    <a href="http://www.google.com">
-        <div class="col-sm-4" id="realEstateCell">
-        <div class="row">
-            <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
-            Featured Home @featuredHome.Street
-            <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
-            <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
-            <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
-            <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
-            <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
-        </div>
-    </div>
-    </a>
-}
+        <h2>Featured Homes</h2>
+        @foreach (var featuredHome in Model.FeaturedHomes)
+        {
+            <a href="http://www.google.com">
+                <div class="col-sm-4" id="featuredHomeCell">
+                    <div class="row">
+                        <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+                        Featured Home @featuredHome.Street
+                        <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
+                        <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
+                        <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
+                        <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
+                        <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
+                    </div>
+                </div>
+            </a>
+        }
+
+        <h2>Homes For Sale</h2>
+        @foreach (var homesForSale in Model.HomesForSale)
+        {
+            <a href="http://www.google.com">
+                <div class="col-sm-4" id="homeForSaleCell">
+                    <div class="row">
+                        <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+                        Featured Home @homesForSale.Street
+                        <p id="currentBid">@homesForSale.StartingBid.ToString("C")</p>
+                        <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @homesForSale.Bathrooms
+                        <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@homesForSale.Bedrooms
+                        <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@homesForSale.EstateSize.ToString("N") Sq Ft
+                        <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@homesForSale.YearBuilt
+                    </div>
+                </div>
+            </a>
+        }
     </div>
 </div>
