@@ -53,6 +53,12 @@ namespace AuctionLand.Web
             bootstrapBundle.Orderer = nullOrderer;
             bundles.Add(bootstrapBundle);
 
+            var bootboxBundle = new CustomScriptBundle("~/bundles/bootbox");
+            bootboxBundle.Include("~/Scripts/bootbox.js");
+            bootboxBundle.Transforms.Add(jsTransformer);
+            bootboxBundle.Orderer = nullOrderer;
+            bundles.Add(bootboxBundle);
+
 
         }
     }

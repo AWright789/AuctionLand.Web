@@ -321,7 +321,7 @@
     <Content Include="Images\facebook-512.png" />
     <Content Include="Images\marker-512.png" />
     <Content Include="Images\Share.png" />
-    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
