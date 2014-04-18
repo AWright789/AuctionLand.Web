@@ -2,40 +2,45 @@
 @{
     ViewBag.Title = "Auction Land";
 }
+
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
-        <div class="row" id="featuredHomesRow">
-            <h1>Featured Homes</h1>
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
+        <h2>Featured Homes</h2>
+        @foreach (var featuredHome in Model.FeaturedHomes)
+        {
+            <a href="http://www.google.com">
+                <div class="col-sm-4" id="featuredHomeCell">
+                    <div class="row">
+                        <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+                        Featured Home @featuredHome.Street
+                        <p id="currentBid">@featuredHome.StartingBid.ToString("C")</p>
+                        <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
+                        <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
+                        <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
+                        <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
+                    </div>
+                </div>
+            </a>
+        }
 
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
+        <div class="row" id="dividerSpace"></div>
 
-            <div class="col-sm-4" id="realEstateInCollection">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-                Featured Home 123 St. Plano, TX
-                <p id="currentBid">$120,000.00</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> 4
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />2
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />11,000 Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />1982
-            </div>
-
-        </div>
+        <h2>Homes For Sale</h2>
+        @foreach (var homesForSale in Model.HomesForSale)
+        {
+            <a href="http://www.google.com">
+                <div class="col-sm-4" id="homeForSaleCell">
+                    <div class="row">
+                        <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+                        Featured Home @homesForSale.Street
+                        <p id="currentBid">@homesForSale.StartingBid.ToString("C")</p>
+                        <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @homesForSale.Bathrooms
+                        <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@homesForSale.Bedrooms
+                        <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@homesForSale.EstateSize.ToString("N") Sq Ft
+                        <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@homesForSale.YearBuilt
+                    </div>
+                </div>
+            </a>
+        }
     </div>
 </div>
