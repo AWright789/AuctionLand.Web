@@ -8,8 +8,8 @@
         <h1>Featured Homes</h1>
 @foreach (var featuredHome in Model.FeaturedHomes)
 {
-    <div class="col-sm-4" id="realEstateCell">
-
+    <a href="http://www.google.com">
+        <div class="col-sm-4" id="realEstateCell">
         <div class="row">
             <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
             Featured Home @featuredHome.Street
@@ -20,6 +20,7 @@
             <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
         </div>
     </div>
+    </a>
 }
     </div>
 </div>
