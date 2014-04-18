@@ -117,8 +117,8 @@
       <HintPath>..\packages\MsieJavaScriptEngine.1.4.0\lib\net40\MsieJavaScriptEngine.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -309,7 +309,6 @@
     <Content Include="Areas\Admin\Views\DashBoard\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
-  
     <Content Include="Areas\Admin\Views\RealEstate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\RealEstate\Details.cshtml" />
