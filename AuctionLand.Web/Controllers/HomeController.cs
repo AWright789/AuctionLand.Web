@@ -50,7 +50,7 @@ namespace AuctionLand.Web.Controllers
 
         public ActionResult Search()
         {
-            var realEstateProperties = _realEstateService.Query(null, null, null, null, null, null, null, null, null, null);
+            var realEstateProperties = _realEstateService.Query(null, null, null, null, null, null, null, null, null, null,null);
 
             return View();
         }

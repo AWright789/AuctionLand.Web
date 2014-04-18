@@ -11,7 +11,7 @@ namespace AuctionLand.Service.Interfaces
     {
         RealEstate GetById(int id);
 
-        IQueryable<RealEstate> Query(string city, string state, int? zip, int? bedroom, int? bathroom, int? bidPriceMin, int? bidPriceMax, int? estateType, DateTime? auctionStart, DateTime? auctionEnd);
+        IQueryable<RealEstate> Query(string city, string state, int? zip, int? bedroom, int? bathroom, int? bidPriceMin, int? bidPriceMax, int? estateType, DateTime? auctionStart, DateTime? auctionEnd, DateTime? saleDate);
         void Update(RealEstate realEstate);
         void Create(RealEstate realEstate);
         void Delete(int id);
