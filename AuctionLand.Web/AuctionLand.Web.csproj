@@ -246,7 +246,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\HomeMainImage.PNG" />
     <Content Include="Images\yearBuilt.png" />
     <Content Include="Images\measure.png" />
     <Content Include="Images\bedroom.png" />
@@ -322,7 +321,6 @@
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\property.png" />
     <Content Include="Images\facebook-512.png" />
-    <Content Include="Images\home1.jpg" />
     <Content Include="Images\marker-512.png" />
     <Content Include="Images\Share.png" />
     <Content Include="Scripts\bootstrap.js" />
