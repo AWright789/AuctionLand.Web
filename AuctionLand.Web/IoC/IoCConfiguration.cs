@@ -10,6 +10,7 @@ using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
 using AuctionLand.Service.Implementations;
 using AuctionLand.Web.App_Start;
+using System.Reflection;
 
 namespace AuctionLand.Web.IoC
 {
@@ -32,8 +33,11 @@ namespace AuctionLand.Web.IoC
             // Note that ASP.NET MVC requests controllers by their concrete types, so registering them As<IController>() is incorrect. 
             // Also, if you register controllers manually and choose to specify lifetimes, you must register them as InstancePerDependency() or InstancePerHttpRequest() - 
             // ASP.NET MVC will throw an exception if you try to reuse a controller instance for multiple requests. 
-            builder.RegisterControllers(typeof(MvcApplication).Assembly).InstancePerHttpRequest();
+            //builder.RegisterControllers(typeof(MvcApplication).Assembly).InstancePerHttpRequest();
             //builder.RegisterApiControllers(typeof(MvcApplication).Assembly).InstancePerHttpRequest();
+
+            builder.RegisterControllers(Assembly.GetExecutingAssembly()).InjectActionInvoker().InstancePerHttpRequest();
+            
             #endregion
 
             #region Register modules
@@ -51,6 +55,8 @@ namespace AuctionLand.Web.IoC
             builder.RegisterType<RealEstateService>().As<IRealEstateService>();
             builder.RegisterType<ImageService>().As<IImageService>();
             #endregion
+
+            builder.RegisterType<AuctionLand.Web.Controllers.HomeController>().InstancePerDependency();
 
             #region Inject HTTP Abstractions
             /*

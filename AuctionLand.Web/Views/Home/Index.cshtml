@@ -29,13 +29,15 @@
         @foreach (var homesForSale in Model.HomesForSale)
         {
             <a href="http://www.google.com">
-                <div class="col-sm-4 border" id="homeForSaleCell">
+                <div class="col-sm-3 border" id="homeForSaleCell">
                     <div class="row">
                         <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
                         Featured Home @homesForSale.Street
                         <p id="currentBidSale">@homesForSale.StartingBid.ToString("C")</p>
                         <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @homesForSale.Bathrooms
                         <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@homesForSale.Bedrooms
+                    </div>
+                    <div class="row">
                         <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@homesForSale.EstateSize.ToString("N") Sq Ft
                         <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@homesForSale.YearBuilt
                     </div>

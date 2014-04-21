@@ -6,6 +6,16 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script>
+        function myFunc() {
+            //alert('here')
+            //var search_html = '@Html.Action("Search","Home")'
+            bootbox.alert('hey');
+        }
+          
+
+      
+    </script>
 
 </head>
 <body id="newBodyBkgd">
@@ -26,6 +36,7 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
+                    <li><a class="menu-filter" href="#" onclick="myFunc()">Filter</a></li>
                     <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                 </ul>
 
