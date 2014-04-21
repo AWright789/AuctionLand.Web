@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AuctionLand.Web.Mappings;
 
 namespace AuctionLand.Web.Controllers
 {
@@ -16,10 +17,15 @@ namespace AuctionLand.Web.Controllers
         }
         //
         // GET: /RealEstate/
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-           
-            return View();
+            var realEstate = _realEstateService.GetById(id);
+            if (realEstate == null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            var model = realEstate.ToModel();
+            return View(model);
         }
 
 

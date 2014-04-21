@@ -367,7 +367,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\RealEstate\index.cshtml" />
+    <Content Include="Views\RealEstate\Index.cshtml" />
     <Content Include="Views\List\list.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\RealEstateModelSearchResult.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />

@@ -10,6 +10,7 @@ namespace AuctionLand.Web.Models
 {
     public class RealEstateModel
     {
+        public int Id { get; set; }
         public int YearBuilt { get; set; }
         public string Summary { get; set; }
         public double EstateSize { get; set; }
