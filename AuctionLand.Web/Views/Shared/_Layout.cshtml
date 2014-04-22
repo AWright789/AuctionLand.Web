@@ -6,57 +6,73 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script>
-        function myFunc() {
-            //alert('here')
-            //var search_html = '@Html.Action("Search","Home")'
-            bootbox.alert('hey');
-        }
-          
 
-      
+    <script>
+        function myBBAlert() {
+            $("#searchCity").val();
+            $("#searchState").val();
+            $("#searchZip").val();
+            $("#searchBedrooms").val();
+            $("#searchBathrooms").val();
+            $("#searchGarages").val();
+            $("#sliderBidMin").val();
+            $("#sliderBidMax").val();
+            $("#propertyDropDown").val();
+
+            var some_html = '<img src="images/bootstrap_logo.png" width="100px"/><br />';
+            some_html += $("#searchCity").val();
+            some_html += '<h4>Just be sure to mind your quote marks</h4>';
+            bootbox.alert(some_html);
+        }
     </script>
 
 </head>
-<body id="newBodyBkgd">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container" id="ContainerMaxWidth900">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
+
+    <body id="newBodyBkgd">
+
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container" id="ContainerMaxWidth900">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
+                        <li><a href="#BSModal" data-toggle="modal">Bootstrap Modal</a></li>
+                        <li><a href="#" onclick="myBBAlert()">BootBox Alert</a></li>
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+
             </div>
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
-                    <li><a class="menu-filter" href="#" onclick="myFunc()">Filter</a></li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                </ul>
-
-                @Html.Partial("_LoginPartial")
-
-            </div>
-
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer class="text-center">
-            <p>&copy; @DateTime.Now.Year - Auction Land.</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/bootbox")
-    @RenderSection("scripts", required: false)
-</body>
+        <div class="container body-content">
+    @RenderBody()
+            <hr />
+            <footer class="text-center">
+                <p>&copy; @DateTime.Now.Year - Auction Land.</p>
+            </footer>
+        </div>
+
+        <div id="searchModal">
+            @Html.Action("Search", "Home")
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/bootbox")
+        @RenderSection("scripts", required: false)
+
+    </body>
 </html>
