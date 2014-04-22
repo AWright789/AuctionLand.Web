@@ -9,7 +9,7 @@
 (function (root, factory) {
 
   "use strict";
-  if (typeof define === "function" && define.amd) {
+  if (typeof define === "function" && define.amd) {css
     // AMD. Register as an anonymous module.
     define(["jquery"], factory);
   } else if (typeof exports === "object") {
