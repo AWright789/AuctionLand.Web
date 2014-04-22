@@ -17,5 +17,6 @@ namespace AuctionLand.Service.Interfaces
         void Delete(int id);
         IQueryable<RealEstateImage> GetAll();
         bool ImageExists(int id);
+        
     }
 }
