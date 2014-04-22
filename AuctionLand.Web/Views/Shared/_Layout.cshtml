@@ -6,155 +6,151 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script>
-        function myFunc() {
-            var search_html = '@Html.Raw(Html.Action("Search","Home"))';
-            bootbox.alert(search_html);
-        }
-    </script>
 
-    <!-- START Test myFunc using alert box
     <script>
-        function myFunc() {
-            bootbox.alert('Danger!!' ).find('.modal-content').css({'background-color': '#f99', 'font-weight' : 'bold', color: '#F00', 'font-size': '2em', 'font-weight' : 'bold'} );
+        function myBBAlert() {
+            var some_html = '<img src="images/bootstrap_logo.png" width="100px"/><br />';
+            some_html += '<h2>You can use custom HTML too!</h2><br />';
+            some_html += '<h4>Just be sure to mind your quote marks</h4>';
+            bootbox.alert(some_html);
         }
     </script>
-     END Test myFunc using alert box -->
 
 </head>
 
-            <body id="newBodyBkgd">
-                <div class="navbar navbar-default navbar-fixed-top">
-                    <div class="container" id="ContainerMaxWidth900">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-            @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
-                        </div>
+    <body id="newBodyBkgd">
 
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("About", "About", "Home")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
-                                <li><a class="menu-filter" href="#">Filter</a></li>
-                                <li><a href="#searchModal" data-toggle="modal">Bootstrap Modal</a></li>
-                                <li><a href="#" onclick="myFunc()">BootBox Modal</a></li>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container" id="ContainerMaxWidth900">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
 
-                                <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                            </ul>
-                           <!-- <button type="button" onclick="myFunc()">BootBox Modal</button> -->
-                           <!-- <a href="#filterModal" data-toggle="modal">Contact</a> -->
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
+                        <li><a href="#BSModal" data-toggle="modal">Bootstrap Modal</a></li>
+                        <li><a href="#" onclick="myBBAlert()">BootBox Alert</a></li>
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
 
+            </div>
+        </div>
 
-                            @Html.Partial("_LoginPartial")
+        <div class="container body-content">
+    @RenderBody()
+            <hr />
+            <footer class="text-center">
+                <p>&copy; @DateTime.Now.Year - Auction Land.</p>
+            </footer>
+        </div>
 
-                        </div>
-
+        <!-- START BSModal -->
+        <div class="modal fade" id="BSModal" role="dialog">
+            <div class="modal-dialog" id="modalDialog100Width">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Test modal </h4>
                     </div>
-                </div>
-                <div class="container body-content">
-            @RenderBody()
-                    <hr />
-                    <footer class="text-center">
-                        <p>&copy; @DateTime.Now.Year - Auction Land.</p>
-                    </footer>
-                </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-4" id="locationSearch">
+                                    <h4>Location</h4>
+                                    <label for="contact-name" class="control-label">City: </label>
+                                    <input type="text" class="form-control" id="search-City"
+                                            placeholder="Enter city">
 
-                <!-- START searchModal-->
-                <div class="modal fade" id="searchModal" role="dialog">
-                    <div class="modal-dialog" id="modalDialog100Width">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4>Test modal </h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
+                                    <label for="contact-name" class="control-label">State: </label>
+                                    <input type="text" class="form-control" id="search-State"
+                                            placeholder="Enter state">
+
+                                    <label for="contact-name" class="control-label">Zip: </label>
+                                    <input type="text" class="form-control" id="search-Zip"
+                                            placeholder="Enter zip">
+                                </div>
+
+                                <div class="col-sm-4" id="amenitiesSearch">
+                                    <h4>Amenities</h4>
+                                    <label for="contact-name" class="control-label">Bedrooms: </label>
+                                    <form action="demo_form.asp" method="get">
+                                        <input type="range" name="points" min="0" max="10" id="mySlider">
+                                    </form>
+
+                                    <label for="contact-name" class="control-label">Bathrooms: </label>
+                                    <form action="demo_form.asp" method="get">
+                                        <input type="range" name="points" min="0" max="10" id="mySlider">
+                                    </form>
+
+                                    <label for="contact-name" class="control-label">Garages: </label>
+                                    <form action="demo_form.asp" method="get">
+                                        <input type="range" name="points" min="0" max="10" id="mySlider">
+                                    </form>
+                                </div>
+
+
+                                <div class="col-sm-4" id="pricingSearch">
+                                    <h4>Pricing</h4>
+                                    <label for="contact-name" class="control-label">Bid Price Min </label>
+                                    <form action="demo_form.asp" method="get">
+                                        <input type="range" name="points" min="0" max="10000000" id="mySlider">
+                                    </form>
+
+                                    <label for="contact-name" class="control-label">Bid Price Max </label>
+                                    <form action="demo_form.asp" method="get">
+                                        <input type="range" name="points" min="0" max="10" id="mySlider">
+                                    </form>
+
+                                    <label for="contact-name" class="control-label">Property Type </label>
                                     <div class="row">
-                                        <div class="col-sm-4" id="locationSearch">
-                                            <h4>Location</h4>
-                                            <label for="contact-name" class="control-label">City: </label>
-                                            <input type="text" class="form-control" id="search-City"
-                                                   placeholder="Enter city">
-
-                                            <label for="contact-name" class="control-label">State: </label>
-                                            <input type="text" class="form-control" id="search-State"
-                                                   placeholder="Enter state">
-
-                                            <label for="contact-name" class="control-label">Zip: </label>
-                                            <input type="text" class="form-control" id="search-Zip"
-                                                   placeholder="Enter zip">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="propertyDropDown">
+                                                Select Property Type <span class=" caret">
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Single Family</a></li>
+                                                <li><a href="#">Multiple Family</a></li>
+                                                <li><a href="#">Condo or Townhome</a></li>
+                                                <li><a href="#">Land</a></li>
+                                            </ul>
                                         </div>
-
-                                        <div class="col-sm-4" id="amenitiesSearch">
-                                            <h4>Amenities</h4>
-                                            <label for="contact-name" class="control-label">Bedrooms: </label>
-                                            <form action="demo_form.asp" method="get">
-                                                <input type="range" name="points" min="0" max="10" id="mySlider">
-                                            </form>
-
-                                            <label for="contact-name" class="control-label">Bathrooms: </label>
-                                            <form action="demo_form.asp" method="get">
-                                                <input type="range" name="points" min="0" max="10" id="mySlider">
-                                            </form>
-
-                                            <label for="contact-name" class="control-label">Garages: </label>
-                                            <form action="demo_form.asp" method="get">
-                                                <input type="range" name="points" min="0" max="10" id="mySlider">
-                                            </form>
-                                        </div>
-
-
-                                        <div class="col-sm-4" id="pricingSearch">
-                                            <h4>Pricing</h4>
-                                            <label for="contact-name" class="control-label">Bid Price Min </label>
-                                            <form action="demo_form.asp" method="get">
-                                                <input type="range" name="points" min="0" max="10000000" id="mySlider">
-                                            </form>
-
-                                            <label for="contact-name" class="control-label">Bid Price Max </label>
-                                            <form action="demo_form.asp" method="get">
-                                                <input type="range" name="points" min="0" max="10" id="mySlider">
-                                            </form>
-
-                                            <label for="contact-name" class="control-label">Property Type </label>
-                                            <div class="row">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="propertyDropDown">
-                                                        Select Property Type <span class=" caret">
-                                                        </span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="#">Single Family</a></li>
-                                                        <li><a href="#">Multiple Family</a></li>
-                                                        <li><a href="#">Condo or Townhome</a></li>
-                                                        <li><a href="#">Land</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer" id="myModalFooter">
-                                <div class="row col-sm-12">
-                                    <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-                                    <a class="btn btn-primary">Search</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer" id="myModalFooter">
+                        <div class="row col-sm-12">
+                            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                            <a class="btn btn-primary">Search</a>
+                        </div>
+                    </div>
                 </div>
-                <!-- END searchModal-->
+            </div>
+        </div>
+        <!-- END BSModal-->
 
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @Scripts.Render("~/bundles/bootbox")
-            @RenderSection("scripts", required: false)
-            </body>
+
+        <div id="searchModal">
+            @Html.Action("Search", "Home")
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/bootbox")
+        @RenderSection("scripts", required: false)
+
+    </body>
 </html>
