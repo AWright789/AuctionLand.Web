@@ -6,14 +6,19 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace AuctionLand.Service.Implementations
 {
     public class ImageService : IImageService
     {
         private IAuctionLandDbContext _db;
-
+        
+            
         public ImageService(IAuctionLandDbContext db)
         {
             _db = db;
@@ -29,7 +34,6 @@ namespace AuctionLand.Service.Implementations
                 (r.RealEstate.Id == RealEstateId || RealEstateId == null));
                 
         }
-
         public void Update(Data.Entities.RealEstateImage realEstateImage)
         {
             _db.Entry(realEstateImage).State = System.Data.Entity.EntityState.Modified;
@@ -54,9 +58,9 @@ namespace AuctionLand.Service.Implementations
         public void Create(Data.Entities.RealEstateImage realEstateImage)
         {
             _db.RealEstateImages.Add(realEstateImage);
+        
             _db.SaveChanges();
         }
-
         public void Delete(int id)
         {
             RealEstateImage realestateImage = _db.RealEstateImages.Find(id);
@@ -80,5 +84,6 @@ namespace AuctionLand.Service.Implementations
         {
             return _db.RealEstateImages.Count(e => e.Id == id) > 0;
         }
+        
     }
 }
