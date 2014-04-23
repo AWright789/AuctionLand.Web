@@ -120,11 +120,12 @@
                                         <div class="btn-group">
                                             <i class="dropdown-arrow dropdown-arrow-inverse"></i>
                                             <button class="btn btn-primary">status</button>
-                                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> </button>
+                                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" onclick="clickProperty()"> <span class="caret"></span> </button>
                                             <ul class="dropdown-menu dropdown-inverse">
-                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">pending</a></li>
-                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">active</a></li>
-                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">discontinued</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Single Family</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Multi-Family</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Condo or Townhome</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Land</a></li>
                                             </ul>
                                         </div>
 
@@ -154,10 +155,19 @@
             function clickProperty() {
                 $(".dropdown-inverse li a").click(function () {
                     searchedProperty = $(this).text();
-                    alert(searchedProperty);
+                   // alert(searchedProperty);
                 });
             };
         </script>
+
+        <!-- <script>
+         function clickProperty() {
+             $(".dropdown-inverse li a").click(function () {
+                 var yourText = $(this).text();
+                 alert(yourText);
+             });
+         };
+     </script> -->
 
         <script>
             function myBBAlert() {
