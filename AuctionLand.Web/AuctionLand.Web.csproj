@@ -271,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\bootstrap\bootstrap-modal-bs3patch.css" />
+    <Content Include="Content\bootstrap\bootstrap-modal.css" />
+    <Content Include="Content\bootstrap\slider.css" />
     <Content Include="Images\yearBuilt.png" />
     <Content Include="Images\measure.png" />
     <Content Include="Images\bedroom.png" />
@@ -339,12 +342,16 @@
     </None>
     <Content Include="Content\Site.less" />
     <Content Include="Scripts\auctionland-1.0.js" />
+    <Content Include="Content\bootstrap\slider.less" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\property.png" />
     <Content Include="Images\facebook-512.png" />
     <Content Include="Images\marker-512.png" />
     <Content Include="Images\Share.png" />
     <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-modalmanager.js" />
+    <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />

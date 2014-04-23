@@ -24,6 +24,20 @@ namespace AuctionLand.Web
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
 
+            // CSS for custom slider
+            var cssSlider = new CustomStyleBundle("~/bundles/cssSlider");
+            cssSlider.Include("~/Content/bootstrap/slider.css");
+            cssSlider.Transforms.Add(cssTransformer);
+            cssSlider.Orderer = nullOrderer;
+            bundles.Add(cssSlider);
+
+            // CSS files for Modal fix on mobile devices
+            // var modalCssBundle = new CustomStyleBundle("~/bundles/modalCssBundle");
+            // modalCssBundle.Include("~/Content/bootstrap/bootstrap-modal-bs3patch.css", "~/Content/bootstrap/bootstrap-modal.css");
+            // modalCssBundle.Transforms.Add(cssTransformer);
+            // modalCssBundle.Orderer = nullOrderer;
+            // bundles.Add(modalCssBundle);
+
             var jqueryBundle = new CustomScriptBundle("~/bundles/jquery");
             jqueryBundle.Include("~/Scripts/jquery-{version}.js");
             jqueryBundle.Transforms.Add(jsTransformer);
@@ -58,6 +72,20 @@ namespace AuctionLand.Web
             bootboxBundle.Transforms.Add(jsTransformer);
             bootboxBundle.Orderer = nullOrderer;
             bundles.Add(bootboxBundle);
+
+            // JS file for Modal fix on mobile devices
+          //  var bootModalBundle = new CustomScriptBundle("~/bundles/bootModal");
+          //  bootModalBundle.Include("~/Scripts/bootstrap-modal.js", "~/Scripts/bootstrap-modalmanager.js");
+          //  bootModalBundle.Transforms.Add(jsTransformer);
+          //  bootModalBundle.Orderer = nullOrderer;
+          //  bundles.Add(bootModalBundle);
+
+            // JS file for custom sliders
+            var bootSliderBundle = new CustomScriptBundle("~/bundles/bootSlider");
+            bootSliderBundle.Include("~/Scripts/bootstrap-slider.js");
+            bootSliderBundle.Transforms.Add(jsTransformer);
+            bootSliderBundle.Orderer = nullOrderer;
+            bundles.Add(bootSliderBundle);
 
 
         }

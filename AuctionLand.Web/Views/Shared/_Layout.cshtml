@@ -5,24 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/cssSlider")
     @Scripts.Render("~/bundles/modernizr")
-
-    <script>
-        function myBBAlert() {
-            $("#searchCity").val();
-            $("#searchState").val();
-            $("#searchZip").val();
-            $("#searchBedrooms").val();
-            $("#searchBathrooms").val();
-            $("#searchGarages").val();
-            $("#sliderBidMin").val();
-            $("#sliderBidMax").val();
-            $("#propertyDropDown").val();
-
-            var other_html = $("div.searchBOOTBOX").html();
-            bootbox.alert(other_html);
-         }
-    </script>
 
 </head>
 
@@ -45,7 +29,7 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
-                        <li><a href="#" onclick="myBBAlert()">Search BootBOX</a></li>
+                       <!-- <li><a href="#" onclick="myBBAlert()">Search BootBOX</a></li>-->
                         <li><a href="#searchBOOTSTRAP" data-toggle="modal">Search BootSTRAP</a></li>
                         <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                     </ul>
@@ -109,32 +93,43 @@
 
                                 <div class="col-sm-4" id="pricingSearch">
                                     <h4>Pricing</h4>
-                                    <label for="contact-name" class="control-label">Bid Price  </label>
+                                    <label for="contact-name" class="control-label">Min Bid Price</label>
                                     <form action="demo_form.asp" method="get">
-                                        <input type="range" name="points" min="0" max="10000000" id="mySlider">
+                                        <input type="range" name="points" min="0" max="10000000" id="search-BidMin">
                                     </form>
 
-                                    <label for="contact-name" class="control-label">Bid Price Max </label>
+                                    <label for="contact-name" class="control-label">Max Bid Price</label>
                                     <form action="demo_form.asp" method="get">
-                                        <input type="range" name="points" min="0" max="10" id="mySlider">
+                                        <input type="range" name="points" min="0" max="10" id="search-BidMax">
                                     </form>
 
-                                    <label for="contact-name" class="control-label">Property Type </label>
+                                    <label for="contact-name" class="control-label">Property Type</label>
                                     <div class="row">
+                                        <!--<div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="propertyDropDown">
+                Select Property Type <span class=" caret">
+                </span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="search-PropertyType">
+                <li><a href="#">Single Family</a></li>
+                <li><a href="#">Multiple Family</a></li>
+                <li><a href="#">Condo or Townhome</a></li>
+                <li><a href="#">Land</a></li>
+            </ul>
+        </div> -->
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="propertyDropDown">
-                                                Select Property Type <span class=" caret">
-                                                </span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Single Family</a></li>
-                                                <li><a href="#">Multiple Family</a></li>
-                                                <li><a href="#">Condo or Townhome</a></li>
-                                                <li><a href="#">Land</a></li>
+                                            <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                                            <button class="btn btn-primary">status</button>
+                                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> </button>
+                                            <ul class="dropdown-menu dropdown-inverse">
+                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">pending</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">active</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn" onclick="clickProperty()">discontinued</a></li>
                                             </ul>
                                         </div>
+
                                     </div>
-                                </div>
+                                    </div>
 
                             </div>
                         </div>
@@ -142,18 +137,50 @@
                     <div class="modal-footer" id="myModalFooter">
                         <div class="row col-sm-12">
                             <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-                            <a class="btn btn-primary">Search</a>
+                            <a class="btn btn-primary" onclick="myBBAlert()">Search</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/bootbox")
+        @Scripts.Render("~/bundles/bootSlider")
         @RenderSection("scripts", required: false)
+
+        <script>
+            function clickProperty() {
+                $(".dropdown-inverse li a").click(function () {
+                    searchedProperty = $(this).text();
+                    alert(searchedProperty);
+                });
+            };
+        </script>
+
+        <script>
+            function myBBAlert() {
+
+                var searchedCity = $("#search-City").val();
+                var searchedState = $("#search-State").val();
+                var searchedZip = $("#search-Zip").val();
+
+                var seachedBedrooms = $("#search-Bedrooms").val();
+                var searchedBathrooms = $("#search-Bathrooms").val();
+                var searchedGarages = $("#search-Garages").val();
+
+                var searchedBidMin = $("#search-BidMin").val();
+                var searchedBidMax = $("#search-BidMax").val();
+               // var searchedProperty = $("#search-PropertyType").text();
+
+                alert("City searched is " + searchedCity + ", State searched is " + searchedState + ", Zip searched is " + searchedZip);
+
+                alert("Minimum Bedrooms searched is " + seachedBedrooms + ", Minimum Bathrooms searched is " + searchedBathrooms + ", Minimum Garages searched is " + searchedGarages);
+
+                alert("Bid Minimum searched is " + searchedBidMin + ", Bid Maxiumum searched is " + searchedBidMax + ", Property Type searched is " + searchedProperty);
+            }
+        </script>
 
     </body>
 </html>
