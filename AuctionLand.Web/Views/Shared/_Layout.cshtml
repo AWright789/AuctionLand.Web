@@ -22,6 +22,7 @@
             var some_html = '<img src="images/bootstrap_logo.png" width="100px"/><br />';
             some_html += $("#searchCity").val();
             some_html += '<h4>Just be sure to mind your quote marks</h4>';
+           
             bootbox.alert(some_html);
         }
     </script>
@@ -64,7 +65,7 @@
                 <p>&copy; @DateTime.Now.Year - Auction Land.</p>
             </footer>
         </div>
-
+        
         <div id="searchModal">
             @Html.Action("Search", "Home")
         </div>

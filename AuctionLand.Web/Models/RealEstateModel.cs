@@ -10,6 +10,11 @@ namespace AuctionLand.Web.Models
 {
     public class RealEstateModel
     {
+
+        public RealEstateModel()
+        {
+            RealEstateImageModels = new List<RealEstateImageModel>();
+        }
         public int Id { get; set; }
         public int YearBuilt { get; set; }
         public string Summary { get; set; }
@@ -45,7 +50,9 @@ namespace AuctionLand.Web.Models
         public double EndingBid { get; set; }
         public double BidIncrement { get; set; }
 
-        
+        public DateTime? SaleDate { get; set; }
+
+        public IEnumerable<RealEstateImageModel> RealEstateImageModels { get; set; }
 
 
     }

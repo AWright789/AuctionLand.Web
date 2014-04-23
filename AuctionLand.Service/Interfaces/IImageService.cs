@@ -10,7 +10,7 @@ namespace AuctionLand.Service.Interfaces
     public interface IImageService
     {
         RealEstateImage GetById(int id);
-
+       // void createOnId(RealEstate realEstate, string url);
         IQueryable<RealEstateImage> Query(int RealEstateId);
         void Update(RealEstateImage realEstateImage);
         void Create(RealEstateImage realEstateImage);
