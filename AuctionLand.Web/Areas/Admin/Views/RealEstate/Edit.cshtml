@@ -216,7 +216,13 @@
           <div class="row">
               @foreach (var rei in Model.RealEstateImageModels)
               {
-                  <div class="col-xs-6 col-md-3"><a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="..."></a></div>
+                  <div class="col-xs-6 col-md-3"><a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="..."></a>
+                    <div class="caption">
+                        <p>
+                            @rei.Description
+                        </p>
+                    </div>
+                  </div>
               }
           </div>
 
@@ -232,8 +238,9 @@
         <h4>Select an image to upload</h4>
         <input type="file" name="ImageFiles" id="ImageFiles" />
         <span>or provide a URL to an image</span>
-        <input type="url" name="ImageUrl" id="ImageUrl" value="" />
-        
+        <input type="url" name="ImageUrl" id="ImageUrl" value="" /><br />
+        <h4>Add Description for Photo</h4>
+        <input type="text" name="Description" id="Description" value=""/>
         <input type="hidden" id="RealEstate_Id" name="RealEstate_Id" value="@Model.Id" />
         
         <div class="progress progress-striped active">
