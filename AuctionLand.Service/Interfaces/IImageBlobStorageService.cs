@@ -7,11 +7,15 @@ using System.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
+using System.IO;
+
 
 namespace AuctionLand.Service.Interfaces
 {
-    interface IImageBlobStorageService
+    public interface IImageBlobStorageService
     {
         CloudBlobContainer GetCloudBlobContainer();
+
+        string SaveImageToBlobStorage(string fileName, Stream stream);
     }
 }

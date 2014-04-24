@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using AuctionLand.Data.Entities;
 using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
+using AuctionLand.Web.Mappings;
 
 namespace AuctionLand.Web.Areas.Admin.Controllers
 {
@@ -23,7 +24,7 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
         // GET: /Admin/RealEstate/
         public ActionResult Index()
         {
-            return View(_realEstateService.GetAll());
+            return View(_realEstateService.GetAll().ToList().Select(m => m.ToModel()));
         }
 
         // GET: /Admin/RealEstate/Details/5
@@ -38,7 +39,7 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(realestate);
+            return View(realestate.ToModel());
         }
 
         // GET: /Admin/RealEstate/Create
@@ -75,7 +76,9 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(realestate);
+            var model = realestate.ToModel();
+            model.RealEstateImageModels = realestate.RealEstateImages.ToList().Select(rei => rei.ToModel());
+            return View(model);
         }
 
         // POST: /Admin/RealEstate/Edit/5
@@ -90,7 +93,7 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
                 _realEstateService.Update(realestate);
                 return RedirectToAction("Index");
             }
-            return View(realestate);
+            return View(realestate.ToModel());
         }
 
         // GET: /Admin/RealEstate/Delete/5

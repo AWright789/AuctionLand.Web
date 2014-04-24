@@ -10,6 +10,7 @@ namespace AuctionLand.Data.Entities
     {
         
         public string ImageUrl { get; set; }
+        public string Description { get; set; }
         public virtual RealEstate RealEstate { get; set; }
     }
 }

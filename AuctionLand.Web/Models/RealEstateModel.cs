@@ -2,6 +2,7 @@
 using AuctionLand.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
@@ -10,9 +11,16 @@ namespace AuctionLand.Web.Models
 {
     public class RealEstateModel
     {
+
+        public RealEstateModel()
+        {
+            RealEstateImageModels = new List<RealEstateImageModel>();
+        }
         public int Id { get; set; }
+        [Display(Name="Year Built")]
         public int YearBuilt { get; set; }
         public string Summary { get; set; }
+        [Display(Name="Sq.Ft")]
         public double EstateSize { get; set; }
         public double LotSize { get; set; }
         public int Bedrooms { get; set; }
@@ -45,7 +53,9 @@ namespace AuctionLand.Web.Models
         public double EndingBid { get; set; }
         public double BidIncrement { get; set; }
 
-        
+        public DateTime? SaleDate { get; set; }
+
+        public IEnumerable<RealEstateImageModel> RealEstateImageModels { get; set; }
 
 
     }

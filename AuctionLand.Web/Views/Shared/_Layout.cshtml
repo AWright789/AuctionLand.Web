@@ -7,9 +7,29 @@
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <script>
+        function myBBAlert() {
+            $("#searchCity").val();
+            $("#searchState").val();
+            $("#searchZip").val();
+            $("#searchBedrooms").val();
+            $("#searchBathrooms").val();
+            $("#searchGarages").val();
+            $("#sliderBidMin").val();
+            $("#sliderBidMax").val();
+            $("#propertyDropDown").val();
+
+            var some_html = '<img src="images/bootstrap_logo.png" width="100px"/><br />';
+            some_html += $("#searchCity").val();
+            some_html += '<h4>Just be sure to mind your quote marks</h4>';
+           
+            bootbox.alert(some_html);
+        }
+    </script>
+
 </head>
 
-<body id="newBodyBkgd">
+    <body id="newBodyBkgd">
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container" id="ContainerMaxWidth900">
                 <div class="navbar-header">
@@ -18,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
+    @Html.ActionLink("Auction Land", "Index", "Home", null, new { @class = "navbar-brand" })
                 </div>
 
                 <div class="navbar-collapse collapse">
@@ -46,21 +66,21 @@
                             <li><a href="#">Bid Price</a></li>
                         </ul>
                         <a href="#searchBOOTSTRAP" class="btn btn-default" role="button" data-toggle="modal">Filter</a>
-                    </div>
+            </div>
                     <input type="text" class="form-control" id="searchField" placeholder="Search...">
                     <div class="input-group-btn">
                         <a role="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
-                    </div>
+        </div>
                 </div>
                 <!-- END Search Nav Bar -->
             </div>
          </div>
-        
+
 
  
 
         <div class="body-content">
-            @RenderBody()
+    @RenderBody()
             <hr />
             <footer class="text-center">
                 <p>&copy; @DateTime.Now.Year - Auction Land.</p>

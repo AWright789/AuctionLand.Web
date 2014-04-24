@@ -61,6 +61,14 @@ namespace AuctionLand.Service.Implementations
         
             _db.SaveChanges();
         }
+        /*
+        public void createOnId(RealEstate realEstate, string url)
+        {
+            RealEstateImage myImage = new RealEstateImage();
+            myImage.ImageUrl = url;
+            myImage.RealEstate = realEstate;
+            _db.RealEstateImages.Add(myImage);
+        }*/
         public void Delete(int id)
         {
             RealEstateImage realestateImage = _db.RealEstateImages.Find(id);

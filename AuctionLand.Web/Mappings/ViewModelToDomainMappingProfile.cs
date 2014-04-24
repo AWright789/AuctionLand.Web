@@ -18,6 +18,7 @@ namespace AuctionLand.Web.Mappings
         protected override void Configure()
         {
             Mapper.CreateMap<RealEstateModel, RealEstate>();
+            Mapper.CreateMap<RealEstateImageModel, RealEstateImage>();
         }
     }
 }

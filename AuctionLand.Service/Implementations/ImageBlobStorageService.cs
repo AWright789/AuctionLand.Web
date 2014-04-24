@@ -4,13 +4,15 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AuctionLand.Service.Implementations
 {
-    class ImageBlobStorageService :IImageBlobStorageService
+    public class ImageBlobStorageService :IImageBlobStorageService
     {
         public Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer GetCloudBlobContainer()
         {
@@ -36,6 +38,48 @@ namespace AuctionLand.Service.Implementations
             //blockBlob.UploadText(url);
             return container;
 
+        }
+
+        public string SaveImageToBlobStorage(string fileName, Stream stream)
+        {
+            var container = GetCloudBlobContainer();
+            var blob = container.GetBlockBlobReference(fileName);
+            
+            var blockDataList = new Dictionary<string, byte[]>();
+
+
+
+            var blockSizeInKB = 1024;
+
+            var offset = 0;
+
+            var index = 0;
+
+            while (offset < stream.Length)
+            {
+
+                var readLength = Math.Min(1024 * blockSizeInKB, (int)stream.Length - offset);
+                var blockData = new byte[readLength];
+
+                offset += stream.Read(blockData, 0, readLength);
+
+                blockDataList.Add(Convert.ToBase64String(BitConverter.GetBytes(index)), blockData);
+
+
+
+                index++;
+
+            }
+            Parallel.ForEach(blockDataList, (bi) =>
+            {
+
+                blob.PutBlock(bi.Key, new MemoryStream(bi.Value), null);
+
+            });
+
+            blob.PutBlockList(blockDataList.Select(b => b.Key).ToArray());
+            blob.UploadFromStream(stream);
+            return blob.Uri.ToString();
         }
     }
 }

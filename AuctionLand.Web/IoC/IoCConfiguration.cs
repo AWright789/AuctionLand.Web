@@ -54,6 +54,7 @@ namespace AuctionLand.Web.IoC
             builder.RegisterType<AuctionLandDbContext>().As<IAuctionLandDbContext>();
             builder.RegisterType<RealEstateService>().As<IRealEstateService>();
             builder.RegisterType<ImageService>().As<IImageService>();
+            builder.RegisterType<ImageBlobStorageService>().As<IImageBlobStorageService>();
             #endregion
 
             builder.RegisterType<AuctionLand.Web.Controllers.HomeController>().InstancePerDependency();
