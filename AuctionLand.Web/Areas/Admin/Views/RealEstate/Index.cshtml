@@ -14,6 +14,12 @@
     <table class="table">
         <tr>
             <th>
+                Image
+            </th>
+            <th>
+                Edit/Details/Delete
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Street)
             </th>
             <th>
@@ -28,65 +34,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.YearBuilt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Summary)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.LotSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bedrooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bathrooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ListingStatusId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Featured)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ListingTypeId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OccupancyStatusId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RealEstateTypeId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SaleDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndingBid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BidIncrement)
-            </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    <a href="#" class="thumbnail"><img src="@item.DefaultImageUrl" alt="..."></a>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Street)
                 </td>
@@ -101,65 +63,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.YearBuilt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Summary)
-                </td>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.LotSize)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bedrooms)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bathrooms)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ListingStatusId)
-                </td>
-                <td id="Featured" >
-                    @Html.DisplayFor(modelItem => item.Featured)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ListingTypeId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OccupancyStatusId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RealEstateTypeId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Zip)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SaleDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndingBid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BidIncrement)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-
                 </td>
             </tr>
         }
