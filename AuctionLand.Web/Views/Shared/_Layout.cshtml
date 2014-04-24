@@ -7,26 +7,6 @@
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <script>
-        function myBBAlert() {
-            $("#searchCity").val();
-            $("#searchState").val();
-            $("#searchZip").val();
-            $("#searchBedrooms").val();
-            $("#searchBathrooms").val();
-            $("#searchGarages").val();
-            $("#sliderBidMin").val();
-            $("#sliderBidMax").val();
-            $("#propertyDropDown").val();
-
-            var some_html = '<img src="images/bootstrap_logo.png" width="100px"/><br />';
-            some_html += $("#searchCity").val();
-            some_html += '<h4>Just be sure to mind your quote marks</h4>';
-           
-            bootbox.alert(some_html);
-        }
-    </script>
-
 </head>
 
     <body id="newBodyBkgd">
@@ -47,7 +27,6 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Real Estate", "Index", "RealEstate")</li>
-                        <!-- <li><a href="#" onclick="myBBAlert()">Search BootBOX</a></li>-->
                         <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
@@ -264,7 +243,8 @@
             });
             // END slider Min Garages
 
-            // START slider tool tip for MIN Bid Price
+
+            // START slider MIN Bid Price
             var rMinBid = document.getElementById('search-BidMin');
             var maxMinBid = rMinBid.getAttribute('max');
             var minMinBid = rMinBid.getAttribute('min');
@@ -290,10 +270,10 @@
                 isDragging = false;
                 rMinBid.removeEventListener('mousemove', moveTipMinBid);
             });
-            // END slider tooltip for MIN Bid Price
+            // END slider MIN Bid Price
 
 
-            // START slider tool tip for MAX Bid Price
+            // START slider MAX Bid Price
             var rMaxBid = document.getElementById('search-BidMax');
             var maxMaxBid = rMaxBid.getAttribute('max');
             var minMaxBid = rMaxBid.getAttribute('min');
@@ -319,7 +299,7 @@
                 isDragging = false;
                 rMaxBid.removeEventListener('mousemove', moveTipMaxBid);
             });
-            // END slider tool tip for MAX Bid Price
+            // END slider MAX Bid Price
 
 
             // START click Property Type Dropdown
