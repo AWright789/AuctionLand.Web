@@ -17,7 +17,8 @@ namespace AuctionLand.Web.Mappings
 
          protected override void Configure()
          {
-             Mapper.CreateMap<RealEstate, RealEstateModel>();
+             Mapper.CreateMap<RealEstate, RealEstateModel>()
+                 .ForMember(dest => dest.RealEstateImageModels, opt => opt.MapFrom(src => src.RealEstateImages));
              Mapper.CreateMap<RealEstateImage, RealEstateImageModel>();
          }
     }

@@ -1,4 +1,4 @@
-﻿@model AuctionLand.Data.Entities.RealEstate
+﻿@model AuctionLand.Web.Models.RealEstateModel
 
 @{
     ViewBag.Title = "Details";
@@ -63,7 +63,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ListingStatusId)
+            @Html.DisplayFor(model => model.ListingStatus)
         </dd>
 
         <dt>
@@ -79,7 +79,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ListingTypeId)
+            @Html.DisplayFor(model => model.ListingType)
         </dd>
 
         <dt>
@@ -87,7 +87,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OccupancyStatusId)
+            @Html.DisplayFor(model => model.OccupancyStatus)
         </dd>
 
         <dt>
@@ -95,7 +95,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RealEstateTypeId)
+            @Html.DisplayFor(model => model.RealEstateType)
         </dd>
 
         <dt>
