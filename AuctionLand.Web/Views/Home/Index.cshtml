@@ -28,7 +28,7 @@
         <h2 style="color:gray">Homes For Sale</h2>
         @foreach (var homesForSale in Model.HomesForSale)
         {
-            <a href="http://www.google.com">
+            <a href="@Url.Action("Index","RealEstate", new { id = homesForSale.Id})">
                 <div class="col-sm-3 border" id="homeForSaleCell">
                     <div class="row">
                         <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
@@ -46,3 +46,4 @@
         }
     </div>
 </div>
+

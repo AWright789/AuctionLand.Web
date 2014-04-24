@@ -5,13 +5,12 @@
 }
 
 <!-- START content-->
-<div class="container">
+<div class="container" id="ContainerMaxWidth900">
 
     <!-- START breadcrumbs-->
     <ol class="breadcrumb">
-        <li id="breadCrumbs"><a href="Home">Home</a></li>
-        <li id="breadCrumbs"><a href="RealEstate">Real Estate</a></li>
-        <li class="active" id="breadCrumbs">Real Estate ID Number</li>
+        <li id="breadCrumbs"><a href="@Url.Action("Index","Home")">Home</a></li>
+        <li class="active" id="breadCrumbs">Property ID: @Model.Id </li>
     </ol>
     <!-- END breadcrumbs -->
 
@@ -19,30 +18,23 @@
 
         <!-- START main image and bid time-->
         <div class="row">
-            <img src="~/Images/homeMainImage.jpg" class="img-responsive"/>
+            <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
         </div>
 
         <div class="row" id="belowMainImage">
             <!-- bid end date-->
-            <div class="col-xs-6 col-sm-3 text-center">
-                <span class="hidden-xs">End Date</span>
+            <div class="col-xs-6  text-center">
+                <span class="hidden-xs">End Date & Time</span>
                 <span class="visible-xs">Ends</span>
-                <p id="bolderLargerText">5/6/2014</p>
-            </div>
-            <!-- bid end time-->
-            <div class="col-xs-6 col-sm-3 text-center">
-                <span class="hidden-xs">End Time</span>
-                <span class="visible-xs">At</span>
-                <p id="bolderLargerText">2:00 pm</p>
+                <p id="bolderLargerText">@Model.EndDate</p>
             </div>
             <!-- time left to bid in Days:Hours:Minutes-->
-            <div class="col-xs-4 col-sm-6 text-center hidden-xs">
+            <div class="col-xs-6 text-center">
                 Time left
                 <p id="bolderLargerText">21:02:21</p>
             </div>
         </div>
         <!-- END main image and bid info-->
-
         <!-- START second row of content-->
         <div class="row">
 
@@ -50,8 +42,9 @@
             <div class="col-sm-5" id="boxedCol">
                 <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
                 <div class="panel-body">
-                    <p>Current Bid</p>
+                    <p>$@Model.StartingBid.00</p>
                     <p id="bolderLargerText"> Users Bid</p>
+                  
                 </div>
             </div>
             <!-- END bidding price section-->
@@ -63,14 +56,13 @@
                 <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
                 <div class="panel-body">
                     <p>@Model.Street</p>
-                    <p>City, State ZipCode</p>
+                    <p>@Model.City, @Model.State @Model.Zip</p>
                 </div>
             </div>
             <!-- END Map section-->
 
         </div>
         <!-- END second row of content-->
-
         <!-- START bottomcontent -->
         <div class="row text-center" id="bottomContent">
 
@@ -78,22 +70,21 @@
             <div class="row" id="BathroomBedroomSizeSection">
                 <ul class="list-inline col-sm-10 col-md-12">
 
-                    <li class="navbar-text"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bathrooms: </span> 4 </li>
-                    <li class="navbar-text"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Bedroom: </span> 2 </li>
-                    <li class="navbar-text"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Property: </span> 2,506 Sq Ft </li>
-                    <li class="navbar-text"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs" id="smallertText">Lot: </span> 0.71 acres </li>
-                    <li class="navbar-text"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs" id="smallertText">Built: </span> 1978 </li>
+                    <li class="navbar-text"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
+                    <li class="navbar-text"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
+                    <li class="navbar-text"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
+                    <li class="navbar-text"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
+                    <li class="navbar-text"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
                 </ul>
             </div>
             <!-- END bathroom bedroom sizes -->
-
             <!-- START social media links-->
             <div class="btn-group" id="socialMediaSection">
                 <ul class="list-inline">
                     <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
                     <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
                 </ul>
-                <p >Is this the home you've been looking for? Share it with your friends!</p>
+                <p>Is this the home you've been looking for? Share it with your friends!</p>
             </div>
             <!-- END social media links-->
 
