@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<!-- START content-->
+<!-- start DETAIL VIEW OF REAL ESTATE -->
 <div class="container" id="ContainerMaxWidth900">
 
     <!-- START breadcrumbs-->
@@ -16,11 +16,63 @@
 
     <div class="col-md-12">
 
-        <!-- START main image and bid time-->
+        <!-- START Main Image with Bathroom, Bedrooms info and icons ON when SM or larger -->
         <div class="row">
-            <img src="~/Images/homeMainImage.jpg" class="img-responsive" />
-        </div>
+            <div class="col-md-12">
+                <img src="~/Images/homeMainImage.jpg" class="img-responsive portfolio_frontpage" alt="">
+                <div class="portfolio_description hidden-xs">
+                    <div class="row">
+                        <ul class="list-inline col-sm-10 col-md-12">
+                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
+                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
+                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
+                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
+                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
+                        </ul>
+                    </div>
+                    <!-- END bathroom bedroom sizes -->
+                    <!-- START social media links-->
+                    <div class="btn-group" id="socialMediaSection">
+                        <ul class="list-inline">
+                            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
+                            <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+                        </ul>
+                        <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
+                        <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Main Image with Bathroom, Bedrooms info and icons ON when SM or larger -->
+
+        <!-- START Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
+        <div class="visible-xs text-center" id="BathroomBedroomSizeSection">
+            <div class="row">
+                <ul class="list-inline col-sm-10 col-md-12">
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
+                </ul>
+            </div>
+            <!-- END bathroom bedroom sizes -->
+            <!-- START social media links-->
+            <div class="row">
+                <div class="btn-group" id="socialMediaSection">
+                    <ul class="list-inline">
+                        <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
+                        <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+                    </ul>
+                    <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
+                    <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
+                </div>
+            </div>
+        </div>
+        <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
+
+        <!-- START Bid date, time and time left -->
         <div class="row" id="belowMainImage">
             <!-- bid end date-->
             <div class="col-xs-6  text-center">
@@ -34,67 +86,62 @@
                 <p id="bolderLargerText">21:02:21</p>
             </div>
         </div>
-        <!-- END main image and bid info-->
-        <!-- START second row of content-->
+        <!-- END  Bid date, time and time left -->
+
+        <!-- START Bid and Location Sections -->
         <div class="row">
 
             <!-- START bidding price section-->
             <div class="col-sm-5" id="boxedCol">
-                <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/USD-512.png" id="myIconsLg"> Bidding</h4></a>
+                <div class="list-group-item list-group-item-warning">
+                    <h4 id="panelHeading">
+                        <img src="~/Images/USD-512.png" id="myIconsLg">
+                        Bidding
+                    </h4>
+                </div>
                 <div class="panel-body">
-                    <p>$@Model.StartingBid.00</p>
-                    <p id="bolderLargerText"> Users Bid</p>
-                  
+                    <div class="Col1">
+                        <p>@Model.StartingBid.ToString("C")</p>
+                        <p id="bolderLargerText"> Users Bid</p>
+                    </div>
+                    <div class="Col2 text-center">
+                        <a class="btn btn-primary btn-md" href="https://maps.google.com/" role="button" id="myBtn">
+                            <img src="~/Images/282-cards@2xWHITE.png" id="myImg" />
+                            <p id="smallerText">Bid now</p>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- END bidding price section-->
 
             <div class="col-sm-2" id="dividerSpace"></div>
 
-            <!-- START Map section-->
+            <!-- START Location section-->
             <div class="col-sm-5" id="boxedCol">
-                <a href="#" class="list-group-item list-group-item-info"><h4 id="panelHeading"><img src="~/Images/marker-512.png" id="myIconsMd"> Location</h4></a>
+                <div class="list-group-item list-group-item-warning">
+                    <h4 id="panelHeading">
+                        <img src="~/Images/marker-512.png" id="myIconsMd">
+                        Location
+                    </h4>
+                </div>
                 <div class="panel-body">
-                    <p>@Model.Street</p>
-                    <p>@Model.City, @Model.State @Model.Zip</p>
+                    <div class="Col1">
+                        <p>@Model.Street</p>
+                        <p>@Model.City, @Model.State @Model.Zip</p>
+                    </div>
+                    <div class="Col2 text-center">
+                        <a class="btn btn-primary btn-md" href="https://maps.google.com/" role="button" id="myBtn">
+                            <img src="~/Images/103-map@2xWHITE.png" id="myImg" />
+                            <p id="smallerText">View on map</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <!-- END Map section-->
+            <!-- END Location section-->
 
         </div>
-        <!-- END second row of content-->
-        <!-- START bottomcontent -->
-        <div class="row text-center" id="bottomContent">
-
-            <!-- START bathroom bedroom sizes -->
-            <div class="row" id="BathroomBedroomSizeSection">
-                <ul class="list-inline col-sm-10 col-md-12">
-
-                    <li class="navbar-text"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
-                    <li class="navbar-text"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
-                    <li class="navbar-text"><img src="~/Images/property.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
-                    <li class="navbar-text"><img src="~/Images/measure.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
-                    <li class="navbar-text"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
-                </ul>
-            </div>
-            <!-- END bathroom bedroom sizes -->
-            <!-- START social media links-->
-            <div class="btn-group" id="socialMediaSection">
-                <ul class="list-inline">
-                    <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
-                    <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
-                </ul>
-                <p>Is this the home you've been looking for? Share it with your friends!</p>
-            </div>
-            <!-- END social media links-->
+        <!-- END Bid and Location Sections -->
 
         </div>
-        <!-- END bathroom bedroom sizes -->
-
-    </div>
-    <p class="visible-xs" id="lightGrayText">XS This is phone size</p>
-    <p class="visible-sm" id="lightGrayText">SM This is tablet size</p>
-    <p class="visible-md" id="lightGrayText">MD This is desktop size</p>
 </div>
-
-<!-- END content-->
+<!-- end DETAIL VIEW OF REAL ESTATE -->

@@ -280,6 +280,8 @@
     <Content Include="Content\bootstrap\bootstrap-modal-bs3patch.css" />
     <Content Include="Content\bootstrap\bootstrap-modal.css" />
     <Content Include="Content\bootstrap\slider.css" />
+    <Content Include="Images\103-map%402xWHITE.png" />
+    <Content Include="Images\282-cards%402xWHITE.png" />
     <Content Include="Images\yearBuilt.png" />
     <Content Include="Images\measure.png" />
     <Content Include="Images\bedroom.png" />
