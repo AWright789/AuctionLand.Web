@@ -14,16 +14,14 @@
 
 // Container that the modal scrolls within
 .modal {
-    width: auto; 
-    margin: 0; 
   display: none;
   overflow: auto;
   overflow-y: scroll;
   position: fixed;
-  top: 3%; 
-    right: 3%; 
-    left: 3%; 
+  top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
   z-index: @zindex-modal;
   -webkit-overflow-scrolling: touch;
 
@@ -96,11 +94,6 @@
 .modal-body {
   position: relative;
   padding: @modal-inner-padding;
-  height: 60%; 
-
-  max-height: 350px;  
-    overflow-y: auto; 
-    -webkit-overflow-scrolling: touch; 
 }
 
 // Footer (for actions)

@@ -46,17 +46,30 @@ namespace AuctionLand.Web.Controllers
             return View();
         }
 
+         public ActionResult SearchHomes(string searchBy, string search)
+        {
+            var homeModel = new HomeViewModel();
 
-        public ActionResult Search()
+            if (searchBy == "City")
+            {
+                return View(homeModel.HomesForSale.Where(x => x.City == search || search == null).ToList());
+            }
+            else
+            {
+                return View(homeModel.HomesForSale.Where(x => x.State.StartsWith(search) || search ==null).ToList());
+            }
+        }
+
+        public ActionResult Results()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Search(RealEstateSearchModel model)
-        {
-            var realEstateProperties = _realEstateService.Query(null, null, null, null, null, null, null, null, null, null,null);
+        //[HttpPost]
+        //public ActionResult Search(RealEstateSearchModel model)
+        //{
+        //    var realEstateProperties = _realEstateService.Query(null, null, null, null, null, null, null, null, null, null,null);
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }
