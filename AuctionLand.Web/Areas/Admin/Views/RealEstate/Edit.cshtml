@@ -212,7 +212,7 @@
       <div class="real-estate-images-container container">
           <div class="row">
               <div class="table-responsive">
-                  <table class="table">
+                  <table id="image-table" class="table">
                       <tr>
                           <th>
                               Image
@@ -321,8 +321,8 @@
 
         });
         $("#btn-add-new-photo").click(function () {
-
-
+            var reiid = $('.btn-delete-photo').data('reiid');
+            
             bootbox.dialog({
                 message: formHtml,
                 title: "Add New Real Estate Photo",
@@ -361,8 +361,8 @@
                                             bootbox.alert(data.errorMessage);
                                         } else {
                                             var model = data.model;
-                                            var html = '<div class="col-xs-6 col-md-3"><a href="#" class="thumbnail"><img src="' + data.model.ImageUrl + '" alt="..."></a></div>';
-                                            $('.real-estate-images-container >div.row').append(html);
+                                            var html = "<tr><td><a href='#' class='thumbnail'><img src='"+ data.model.ImageUrl+ "' alt='No Image'></a></td><td><input type='text' id='imageUrl_"+ reiid + "' value ='"+data.model.ImageUrl+"'  class='hidden'/> <textarea id='description_"+ reiid +"'>"+ data.model.Description +"</textarea><input type='text' id='realEstate_"+reiid+"' value ='"+data.model.RealEstate_Id+"'  class='hidden' /></td><td><button type='button' class='btn btn-danger btn-delete-photo' data-reiid='"+reiid+"'>Delete</button><button type='button' class='btn btn-default btn-update-description' data-reiid='"+reiid+"'>Save</button></td></tr>";
+                                            $('#image-table').append(html);
                                            
                                             bootbox.hideAll();
                                         }
