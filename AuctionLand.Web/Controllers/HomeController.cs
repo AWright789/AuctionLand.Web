@@ -46,24 +46,21 @@ namespace AuctionLand.Web.Controllers
             return View();
         }
 
-         public ActionResult SearchHomes(string searchBy, string search)
+         public ActionResult SearchResults(RealEstateSearchModel model)
         {
-            var homeModel = new HomeViewModel();
 
-            if (searchBy == "City")
-            {
-                return View(homeModel.HomesForSale.Where(x => x.City == search || search == null).ToList());
-            }
-            else
-            {
-                return View(homeModel.HomesForSale.Where(x => x.State.StartsWith(search) || search ==null).ToList());
-            }
+            var searchResults = _realEstateService.Query(model.City, model.State,null, null, null, null, null, null, null, null, null);
+            var models = searchResults.ToList().Select(r => r.ToModel());
+
+            return PartialView("_SearchResults", models);
+          
         }
 
         public ActionResult Filters()
         {
             return View();
         }
+
         //[HttpPost]
         //public ActionResult Search(RealEstateSearchModel model)
         //{
@@ -71,5 +68,6 @@ namespace AuctionLand.Web.Controllers
 
         //    return View();
         //}
+
     }
 }

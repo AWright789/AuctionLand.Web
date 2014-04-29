@@ -416,7 +416,8 @@
     <Content Include="Views\List\list.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\RealEstateModelSearchResult.cshtml" />
     <Content Include="Views\Home\Filters.cshtml" />
-    <Content Include="Views\RealEstate\Results.cshtml" />
+    <Content Include="Views\Home\_SearchResults.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RealEstateModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

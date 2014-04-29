@@ -6,45 +6,34 @@
 <!-- start HOME PAGE of FEATURED HOMES AND HOMES FOR SALE -->
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
+
+        <!-- START Featured Homes -->
         <h2 style="color:red">Featured Homes</h2>
         @foreach (var featuredHome in Model.FeaturedHomes)
-{
+        {
        <a href="@Url.Action("Index","RealEstate", new { id = featuredHome.Id})">
         <div class="col-sm-4 border" id="featuredHomeCell">
             <div class="row">
                 <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
-                Featured Home @featuredHome.Street
+                Featured Home @featuredHome.Street 
                 <p id="currentBidFeatured">@featuredHome.StartingBid.ToString("C")</p>
                 <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
                 <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
                 <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt
+                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt 
             </div>
         </div>
        </a>
-}
+        }
+        <!-- END Featured Homes -->
 
         <div class="row" id="dividerSpace"></div>
 
-        <h2 style="color:gray">Homes For Sale</h2>
-        @foreach (var homesForSale in Model.HomesForSale)
-        {
-            <a href="@Url.Action("Index","RealEstate", new { id = homesForSale.Id})">
-                <div class="col-sm-3 border" id="homeForSaleCell">
-                    <div class="row">
-                        <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
-                        Featured Home @homesForSale.Street
-                        <p id="currentBidSale">@homesForSale.StartingBid.ToString("C")</p>
-                        <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @homesForSale.Bathrooms
-                        <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@homesForSale.Bedrooms
-                    </div>
-                    <div class="row">
-                        <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@homesForSale.EstateSize.ToString("N") Sq Ft
-                        <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@homesForSale.YearBuilt
-                    </div>
-                </div>
-            </a>
-        }
+        <div id="real-estate-list">
+            <h2 style="color:gray">Homes For Sale</h2>
+            @Html.DisplayFor(m => m.HomesForSale)
+        </div>
+
     </div>
 </div>
 <!-- end HOME PAGE of FEATURED HOMES AND HOMES FOR SALE -->

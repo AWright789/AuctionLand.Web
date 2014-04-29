@@ -13,6 +13,7 @@ namespace AuctionLand.Web.Models
 
         public string State { get; set; }
 
+
         public int MinBedrooms { get; set; }
 
         public int MaxBedrooms { get; set; }
@@ -26,6 +27,9 @@ namespace AuctionLand.Web.Models
         public int? MinBidPrice { get; set; }
 
         public int? MaxBidPrice { get; set; }
+
+        public int? RealEstateTypeId { get; set; }
+
 
         public DateTime? AuctionStartDateTime { get; set; }
 

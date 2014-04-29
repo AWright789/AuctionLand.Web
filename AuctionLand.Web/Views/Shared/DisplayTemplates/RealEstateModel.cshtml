@@ -1,0 +1,17 @@
+﻿@model AuctionLand.Web.Models.RealEstateModel
+
+<a href="@Url.Action("Index", "RealEstate", new { id = Model.Id })">
+    <div class="col-sm-3 border" id="homeForSaleCell">
+        <div class="row">
+            <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+            Featured Home @Model.Street
+            <p id="currentBidSale">@Model.StartingBid.ToString("C")</p>
+            <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @Model.Bathrooms
+            <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@Model.Bedrooms
+        </div>
+        <div class="row">
+            <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@Model.EstateSize.ToString("N") Sq Ft
+            <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@Model.YearBuilt
+        </div>
+    </div>
+</a>

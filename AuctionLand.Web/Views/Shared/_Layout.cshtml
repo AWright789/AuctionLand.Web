@@ -6,14 +6,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
-
-    <script>
-        function filterPopUp() {
-            var other_html = $("div.FiltersAlert").html();
-            bootbox.alert(other_html);
-        }
-    </script>
-
 </head>
 
 <!-- START HEADER NAVIGATION AND FOOTER THAT APPEARS ON EVERY PAGE -->
@@ -52,8 +44,11 @@
                         <li><a href="#">Property Size</a></li>
                         <li><a href="#">Bid Price</a></li>
                     </ul>
-                    <a href="#" class="btn btn-default" onclick="filterPopUp()">Filter BB</a>
-                    <a href="#searchBOOTSTRAP" class="btn btn-default" role="button" data-toggle="modal">Filter BS</a>
+                    <!-- 
+                        Filter Pop Up using Modal and Bootbox <a href="#" class="btn btn-default" onclick="filterPopUp()">Filter BB</a> 
+                    -->
+                    <a href="#searchBOOTSTRAP" class="btn btn-default" role="button" data-toggle="modal">Filter</a>
+
                 </div>
                 <input type="text" class="form-control" id="searchField" placeholder="Search...">
                 <div class="input-group-btn">
@@ -65,6 +60,7 @@
         </div>
     </div>
 
+    <!-- START render body and add footer -->
     <div class="body-content">
         @RenderBody()
         <hr />
@@ -72,6 +68,7 @@
             <p>&copy; @DateTime.Now.Year - Auction Land.</p>
         </footer>
     </div>
+    <!-- END render body and add footer -->
 
     <!-- START modal for Filter -->
     <div class="modal fade" id="searchBOOTSTRAP" role="dialog">
@@ -81,90 +78,77 @@
                     <h2>Search</h2>
                 </div>
                 <div class="modal-body">
+                    @using (Html.BeginForm("SearchResults", "Home", FormMethod.Post, new { id = "form-real-estate-search" }))
+                    {
+                           
                     <div class="row">
-                        <div class="col-sm-4" id="locationSearch">
-                            <h4>Location</h4>
-                            <label for="contact-name" class="control-label">City: </label>
-                            @* ORIGINAL INPUT FIELD
-                                <input type="text" class="form-control" id="search-City"
-                                   placeholder="Enter city">*@
+                                <div class="col-sm-4" id="locationSearch">
+                                    <h4>Location</h4>
+                                    <label for="contact-name" class="control-label">City: </label>
+                                    <input type="text" class="form-control" placeholder="Enter city" value="" id="search-City" name="City"> <br />
 
-                            <!-- START Testing out the search field-->
-                            @using (Html.BeginForm("SearchHomes", "Home", FormMethod.Get))
-                            { 
-                                @Html.TextBox("search") <input type="submit" value="Search" />
-                            }
-                            <!-- END Testing out the search field-->
-
-                            <label for="contact-name" class="control-label">State: </label>
-                            <input type="text" class="form-control" id="search-State"
-                                   placeholder="Enter state">
-
-                            <label for="contact-name" class="control-label">Zip: </label>
-                            <input type="text" class="form-control" id="search-Zip"
-                                   placeholder="Enter zip">
-                        </div>
-
-                        <div class="col-sm-4" id="amenitiesSearch">
-                            <h4>Amenities</h4>
-                            <label for="contact-name" class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label>
-                            <form action="demo_form.asp" method="get" id="extraBottomMargin">
-                                <input type="range" min="0" max="2" id="search-Bedrooms">
-                            </form>
-
-                            <label for="contact-name" class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label>
-                            <form action="demo_form.asp" method="get" id="extraBottomMargin">
-                                <input type="range" min="0" max="2" id="search-Bathrooms">
-                            </form>
-
-                            <label for="contact-name" class="control-label">Min Garages: <b id="minGaragesDisplay"></b></label>
-                            <form action="demo_form.asp" method="get">
-                                <input type="range" min="0" max="2" id="search-Garages">
-                            </form>
-                        </div>
-
-                        <div class="col-sm-4" id="pricingSearch">
-                            <h4>Pricing</h4>
-                            <label for="contact-name" class="control-label">Min Bid Price: <b id="minBidDisplay"></b></label>
-                            <form action="demo_form.asp" method="get" id="extraBottomMargin">
-                                <input type="range" min="0" max="20" value='0' id="search-BidMin" />
-                            </form>
-
-                            <label for="contact-name" class="control-label">Max Bid Price: <b id="maxBidDisplay"></b></label>
-                            <form action="demo_form.asp" method="get" id="extraBottomMargin">
-                                <input type="range" min="8" max="30" value='0' id="search-BidMax" />
-                            </form>
-
-                            <label for="contact-name" class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
-                            <form id="propertyDropDown">
-                                <div class="btn-group">
-                                    <i class="dropdown-arrow dropdown-arrow-inverse"></i>
-                                    <button class="btn">Choose</button>
-                                    <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="clickProperty()"> <span class="caret"></span> </button>
-                                    <ul class="dropdown-menu dropdown-inverse">
-                                        <li><a href="#fakelink" id="propertyBtn">Single Family</a></li>
-                                        <li><a href="#fakelink" id="propertyBtn">Multi-Family</a></li>
-                                        <li><a href="#fakelink" id="propertyBtn">Condo or Townhome</a></li>
-                                        <li><a href="#fakelink" id="propertyBtn">Land</a></li>
-                                    </ul>
+                                    <label for="contact-name" class="control-label">State: </label>
+                                    <input type="text" class="form-control" placeholder="Enter state" value="" id="search-State" name="State"><br />
+                    
+                                    <label for="contact-name" class="control-label">Zip: </label>
+                                    <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
                                 </div>
-                            </form>
-                        </div>
+                        
+                                <div class="col-sm-4" id="amenitiesSearch">
+                                    <h4>Amenities</h4>
+                                    <label for="contact-name" class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label>
+                                    
+                                        <input type="range" min="0" max="2" id="search-Bedrooms" name="MinBedrooms">
+                                    <br />
 
+                                    <label for="contact-name" class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label>
+                                    
+                                        <input type="range" min="0" max="2" id="search-Bathrooms" name="MaxBedrooms">
+                                </div>
+
+                                <div class="col-sm-4" id="pricingSearch">
+                                    <h4>Pricing</h4>
+                                    <label for="contact-name" class="control-label">Min Bid Price: <b id="minBidDisplay"></b></label>
+                                    
+                                        <input type="range" min="0" max="20" value='0' id="search-BidMin" name="MinBidPrice"/>
+                                    <br />
+
+                                    <label for="contact-name" class="control-label">Max Bid Price: <b id="maxBidDisplay"></b></label>
+                                    
+                                        <input type="range" min="8" max="30" value='0' id="search-BidMax" name="MaxBidPrice" />
+                                    <br />
+
+                                    <label for="contact-name" class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
+                                   
+
+                                        @*<div class="btn-group">
+                                            <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                                            <button class="btn">Choose</button>
+                                            <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="clickProperty()"> <span class="caret"></span> </button>
+                                            <ul class="dropdown-menu dropdown-inverse" name="">
+                                                <li><a href="#fakelink" id="propertyBtn">Single Family</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Multi-Family</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Condo or Townhome</a></li>
+                                                <li><a href="#fakelink" id="propertyBtn">Land</a></li>
+                                            </ul>
+                                        </div>*@
+                                    
+                                </div>
+                        
                     </div>
-
+                    }
                 </div>
                 <div class="modal-footer" id="myModalFooter">
                     <div class="row col-sm-12">
                         <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-                        <a class="btn btn-primary">Search</a>
+                        <a class="btn btn-primary" id="btn-real-estate-search">Search</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-
-   <!-- END modal for Filter -->
+    <!-- END Filter form ver2, ver1 can be found in previous versions or back up code -->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -174,6 +158,45 @@
     @Html.Action("Filters", "Home");
 
     <script>
+        $(document).ready(function () {
+
+            $('#btn-real-estate-search').click(function () {
+                $('#form-real-estate-search').submit(function(e){
+                    var postData = new FormData(document.getElementById("form-real-estate-search"));
+              
+                    var formURL = $(this).attr("action");
+                    $.ajax(
+                    {
+                        url: formURL,
+                        type: "POST",
+                        data: postData,
+                        
+                        success: function (data, textStatus, jqXHR) {
+                            
+                            $("#real-estate-list").css('background-color','green').html(data);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            //if fails     
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                    e.preventDefault(); //STOP default action
+                    e.unbind(); //unbind. to stop multiple form submit.
+
+                });
+                $('#form-real-estate-search').submit();
+            });
+           
+        });
+        function filterPopUp()
+        {
+            var other_html = $("div.FiltersAlert").html();
+            bootbox.alert(other_html);
+        }
+
         // START slider Min Bedrooms
         var rMinBedroom = document.getElementById('search-Bedrooms');
         var maxMinBedroom = rMinBedroom.getAttribute('max');

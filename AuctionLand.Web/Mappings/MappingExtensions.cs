@@ -34,7 +34,7 @@ namespace AuctionLand.Web.Mappings
         {
             return Mapper.Map<RealEstateImageModel, RealEstateImage>(model, entity);
         }
-
+        
 
     }
 }
