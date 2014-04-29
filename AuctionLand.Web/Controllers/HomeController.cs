@@ -60,7 +60,7 @@ namespace AuctionLand.Web.Controllers
             }
         }
 
-        public ActionResult Results()
+        public ActionResult Filters()
         {
             return View();
         }
