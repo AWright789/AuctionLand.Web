@@ -235,6 +235,7 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealEstateController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealEstateImageController.cs" />
+    <Compile Include="Exentions\EnumExtentions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -411,7 +412,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\RealEstateImage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

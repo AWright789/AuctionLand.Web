@@ -23,7 +23,7 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
         }
         // GET: /Admin/RealEstate/
         public ActionResult Index()
-        {
+        {   
             var model = _realEstateService.GetAll().ToList().Select(m => m.ToModel());
             return View(model);
         }

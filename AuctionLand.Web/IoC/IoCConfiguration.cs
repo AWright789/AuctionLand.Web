@@ -11,6 +11,7 @@ using AuctionLand.Service.Interfaces;
 using AuctionLand.Service.Implementations;
 using AuctionLand.Web.App_Start;
 using System.Reflection;
+using AuctionLand.Web.Areas.Admin.Controllers;
 
 namespace AuctionLand.Web.IoC
 {
@@ -55,6 +56,7 @@ namespace AuctionLand.Web.IoC
             builder.RegisterType<RealEstateService>().As<IRealEstateService>();
             builder.RegisterType<ImageService>().As<IImageService>();
             builder.RegisterType<ImageBlobStorageService>().As<IImageBlobStorageService>();
+            builder.RegisterType<RealEstateImageController>().InstancePerDependency();
             #endregion
 
             builder.RegisterType<AuctionLand.Web.Controllers.HomeController>().InstancePerDependency();
