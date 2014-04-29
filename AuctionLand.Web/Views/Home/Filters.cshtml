@@ -1,0 +1,250 @@
+﻿@{
+    Layout = null;
+}
+<!-- THE 'style=" display: none"' KEEPS THE FORM HIDDEN SO IT DOESNT DISPLAY AT THE BOTTOM OF THE PAGE -->
+
+<div class="FiltersAlert" style="display:none">
+        <div class="row">
+            <div class="col-sm-4" id="locationSearch">
+                <h4>Location</h4>
+                <label for="contact-name" class="control-label">City: </label>
+                <input type="text" class="form-control" id="search-City"
+                       placeholder="Enter city">
+
+
+                <label for="contact-name" class="control-label">State: </label>
+                <input type="text" class="form-control" id="search-State"
+                       placeholder="Enter state">
+
+                <label for="contact-name" class="control-label">Zip: </label>
+                <input type="text" class="form-control" id="search-Zip"
+                       placeholder="Enter zip">
+            </div>
+
+            <div class="col-sm-4" id="amenitiesSearch">
+                <h4>Amenities</h4>
+                <label for="contact-name" class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label>
+                <form action="demo_form.asp" method="get" id="extraBottomMargin">
+                    <input type="range" min="0" max="2" id="search-Bedrooms">
+                </form>
+
+                <label for="contact-name" class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label>
+                <form action="demo_form.asp" method="get" id="extraBottomMargin">
+                    <input type="range" min="0" max="2" id="search-Bathrooms">
+                </form>
+
+                <label for="contact-name" class="control-label">Min Garages: <b id="minGaragesDisplay"></b></label>
+                <form action="demo_form.asp" method="get">
+                    <input type="range" min="0" max="2" id="search-Garages">
+                </form>
+            </div>
+
+            <div class="col-sm-4" id="pricingSearch">
+                <h4>Pricing</h4>
+                <label for="contact-name" class="control-label">Min Bid Price: <b id="minBidDisplay"></b></label>
+                <form action="demo_form.asp" method="get" id="extraBottomMargin">
+                    <input type="range" min="0" max="20" value='0' id="search-BidMin" />
+                </form>
+
+                <label for="contact-name" class="control-label">Max Bid Price: <b id="maxBidDisplay"></b></label>
+                <form action="demo_form.asp" method="get" id="extraBottomMargin">
+                    <input type="range" min="8" max="30" value='0' id="search-BidMax" />
+                </form>
+
+                <label for="contact-name" class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
+                <form id="#propertyDropDown">
+                    <div class="btn-group">
+                        <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                        <button class="btn">Choose</button>
+                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="clickProperty()"> <span class="caret"></span> </button>
+                        <ul class="dropdown-menu dropdown-inverse">
+                            <li><a href="#fakelink" id="propertyBtn">Single Family</a></li>
+                            <li><a href="#fakelink" id="propertyBtn">Multi-Family</a></li>
+                            <li><a href="#fakelink" id="propertyBtn">Condo or Townhome</a></li>
+                            <li><a href="#fakelink" id="propertyBtn">Land</a></li>
+                        </ul>
+                    </div>
+                </form>
+         </div>
+    </div>
+</div>
+
+@section scripts {
+
+<script>
+    // START slider Min Bedrooms
+    var rMinBedroom = document.getElementById('search-Bedrooms');
+    var maxMinBedroom = rMinBedroom.getAttribute('max');
+    var minMinBedroom = rMinBedroom.getAttribute('min');
+    var wMinBedroom = rMinBedroom.clientWidth;
+    var isDragging = false;
+
+    var moveTipMinBedroom = (function (e) {
+        if (isDragging) {
+            var posPercMinBedroom = (rMinBedroom.value * maxMinBedroom) * 1;
+            var pixPosMinBedroom = (posPercMinBedroom * 1) * wMinBedroom;
+            pixPosMinBedroom += rMinBedroom.offsetLeft;
+            document.getElementById('minBedroomsDisplay').innerHTML = posPercMinBedroom;
+        }
+    });
+
+    rMinBedroom.onmousedown = (function (e) {
+        isDragging = true;
+        rMinBedroom.addEventListener('mousemove', moveTipMinBedroom, false);
+    });
+
+    rMinBedroom.onmouseup = (function (e) {
+        isDragging = false;
+        rMinBedroom.removeEventListener('mousemove', moveTipMinBedroom);
+    });
+    // END slider Min Bedrooms
+
+
+    // START slider Min Bathrooms
+    var rMinBathroom = document.getElementById('search-Bathrooms');
+    var maxMinBathroom = rMinBathroom.getAttribute('max');
+    var minMinBathroom = rMinBathroom.getAttribute('min');
+    var wMinBathroom = rMinBathroom.clientWidth;
+    var isDragging = false;
+
+    var moveTipMinBathroom = (function (e) {
+        if (isDragging) {
+            var posPercMinBathroom = (rMinBathroom.value * maxMinBathroom) * 1;
+            var pixPosMinBathroom = (posPercMinBathroom * 1) * wMinBathroom;
+            pixPosMinBathroom += rMinBathroom.offsetLeft;
+            document.getElementById('minBathroomsDisplay').innerHTML = posPercMinBathroom;
+        }
+    });
+
+    rMinBathroom.onmousedown = (function (e) {
+        isDragging = true;
+        rMinBathroom.addEventListener('mousemove', moveTipMinBathroom, false);
+    });
+
+    rMinBathroom.onmouseup = (function (e) {
+        isDragging = false;
+        rMinBathroom.removeEventListener('mousemove', moveTipMinBathroom);
+    });
+    // END slider Min Bathrooms
+
+
+    // START slider Min Garages
+    var rMinGarage = document.getElementById('search-Garages');
+    var maxMinGarage = rMinGarage.getAttribute('max');
+    var minMinGarage = rMinGarage.getAttribute('min');
+    var wMinGarage = rMinGarage.clientWidth;
+    var isDragging = false;
+
+    var moveTipMinGarage = (function (e) {
+        if (isDragging) {
+            var posPercMinGarage = (rMinGarage.value * maxMinGarage) * 1;
+            var pixPosMinGarage = (posPercMinGarage * 1) * wMinGarage;
+            pixPosMinGarage += rMinGarage.offsetLeft;
+            document.getElementById('minGaragesDisplay').innerHTML = posPercMinGarage;
+        }
+    });
+
+    rMinGarage.onmousedown = (function (e) {
+        isDragging = true;
+        rMinGarage.addEventListener('mousemove', moveTipMinGarage, false);
+    });
+
+    rMinGarage.onmouseup = (function (e) {
+        isDragging = false;
+        rMinGarage.removeEventListener('mousemove', moveTipMinGarage);
+    });
+    // END slider Min Garages
+
+
+    // START slider MIN Bid Price
+    var rMinBid = document.getElementById('search-BidMin');
+    var maxMinBid = rMinBid.getAttribute('max');
+    var minMinBid = rMinBid.getAttribute('min');
+    var wMinBid = rMinBid.clientWidth;
+    //w += r.offsetLeft;
+    var isDragging = false;
+
+    var moveTipMinBid = (function (e) {
+        if (isDragging) {
+            var posPercMinBid = (rMinBid.value * maxMinBid) * 750;
+            var pixPosMinBid = (posPercMinBid * 200) * wMinBid;
+            pixPosMinBid += rMinBid.offsetLeft;
+            document.getElementById('minBidDisplay').innerHTML = "$" + posPercMinBid.toFixed(2);
+        }
+    });
+
+    rMinBid.onmousedown = (function (e) {
+        isDragging = true;
+        rMinBid.addEventListener('mousemove', moveTipMinBid, false);
+    });
+
+    rMinBid.onmouseup = (function (e) {
+        isDragging = false;
+        rMinBid.removeEventListener('mousemove', moveTipMinBid);
+    });
+    // END slider MIN Bid Price
+
+
+    // START slider MAX Bid Price
+    var rMaxBid = document.getElementById('search-BidMax');
+    var maxMaxBid = rMaxBid.getAttribute('max');
+    var minMaxBid = rMaxBid.getAttribute('min');
+    var wMaxBid = rMaxBid.clientWidth;
+    //w += r.offsetLeft;
+    var isDragging = false;
+
+    var moveTipMaxBid = (function (e) {
+        if (isDragging) {
+            var posPercMaxBid = (rMaxBid.value * maxMaxBid) * 1300;
+            var pixPosMaxBid = (posPercMaxBid * 200) * wMaxBid;
+            pixPosMaxBid += rMaxBid.offsetLeft;
+            document.getElementById('maxBidDisplay').innerHTML = "$" + posPercMaxBid.toFixed(2);
+        }
+    });
+
+    rMaxBid.onmousedown = (function (e) {
+        isDragging = true;
+        rMaxBid.addEventListener('mousemove', moveTipMaxBid, false);
+    });
+
+    rMaxBid.onmouseup = (function (e) {
+        isDragging = false;
+        rMaxBid.removeEventListener('mousemove', moveTipMaxBid);
+    });
+    // END slider MAX Bid Price
+
+
+    // START click Property Type Dropdown
+    function clickProperty() {
+        $(".dropdown-inverse li a").click(function () {
+            searchedProperty = $(this).text();
+
+            document.getElementById('propertyTypeDisplay').innerHTML = searchedProperty;
+        });
+    };
+    // END click Property Type Dropdown
+
+
+    // START click Search Button in Filter Pop Up
+    function myBBAlert() {
+        var searchedCity = $("#search-City").val();
+        var searchedState = $("#search-State").val();
+        var searchedZip = $("#search-Zip").val();
+
+        var seachedBedrooms = $("#search-Bedrooms").val();
+        var searchedBathrooms = $("#search-Bathrooms").val();
+        var searchedGarages = $("#search-Garages").val();
+
+        var searchedBidMin = $("#search-BidMin").val();
+
+        document.getElementById('maxBidDisplay').innerHTML = searchedBidMax;
+
+        alert("City searched is " + searchedCity + ", State searched is " + searchedState + ", Zip searched is " + searchedZip);
+
+        alert("Minimum Bedrooms searched is " + seachedBedrooms + ", Minimum Bathrooms searched is " + searchedBathrooms + ", Minimum Garages searched is " + searchedGarages);
+
+        alert("Bid Minimum searched is $" + searchedBidMin + ".00" + ", Bid Maxiumum searched is $" + searchedBidMax + ".00" + ", Property Type searched is " + searchedProperty);
+    }
+    // END click Search Button in Filter Pop Up
+</script>
+}
