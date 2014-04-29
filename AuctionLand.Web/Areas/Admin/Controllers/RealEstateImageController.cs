@@ -109,41 +109,23 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
         //
         // POST: /Admin/RealEstateImage/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public void Edit(RealEstateImageModel model)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var realEstateImage = model.ToEntity();
+            _imageService.Update(realEstateImage);
         }
 
-        //
-        // GET: /Admin/RealEstateImage/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
         // POST: /Admin/RealEstateImage/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpDelete]
+        public void Delete(int id)
         {
-            try
+            RealEstateImage realEstateImage = _imageService.GetById(id);
+            // TODO: Add delete logic here
+            if(realEstateImage != null)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                
+                _imageService.Delete(id);
+                
             }
         }
         

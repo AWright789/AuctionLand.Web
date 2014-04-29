@@ -25,19 +25,19 @@ namespace AuctionLand.Web.Models
         public double LotSize { get; set; }
         public int Bedrooms { get; set; }
         public double Bathrooms { get; set; }
-
+        [Display(Name="Listing Status")]
         public int ListingStatusId { get; set; }
 
      
         public bool Featured { get; set; }
-
+        [Display(Name = "Listing Type")]
         public int ListingTypeId { get; set; }
 
-     
 
+        [Display(Name = "Occupancy Status")]
         public int OccupancyStatusId { get; set; }
 
-
+        [Display(Name = "Realestate Type")]
         public int RealEstateTypeId { get; set; }
 
       
@@ -72,7 +72,7 @@ namespace AuctionLand.Web.Models
         public DateTime? SaleDate { get; set; }
 
         public IEnumerable<RealEstateImageModel> RealEstateImageModels { get; set; }
-        public ListingStatus ListingStatus
+        public ListingStatus? ListingStatus
         {
             get
             {
@@ -106,7 +106,7 @@ namespace AuctionLand.Web.Models
                 OccupancyStatusId = (int)value;
             }
         }
-        public RealEstateType RealEstateType
+        public RealEstateType? RealEstateType
         {
             get
             {
