@@ -15,6 +15,7 @@ namespace AuctionLand.Data.Entities.DAL
          DbSet<RealEstate> RealEstates { get; set; }
 
          DbSet<RealEstateImage> RealEstateImages { get; set; }
+         DbSet<Bid> Bids { get; set; }
 
          int SaveChanges();
 

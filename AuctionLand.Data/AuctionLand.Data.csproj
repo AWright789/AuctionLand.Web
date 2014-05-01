@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Bid.cs" />
     <Compile Include="Entities\DAL\AuctionLandDbContext.cs" />
     <Compile Include="Entities\DAL\IAuctionLandDbContext.cs" />
     <Compile Include="Entities\RealEstate.cs" />

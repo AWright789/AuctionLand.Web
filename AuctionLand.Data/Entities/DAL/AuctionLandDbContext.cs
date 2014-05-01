@@ -19,8 +19,8 @@ namespace AuctionLand.Data.Entities.DAL
         public DbSet<RealEstate> RealEstates { get; set; }
        
         public DbSet<RealEstateImage> RealEstateImages { get; set; }
-     
 
+        public DbSet<Bid> Bids { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new RealEstateMapping());

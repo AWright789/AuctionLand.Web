@@ -267,6 +267,10 @@
     <Compile Include="Migrations\201404241550335_AddImageDescription.Designer.cs">
       <DependentUpon>201404241550335_AddImageDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405012259110_BidMigration.cs" />
+    <Compile Include="Migrations\201405012259110_BidMigration.Designer.cs">
+      <DependentUpon>201405012259110_BidMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="ModelBinders\EFModelBinderProvider.cs" />
@@ -444,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404241550335_AddImageDescription.resx">
       <DependentUpon>201404241550335_AddImageDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405012259110_BidMigration.resx">
+      <DependentUpon>201405012259110_BidMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
