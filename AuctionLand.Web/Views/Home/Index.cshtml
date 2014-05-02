@@ -3,7 +3,7 @@
     ViewBag.Title = "Auction Land";
 }
 
-<!-- start HOME PAGE of FEATURED HOMES AND HOMES FOR SALE -->
+<!-- start HOME PAGE with FEATURED HOMES and HOMES FOR SALE -->
 <div class="container" id="ContainerMaxWidth900">
     <div class="text-center">
 
@@ -13,15 +13,13 @@
         {
        <a href="@Url.Action("Index","RealEstate", new { id = featuredHome.Id})">
         <div class="col-sm-4 border" id="featuredHomeCell">
-            <div class="row">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
-                Featured Home @featuredHome.Street 
+            <div class="homeThumbnailImage" style="background-image:url(@featuredHome.DefaultImageUrl)"></div>
+                 Featured Home @featuredHome.Street
                 <p id="currentBidFeatured">@featuredHome.StartingBid.ToString("C")</p>
                 <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
                 <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N") Sq Ft
+                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N0") Sq Ft
                 <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt 
-            </div>
         </div>
        </a>
         }

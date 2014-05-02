@@ -23,12 +23,14 @@ namespace AuctionLand.Web.Controllers
         {
             var homeModel = new HomeViewModel();
 
-            homeModel.FeaturedHomes = _realEstateService.GetAll().Take(3).ToList().Select(r => r.ToModel());
-            homeModel.HomesForSale = _realEstateService.GetAll()
+            homeModel.FeaturedHomes = _realEstateService.GetAll().Where(r => (r.Featured == true))
+                .Take(3).ToList()
+                .Select(r => r.ToModel());
+
+            homeModel.HomesForSale = _realEstateService.GetAll().Where(r => (r.Featured == false))
                 .OrderByDescending(r => r.StartDate)
                 .Take(9).ToList()
                 .Select(r => r.ToModel());
-
             
             return View(homeModel);
         }
@@ -50,11 +52,12 @@ namespace AuctionLand.Web.Controllers
          public ActionResult SearchResults(RealEstateSearchModel model)
         {
 
-            var searchResults = _realEstateService.Query(model.City, model.State,null, null, null, null, null, null, null, null, null);
+            var searchResults = _realEstateService.Query(model.City, model.State, model.MinBedrooms, model.MinBaths, model.MinBidPrice, model.MaxBidPrice, model.RealEstateTypeId, null, null, null, null);
+
             var models = searchResults.ToList().Select(r => r.ToModel());
 
             return PartialView("_SearchResults", models);
-          
+
         }
 
         public ActionResult Filters()

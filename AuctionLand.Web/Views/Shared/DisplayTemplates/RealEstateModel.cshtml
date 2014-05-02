@@ -3,7 +3,7 @@
 <a href="@Url.Action("Index", "RealEstate", new { id = Model.Id })">
     <div class="col-sm-3 border" id="homeForSaleCell">
         <div class="row">
-            <img src="~/Images/homeMainImage.jpg" class="img-responsive" id="imageWithPadding" />
+            <div class="homeThumbnailImage" style="background-image:url(@Model.DefaultImageUrl)"></div>
             Featured Home @Model.Street
             <p id="currentBidSale">@Model.StartingBid.ToString("C")</p>
             <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> @Model.Bathrooms
