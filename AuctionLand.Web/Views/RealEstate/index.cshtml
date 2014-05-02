@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<!-- start DETAIL VIEW OF REAL ESTATE -->
+<!-- start DETAIL VIEW OF A REAL ESTATE PROPERTY -->
 <div class="container" id="ContainerMaxWidth900">
 
     <!-- START breadcrumbs-->
@@ -14,13 +14,16 @@
     </ol>
     <!-- END breadcrumbs -->
 
-    <div class="col-md-12">
-
-        <!-- START Main Image with Bathroom, Bedrooms info and icons ON when SM or larger -->
+        <!-- START Detail of Home with Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+        <!-- START Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+        <!-- START Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
         <div class="row">
+
             <div class="col-md-12">
-                <img src="~/Images/homeMainImage.jpg" class="img-responsive portfolio_frontpage" alt="">
+                <img src="@Model.DefaultImageUrl" class="img-responsive portfolio_frontpage" alt="">
+
                 <div class="portfolio_description hidden-xs">
+
                     <div class="row">
                         <ul class="list-inline col-sm-10 col-md-12">
                             <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
@@ -30,25 +33,29 @@
                             <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
                         </ul>
                     </div>
-                    <!-- END bathroom bedroom sizes -->
+
                     <!-- START social media links-->
                     <div class="btn-group" id="socialMediaSection">
                         <ul class="list-inline">
-                            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
-                            <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+                            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebookBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
+                            <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/ShareBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
                         </ul>
                         <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
                         <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
-
                     </div>
+
                 </div>
             </div>
-        </div>
-        <!-- END Main Image with Bathroom, Bedrooms info and icons ON when SM or larger -->
 
-        <!-- START Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
+        </div>
+        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+
+        <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
+        <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
         <div class="visible-xs text-center" id="BathroomBedroomSizeSection">
-            <div class="row">
+            <div class="col-md-12">
                 <ul class="list-inline col-sm-10 col-md-12">
                     <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
                     <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
@@ -59,11 +66,11 @@
             </div>
             <!-- END bathroom bedroom sizes -->
             <!-- START social media links-->
-            <div class="row">
+            <div class="col-md-12">
                 <div class="btn-group" id="socialMediaSection">
                     <ul class="list-inline">
-                        <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebook-512.png" class="img-responsive" id="myIconsMd" /></a></li>
-                        <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/Share.png" class="img-responsive" id="myIconsMd" /></a></li>
+                        <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebookBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
+                        <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/ShareBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
                     </ul>
                     <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
                     <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
@@ -71,10 +78,11 @@
             </div>
         </div>
         <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
+        <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
 
         <!-- START Bid date, time and time left -->
         <div class="row" id="belowMainImage">
-            <!-- bid end date-->
+           
             <div class="col-xs-6  text-center">
                 <span class="hidden-xs">End Date & Time</span>
                 <span class="visible-xs">Ends</span>
@@ -86,10 +94,9 @@
                 <p id="bolderLargerText">21:02:21</p>
             </div>
         </div>
-        <!-- END  Bid date, time and time left -->
 
         <!-- START Bid and Location Sections -->
-        <div class="row">
+        <div class="row" style="margin:0px!important">
 
             <!-- START bidding price section-->
             <div class="col-sm-5" id="boxedCol">
@@ -105,7 +112,7 @@
                         <p id="bolderLargerText"> Users Bid</p>
                     </div>
                     <div class="Col2 text-center">
-                        <a class="btn btn-primary btn-md" href="https://maps.google.com/" role="button" id="myBtn">
+                        <a class="btn btn-primary btn-md" href="https://google.com/" role="button" id="myBtn">
                             <img src="~/Images/282-cards@2xWHITE.png" id="myImg" />
                             <p id="smallerText">Bid now</p>
                         </a>
@@ -142,6 +149,5 @@
         </div>
         <!-- END Bid and Location Sections -->
 
-        </div>
 </div>
 <!-- end DETAIL VIEW OF REAL ESTATE -->

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/cssSlider")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 
 <!-- START HEADER NAVIGATION AND FOOTER THAT APPEARS ON EVERY PAGE -->
@@ -84,56 +86,112 @@
                     <div class="row">
                                 <div class="col-sm-4" id="locationSearch">
                                     <h4>Location</h4>
-                                    <label for="contact-name" class="control-label">City: </label>
-                                    <input type="text" class="form-control" placeholder="Enter city" value="" id="search-City" name="City"> <br />
+                                    <div class="well">
+                                        <label class="control-label">City: </label>
+                                        <input type="text" class="form-control" placeholder="Enter city" value="" id="search-City" name="City">
+                                    </div>
 
-                                    <label for="contact-name" class="control-label">State: </label>
-                                    <input type="text" class="form-control" placeholder="Enter state" value="" id="search-State" name="State"><br />
-                    
-                                    <label for="contact-name" class="control-label">Zip: </label>
-                                    <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
+                                    <div class="well">
+                                        <label class="control-label">State: <b id="stateTypeDisplay"></b></label>
+                                        <br />
+                                        <select name="state" class="form-control">
+                                            <option value="AL">AL</option>
+                                            <option value="AK">AK</option>
+                                            <option value="AZ">AZ</option>
+                                            <option value="AR">AR</option>
+                                            <option value="CA">CA</option>
+                                            <option value="CO">CO</option>
+                                            <option value="CT">CT</option>
+                                            <option value="DE">DE</option>
+                                            <option value="DC">DC</option>
+                                            <option value="FL">FL</option>
+                                            <option value="GA">GA</option>
+                                            <option value="HI">HI</option>
+                                            <option value="ID">ID</option>
+                                            <option value="IL">IL</option>
+                                            <option value="IN">IN</option>
+                                            <option value="IA">IA</option>
+                                            <option value="KS">KS</option>
+                                            <option value="KY">KY</option>
+                                            <option value="LA">LA</option>
+                                            <option value="ME">ME</option>
+                                            <option value="MD">MD</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MI">MI</option>
+                                            <option value="MN">MN</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MO">MO</option>
+                                            <option value="MT">MT</option>
+                                            <option value="NE">NE</option>
+                                            <option value="NV">NV</option>
+                                            <option value="NH">NH</option>
+                                            <option value="NJ">NJ</option>
+                                            <option value="NM">NM</option>
+                                            <option value="NY">NY</option>
+                                            <option value="NC">NC</option>
+                                            <option value="ND">ND</option>
+                                            <option value="OH">OH</option>
+                                            <option value="OK">OK</option>
+                                            <option value="OR">OR</option>
+                                            <option value="PA">PA</option>
+                                            <option value="RI">RI</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SD">SD</option>
+                                            <option value="TN">TN</option>
+                                            <option value="TX">TX</option>
+                                            <option value="UT">UT</option>
+                                            <option value="VT">VT</option>
+                                            <option value="VA">VA</option>
+                                            <option value="WA">WA</option>
+                                            <option value="WV">WV</option>
+                                            <option value="WI">WI</option>
+                                            <option value="WY">WY</option>
+                                        </select>
+                                    </div>
+                                    <div class="well">
+                                        <label class="control-label">Zip: </label>
+                                        <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
+                                    </div>
                                 </div>
                         
                                 <div class="col-sm-4" id="amenitiesSearch">
                                     <h4>Amenities</h4>
-                                    <label for="contact-name" class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label>
-                                    
-                                        <input type="range" min="0" max="2" id="search-Bedrooms" name="MinBedrooms">
-                                    <br />
-
-                                    <label for="contact-name" class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label>
-                                    
-                                        <input type="range" min="0" max="2" id="search-Bathrooms" name="MaxBedrooms">
+                                    <div class="well">
+                                        <label class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label><br />
+                                       
+                                        <input type="hidden" name="minBedsSliderValue" id="minBedsSliderValue" />
+                                        <b>0 </b><input id="minBedSlider" name="MinBedrooms" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
+                                    </div>
+                                    <div class="well">
+                                        <label class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label><br />
+                                        
+                                        <input type="hidden" name="minBathsSliderValue" id="minBathsSliderValue" />
+                                        <b>0 </b><input id="minBathSlider" name="MinBathrooms" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-4" id="pricingSearch">
-                                    <h4>Pricing</h4>
-                                    <label for="contact-name" class="control-label">Min Bid Price: <b id="minBidDisplay"></b></label>
-                                    
-                                        <input type="range" min="0" max="20" value='0' id="search-BidMin" name="MinBidPrice"/>
-                                    <br />
+                                        <h4>Pricing</h4>
+                                    <div class="well">
+                                        <label class="control-label">Bid Price Range: <b id="minBidDisplay"></b></label> to <b id="maxBidDisplay"></b><br />
+                                       
+                                        <input type="hidden" name="MinBidPrice" id="MinBidPrice" />
+                                        <input type="hidden" name="MaxBidPrice" id="MaxBidPrice" />
+                                        <b>$0</b> <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[600000,5000000]" /> <b> $10,000,000</b>
+                                    </div>
 
-                                    <label for="contact-name" class="control-label">Max Bid Price: <b id="maxBidDisplay"></b></label>
-                                    
-                                        <input type="range" min="8" max="30" value='0' id="search-BidMax" name="MaxBidPrice" />
-                                    <br />
-
-                                    <label for="contact-name" class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
-                                   
-
-                                        @*<div class="btn-group">
-                                            <i class="dropdown-arrow dropdown-arrow-inverse"></i>
-                                            <button class="btn">Choose</button>
-                                            <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="clickProperty()"> <span class="caret"></span> </button>
-                                            <ul class="dropdown-menu dropdown-inverse" name="">
-                                                <li><a href="#fakelink" id="propertyBtn">Single Family</a></li>
-                                                <li><a href="#fakelink" id="propertyBtn">Multi-Family</a></li>
-                                                <li><a href="#fakelink" id="propertyBtn">Condo or Townhome</a></li>
-                                                <li><a href="#fakelink" id="propertyBtn">Land</a></li>
-                                            </ul>
-                                        </div>*@
-                                    
-                                </div>
+                                    <div class="well">
+                                        <label class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
+                                        <br />
+                                        <select name="RealEstateTypeId" class="form-control">
+                                            <option value="0">MultiFamily</option>
+                                            <option value="1">Single Family</option>
+                                            <option value="2">Other</option>
+                                            <option value="3">Land</option>
+                                            <option value="4">Condo or Townhome</option>
+                                        </select>
+                                    </div>
+                               </div>
                         
                     </div>
                     }
@@ -152,203 +210,97 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/bootbox")
+    @*@Scripts.Render("~/bundles/bootbox")*@
+    @Scripts.Render("~/bundles/bootSlider")
     @RenderSection("scripts", required: false)
 
     @Html.Action("Filters", "Home");
 
-    <script>
-        $(document).ready(function () {
+        <script>
+            var minBathValue;
+            $(document).ready(function () {
 
-            $('#btn-real-estate-search').click(function () {
-                $('#form-real-estate-search').submit(function(e){
-                    var postData = new FormData(document.getElementById("form-real-estate-search"));
-              
-                    var formURL = $(this).attr("action");
-                    $.ajax(
-                    {
-                        url: formURL,
-                        type: "POST",
-                        data: postData,
-                        
-                        success: function (data, textStatus, jqXHR) {
-                            
-                            $("#real-estate-list").css('background-color','green').html(data);
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            //if fails     
-                        },
-                        cache: false,
-                        contentType: false,
-                        processData: false
-                    });
-
-                    e.preventDefault(); //STOP default action
-                    e.unbind(); //unbind. to stop multiple form submit.
-
+                // START Min BEDroom Slider
+                $('#minBedSlider').slider({
+                    formater: function (value) {
+                        document.getElementById('minBedroomsDisplay').innerHTML = value;
+                        return 'Current value: ' + value;
+                    }
                 });
-                $('#form-real-estate-search').submit();
-            });
+                // END Min BEDroom Slider
+
+
+                // START Min BATHroom Slider
+                $('#minBathSlider').slider({
+                    formater: function (value) {
+                        document.getElementById('minBathroomsDisplay').innerHTML = value;
+                        return 'Current value: ' + value;
+                    }
+                });
+                // END Min BATHroom Slider
+
+
+                // START Bid Price Range Slider
+                $("#bidPriceSlider").slider({
+                    formater: function (value) {
+                        return '$' + value;
+                    }
+                }).on('slide', function () {
+                    var values = $(this).slider('getValue');
+                    $('#MinBidPrice').val(values[0]);
+                    $('#MaxBidPrice').val(values[1]);
+
+                   
+                    document.getElementById('minBidDisplay').innerHTML = '$' + values[0];
+                    document.getElementById('maxBidDisplay').innerHTML = '$' + values[1];
+
+                })
+                    .data('slider');
+                // END Bid Price Range Slider
+
+                // START Search Button inside Filter Pop Up
+                $('#btn-real-estate-search').click(function () {
+                    $('#form-real-estate-search').submit(function(e){
+                        var postData = new FormData(document.getElementById("form-real-estate-search"));
+                    
+                        var formURL = $(this).attr("action");
+                        $.ajax(
+                        {
+                            url: formURL,
+                            type: "POST",
+                            data: postData,
+                            success: function (data, textStatus, jqXHR) {
+                            
+                                $("#real-estate-list").css('background-color','green').html(data);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                //if fails     
+                            },
+                            cache: false,
+                            contentType: false,
+                            processData: false
+                        });
+
+                        e.preventDefault(); //STOP default action
+                        e.unbind(); //unbind. to stop multiple form submit.
+
+                    });
+                    $('#form-real-estate-search').submit();
+                });
            
-        });
-        function filterPopUp()
-        {
-            var other_html = $("div.FiltersAlert").html();
-            bootbox.alert(other_html);
-        }
-
-        // START slider Min Bedrooms
-        var rMinBedroom = document.getElementById('search-Bedrooms');
-        var maxMinBedroom = rMinBedroom.getAttribute('max');
-        var minMinBedroom = rMinBedroom.getAttribute('min');
-        var wMinBedroom = rMinBedroom.clientWidth;
-        var isDragging = false;
-
-        var moveTipMinBedroom = (function (e) {
-            if (isDragging) {
-                var posPercMinBedroom = (rMinBedroom.value * maxMinBedroom) * 1;
-                var pixPosMinBedroom = (posPercMinBedroom * 1) * wMinBedroom;
-                pixPosMinBedroom += rMinBedroom.offsetLeft;
-                document.getElementById('minBedroomsDisplay').innerHTML = posPercMinBedroom;
-            }
-        });
-
-        rMinBedroom.onmousedown = (function (e) {
-            isDragging = true;
-            rMinBedroom.addEventListener('mousemove', moveTipMinBedroom, false);
-        });
-
-        rMinBedroom.onmouseup = (function (e) {
-            isDragging = false;
-            rMinBedroom.removeEventListener('mousemove', moveTipMinBedroom);
-        });
-        // END slider Min Bedrooms
-
-
-        // START slider Min Bathrooms
-        var rMinBathroom = document.getElementById('search-Bathrooms');
-        var maxMinBathroom = rMinBathroom.getAttribute('max');
-        var minMinBathroom = rMinBathroom.getAttribute('min');
-        var wMinBathroom = rMinBathroom.clientWidth;
-        var isDragging = false;
-
-        var moveTipMinBathroom = (function (e) {
-            if (isDragging) {
-                var posPercMinBathroom = (rMinBathroom.value * maxMinBathroom) * 1;
-                var pixPosMinBathroom = (posPercMinBathroom * 1) * wMinBathroom;
-                pixPosMinBathroom += rMinBathroom.offsetLeft;
-                document.getElementById('minBathroomsDisplay').innerHTML = posPercMinBathroom;
-            }
-        });
-
-        rMinBathroom.onmousedown = (function (e) {
-            isDragging = true;
-            rMinBathroom.addEventListener('mousemove', moveTipMinBathroom, false);
-        });
-
-        rMinBathroom.onmouseup = (function (e) {
-            isDragging = false;
-            rMinBathroom.removeEventListener('mousemove', moveTipMinBathroom);
-        });
-        // END slider Min Bathrooms
-
-
-        // START slider Min Garages
-        var rMinGarage = document.getElementById('search-Garages');
-        var maxMinGarage = rMinGarage.getAttribute('max');
-        var minMinGarage = rMinGarage.getAttribute('min');
-        var wMinGarage = rMinGarage.clientWidth;
-        var isDragging = false;
-
-        var moveTipMinGarage = (function (e) {
-            if (isDragging) {
-                var posPercMinGarage = (rMinGarage.value * maxMinGarage) * 1;
-                var pixPosMinGarage = (posPercMinGarage * 1) * wMinGarage;
-                pixPosMinGarage += rMinGarage.offsetLeft;
-                document.getElementById('minGaragesDisplay').innerHTML = posPercMinGarage;
-            }
-        });
-
-        rMinGarage.onmousedown = (function (e) {
-            isDragging = true;
-            rMinGarage.addEventListener('mousemove', moveTipMinGarage, false);
-        });
-
-        rMinGarage.onmouseup = (function (e) {
-            isDragging = false;
-            rMinGarage.removeEventListener('mousemove', moveTipMinGarage);
-        });
-        // END slider Min Garages
-
-
-        // START slider MIN Bid Price
-        var rMinBid = document.getElementById('search-BidMin');
-        var maxMinBid = rMinBid.getAttribute('max');
-        var minMinBid = rMinBid.getAttribute('min');
-        var wMinBid = rMinBid.clientWidth;
-        //w += r.offsetLeft;
-        var isDragging = false;
-
-        var moveTipMinBid = (function (e) {
-            if (isDragging) {
-                var posPercMinBid = (rMinBid.value * maxMinBid) * 750;
-                var pixPosMinBid = (posPercMinBid * 200) * wMinBid;
-                pixPosMinBid += rMinBid.offsetLeft;
-                document.getElementById('minBidDisplay').innerHTML = "$" + posPercMinBid.toFixed(2);
-            }
-        });
-
-        rMinBid.onmousedown = (function (e) {
-            isDragging = true;
-            rMinBid.addEventListener('mousemove', moveTipMinBid, false);
-        });
-
-        rMinBid.onmouseup = (function (e) {
-            isDragging = false;
-            rMinBid.removeEventListener('mousemove', moveTipMinBid);
-        });
-        // END slider MIN Bid Price
-
-
-        // START slider MAX Bid Price
-        var rMaxBid = document.getElementById('search-BidMax');
-        var maxMaxBid = rMaxBid.getAttribute('max');
-        var minMaxBid = rMaxBid.getAttribute('min');
-        var wMaxBid = rMaxBid.clientWidth;
-        //w += r.offsetLeft;
-        var isDragging = false;
-
-        var moveTipMaxBid = (function (e) {
-            if (isDragging) {
-                var posPercMaxBid = (rMaxBid.value * maxMaxBid) * 1300;
-                var pixPosMaxBid = (posPercMaxBid * 200) * wMaxBid;
-                pixPosMaxBid += rMaxBid.offsetLeft;
-                document.getElementById('maxBidDisplay').innerHTML = "$" + posPercMaxBid.toFixed(2);
-            }
-        });
-
-        rMaxBid.onmousedown = (function (e) {
-            isDragging = true;
-            rMaxBid.addEventListener('mousemove', moveTipMaxBid, false);
-        });
-
-        rMaxBid.onmouseup = (function (e) {
-            isDragging = false;
-            rMaxBid.removeEventListener('mousemove', moveTipMaxBid);
-        });
-        // END slider MAX Bid Price
-
-
-        // START click Property Type Dropdown
-        function clickProperty() {
-            $(".dropdown-inverse li a").click(function () {
-                searchedProperty = $(this).text();
-
-                document.getElementById('propertyTypeDisplay').innerHTML = searchedProperty;
             });
-        };
-        // END click Property Type Dropdown
-    </script>
+
+            // START click Property Type Dropdown
+            function clickProperty() {
+                $(".dropdown-inverse li a").click(function () {
+                    searchedProperty = $(this).text();
+
+                    document.getElementById('propertyTypeDisplay').innerHTML = searchedProperty;
+                });
+            };
+            // END click Property Type Dropdown
+
+        </script>
 
     </body>
 </html>

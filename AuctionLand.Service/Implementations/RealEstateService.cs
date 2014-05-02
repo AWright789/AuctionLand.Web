@@ -23,16 +23,17 @@ namespace AuctionLand.Service.Implementations
             return _db.RealEstates.Find(id);
         }
 
-        public IQueryable<RealEstate> Query(string city, string state, int? zip, int? bedroom, int? bathroom, int? bidPriceMin, int? bidPriceMax, int? estateType, DateTime? auctionStart, DateTime? auctionEnd, DateTime? saleDate)
+        public IQueryable<RealEstate> Query(string city, string state, int? zip, int? minBedrooms, int? minBathroom, int? bidPriceMin, int? bidPriceMax, int? realEstateTypeId, DateTime? auctionStart, DateTime? auctionEnd, DateTime? saleDate)
         {
             return _db.RealEstates.Where(r =>
                 (r.City == city || city == null)
                 && (r.State == state || state == null)
                 && (r.Zip == zip.Value || zip == null)
-                && (r.Bedrooms == bedroom.Value || bedroom == null)
-                && (r.Bathrooms == bathroom.Value || bathroom == null)
-                && (r.StartingBid == bidPriceMax.Value || bidPriceMax == null)
-                && (r.EndingBid == bidPriceMin.Value || bidPriceMin == null)
+                && (r.Bedrooms >= minBedrooms.Value || minBedrooms == null)
+                && (r.Bathrooms >= minBathroom.Value || minBathroom == null)
+                && (r.StartingBid == bidPriceMin.Value || bidPriceMin == null)
+                && (r.EndingBid == bidPriceMax.Value || bidPriceMax == null)
+                && (r.RealEstateTypeId == realEstateTypeId.Value || realEstateTypeId == null)
                 && (r.StartDate == auctionStart.Value || auctionStart == null)
                 && (r.EndDate == auctionEnd.Value || auctionEnd == null)
                 && (r.SaleDate == saleDate.Value || saleDate == null));
