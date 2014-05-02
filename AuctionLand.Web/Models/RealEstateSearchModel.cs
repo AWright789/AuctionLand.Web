@@ -9,7 +9,7 @@ namespace AuctionLand.Web.Models
     {
         public string City { get; set; }
 
-        public string Zip { get; set; }
+        public int Zip { get; set; }
 
         public string State { get; set; }
 

@@ -87,14 +87,14 @@
                                 <div class="col-sm-4" id="locationSearch">
                                     <h4>Location</h4>
                                     <div class="well">
-                                        <label class="control-label">City: </label>
+                                        <label class="control-label">City: <b id="cityDisplay"></b></label>
                                         <input type="text" class="form-control" placeholder="Enter city" value="" id="search-City" name="City">
                                     </div>
 
                                     <div class="well">
-                                        <label class="control-label">State: <b id="stateTypeDisplay"></b></label>
+                                        <label class="control-label">State: <b id="stateDisplay"></b></label>
                                         <br />
-                                        <select name="state" class="form-control">
+                                        <select name="State" class="form-control" id="stateDropDown" onclick="clickState()">
                                             <option value="AL">AL</option>
                                             <option value="AK">AK</option>
                                             <option value="AZ">AZ</option>
@@ -149,7 +149,7 @@
                                         </select>
                                     </div>
                                     <div class="well">
-                                        <label class="control-label">Zip: </label>
+                                        <label class="control-label">Zip: <b id="zipDisplay"></b></label>
                                         <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
                                     </div>
                                 </div>
@@ -165,8 +165,8 @@
                                     <div class="well">
                                         <label class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label><br />
                                         
-                                        <input type="hidden" name="minBathsSliderValue" id="minBathsSliderValue" />
-                                        <b>0 </b><input id="minBathSlider" name="MinBathrooms" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
+                                        <input type="hidden" name="minBathsSliderValue" id="minBaths" />
+                                        <b>0 </b><input id="minBathSlider" name="MinBaths" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
                                     </div>
                                 </div>
 
@@ -177,13 +177,14 @@
                                        
                                         <input type="hidden" name="MinBidPrice" id="MinBidPrice" />
                                         <input type="hidden" name="MaxBidPrice" id="MaxBidPrice" />
-                                        <b>$0</b> <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[600000,5000000]" /> <b> $10,000,000</b>
+                                        <b>$0</b> <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[0,5000000]" /> <b> $10,000,000</b>
                                     </div>
 
+                                    <h4>Property Type</h4>
                                     <div class="well">
-                                        <label class="control-label">Property Type: <b id="propertyTypeDisplay"></b></label>
+                                        <label class="control-label">Select Type: <b id="propertyTypeDisplay"></b></label>
                                         <br />
-                                        <select name="RealEstateTypeId" class="form-control">
+                                        <select name="RealEstateTypeId" class="form-control" id="propertyDropDown" onclick="clickProperty()">
                                             <option value="0">MultiFamily</option>
                                             <option value="1">Single Family</option>
                                             <option value="2">Other</option>
@@ -192,14 +193,13 @@
                                         </select>
                                     </div>
                                </div>
-                        
                     </div>
                     }
                 </div>
                 <div class="modal-footer" id="myModalFooter">
                     <div class="row col-sm-12">
                         <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-                        <a class="btn btn-primary" id="btn-real-estate-search">Search</a>
+                        <a class="btn btn-primary" data-dismiss="modal" id="btn-real-estate-search">Search</a>
                     </div>
                 </div>
 
@@ -217,8 +217,18 @@
     @Html.Action("Filters", "Home");
 
         <script>
-            var minBathValue;
+            
             $(document).ready(function () {
+
+                // START Min BEDroom Slider
+                $('#minBedSlider').slider({
+                    formater: function (value) {
+                        document.getElementById('minBedroomsDisplay').innerHTML = value;
+                        return 'Current value: ' + value;
+                    }
+                });
+                // END Min BEDroom Slider
+
 
                 // START Min BEDroom Slider
                 $('#minBedSlider').slider({
@@ -270,8 +280,7 @@
                             type: "POST",
                             data: postData,
                             success: function (data, textStatus, jqXHR) {
-                            
-                                $("#real-estate-list").css('background-color','green').html(data);
+                                $("#real-estate-list").html(data);
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 //if fails     
@@ -290,12 +299,42 @@
            
             });
 
+            // START type City
+            function typeCity() {
+                    var cityTyped = document.getElementById('search-City').value;
+                    document.getElementById('cityDisplay').innerHTML = cityTyped;
+            };
+            // END type City
+
+            // START click State Type Dropdown
+            function clickState() {
+                $(".form-control option").click(function () {
+                    var dropDownValue = document.getElementById("stateDropDown");
+                    var stateValue = dropDownValue.options[dropDownValue.selectedIndex].value;
+                    var stateType = dropDownValue.options[dropDownValue.selectedIndex].text;
+                    document.getElementById('stateDisplay').innerHTML = stateType;
+                    //alert(thePropertyValue);
+                    //alert(thePropertyType);
+                });
+            };
+            // END click State Type Dropdown
+
+            // START type Zip
+            function typeZip() {
+                var zipTyped = document.getElementById('search-Zip').value;
+                document.getElementById('zipDisplay').innerHTML = zipTyped;
+            };
+            // END type Zip
+
             // START click Property Type Dropdown
             function clickProperty() {
-                $(".dropdown-inverse li a").click(function () {
-                    searchedProperty = $(this).text();
-
-                    document.getElementById('propertyTypeDisplay').innerHTML = searchedProperty;
+                $(".form-control option").click(function () {
+                    var dropDownValue = document.getElementById("propertyDropDown");
+                    var thePropertyValue = dropDownValue.options[dropDownValue.selectedIndex].value;
+                    var thePropertyType = dropDownValue.options[dropDownValue.selectedIndex].text;
+                    document.getElementById('propertyTypeDisplay').innerHTML = thePropertyType;
+                    //alert(thePropertyValue);
+                    //alert(thePropertyType);
                 });
             };
             // END click Property Type Dropdown
