@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -267,6 +267,14 @@
     <Compile Include="Migrations\201404241550335_AddImageDescription.Designer.cs">
       <DependentUpon>201404241550335_AddImageDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405012259110_BidMigration.cs" />
+    <Compile Include="Migrations\201405012259110_BidMigration.Designer.cs">
+      <DependentUpon>201405012259110_BidMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405021539192_ImplementedUserIdentityContext.cs" />
+    <Compile Include="Migrations\201405021539192_ImplementedUserIdentityContext.Designer.cs">
+      <DependentUpon>201405021539192_ImplementedUserIdentityContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="ModelBinders\EFModelBinderProvider.cs" />
@@ -275,7 +283,6 @@
     <Compile Include="Mappings\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RealEstateImageModel.cs" />
     <Compile Include="Models\RealEstateModel.cs" />
     <Compile Include="Models\RealEstateSearchModel.cs" />
@@ -300,7 +307,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ModelBinders\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -445,6 +452,12 @@
     <EmbeddedResource Include="Migrations\201404241550335_AddImageDescription.resx">
       <DependentUpon>201404241550335_AddImageDescription.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405012259110_BidMigration.resx">
+      <DependentUpon>201405012259110_BidMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405021539192_ImplementedUserIdentityContext.resx">
+      <DependentUpon>201405021539192_ImplementedUserIdentityContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -464,7 +477,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53130</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53130/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

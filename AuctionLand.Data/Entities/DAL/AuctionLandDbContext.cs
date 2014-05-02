@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using AuctionLand.Data.Mapping;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AuctionLand.Data.Entities.DAL
 {
-    public class AuctionLandDbContext: DbContext, IAuctionLandDbContext
+    public class AuctionLandDbContext : IdentityDbContext<ApplicationUser>, IAuctionLandDbContext
     {
         public AuctionLandDbContext():base("AuctionLandDB")
         {
@@ -19,8 +20,8 @@ namespace AuctionLand.Data.Entities.DAL
         public DbSet<RealEstate> RealEstates { get; set; }
        
         public DbSet<RealEstateImage> RealEstateImages { get; set; }
-     
 
+        public DbSet<Bid> Bids { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new RealEstateMapping());

@@ -228,7 +228,7 @@
                           {
                               <tr>
                                 <td>
-                                <a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="No Image"></a>
+                                <a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="No Image" height="100" width="100"></a>
                                 </td>
                                 <td>
                                     <input type="text" id="imageUrl_@rei.Id" value="@rei.ImageUrl" class="hidden"/>
@@ -361,7 +361,7 @@
                                             bootbox.alert(data.errorMessage);
                                         } else {
                                             var model = data.model;
-                                            var html = "<tr><td><a href='#' class='thumbnail'><img src='"+ data.model.ImageUrl+ "' alt='No Image'></a></td><td><input type='text' id='imageUrl_"+ reiid + "' value ='"+data.model.ImageUrl+"'  class='hidden'/> <textarea id='description_"+ reiid +"'>"+ data.model.Description +"</textarea><input type='text' id='realEstate_"+reiid+"' value ='"+data.model.RealEstate_Id+"'  class='hidden' /></td><td><button type='button' class='btn btn-danger btn-delete-photo' data-reiid='"+reiid+"'>Delete</button><button type='button' class='btn btn-default btn-update-description' data-reiid='"+reiid+"'>Save</button></td></tr>";
+                                            var html = "<tr><td><a href='#' class='thumbnail'><img src='"+ data.model.ImageUrl+ "' alt='No Image' height='100' width='100'></a></td><td><input type='text' id='imageUrl_"+ reiid + "' value ='"+data.model.ImageUrl+"'  class='hidden'/> <textarea id='description_"+ reiid +"'>"+ data.model.Description +"</textarea><input type='text' id='realEstate_"+reiid+"' value ='"+data.model.RealEstate_Id+"'  class='hidden' /></td><td><button type='button' class='btn btn-danger btn-delete-photo' data-reiid='"+reiid+"'>Delete</button><button type='button' class='btn btn-default btn-update-description' data-reiid='"+reiid+"'>Save</button></td></tr>";
                                             $('#image-table').append(html);
                                            
                                             bootbox.hideAll();

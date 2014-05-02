@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -11,10 +12,12 @@ namespace AuctionLand.Data.Entities.DAL
     public interface IAuctionLandDbContext
     {
 
-
+         IDbSet<IdentityRole> Roles { get; set; }
+         IDbSet<ApplicationUser> Users { get; set; }
          DbSet<RealEstate> RealEstates { get; set; }
 
          DbSet<RealEstateImage> RealEstateImages { get; set; }
+         DbSet<Bid> Bids { get; set; }
 
          int SaveChanges();
 
