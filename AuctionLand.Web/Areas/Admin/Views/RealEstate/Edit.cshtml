@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Realestate</h2>
 
     
     
@@ -200,7 +200,7 @@
 
           <div class="form-group">
               <div class="col-md-offset-2 col-md-10">
-                  <input type="submit" value="Save" class="btn btn-default" />
+                  <input type="submit" value="Save" class="btn btn-success" />
               </div>
           </div>
       </div>
@@ -208,11 +208,13 @@
   </div>
   
   <div class="tab-pane" id="photos">
-      <input id="btn-add-new-photo" type="button" class="btn btn-default" value="Add New Photo" />
+      
       <div class="real-estate-images-container container">
           <div class="row">
               <div class="table-responsive">
+                  
                   <table id="image-table" class="table">
+                
                       <tr>
                           <th>
                               Image
@@ -223,12 +225,16 @@
                           <th>
                               Update/Delete
                           </th>
+                           <th>
+                          <input id="btn-add-new-photo" type="button" class="btn btn-success" value="Add New Photo" />
+                               </th>
+                      
                     </tr>
                           @foreach (var rei in Model.RealEstateImageModels)
                           {
                               <tr>
                                 <td>
-                                <a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="No Image" height="100" width="100"></a>
+                                <a href="#" class="thumbnail"><img src="@rei.ImageUrl" alt="No Image" height="110" width="110"></a>
                                 </td>
                                 <td>
                                     <input type="text" id="imageUrl_@rei.Id" value="@rei.ImageUrl" class="hidden"/>
@@ -240,6 +246,7 @@
                                       <button type="button" class="btn btn-danger btn-delete-photo" data-reiid="@rei.Id">Delete</button>
                                       <button type="button" class="btn btn-default btn-update-description" data-reiid="@rei.Id">Save</button>
                                   </td>
+                                  <td></td>
                               </tr>
                           }
                 </table>
@@ -361,7 +368,7 @@
                                             bootbox.alert(data.errorMessage);
                                         } else {
                                             var model = data.model;
-                                            var html = "<tr><td><a href='#' class='thumbnail'><img src='"+ data.model.ImageUrl+ "' alt='No Image' height='100' width='100'></a></td><td><input type='text' id='imageUrl_"+ reiid + "' value ='"+data.model.ImageUrl+"'  class='hidden'/> <textarea id='description_"+ reiid +"'>"+ data.model.Description +"</textarea><input type='text' id='realEstate_"+reiid+"' value ='"+data.model.RealEstate_Id+"'  class='hidden' /></td><td><button type='button' class='btn btn-danger btn-delete-photo' data-reiid='"+reiid+"'>Delete</button><button type='button' class='btn btn-default btn-update-description' data-reiid='"+reiid+"'>Save</button></td></tr>";
+                                            var html = "<tr><td><a href='#' class='thumbnail'><img src='"+ data.model.ImageUrl+ "' alt='No Image' height='110' width='110'></a></td><td><input type='text' id='imageUrl_"+ reiid + "' value ='"+data.model.ImageUrl+"'  class='hidden'/> <textarea id='description_"+ reiid +"'>"+ data.model.Description +"</textarea><input type='text' id='realEstate_"+reiid+"' value ='"+data.model.RealEstate_Id+"'  class='hidden' /></td><td><button type='button' class='btn btn-danger btn-delete-photo' data-reiid='"+reiid+"'>Delete</button><button type='button' class='btn btn-default btn-update-description' data-reiid='"+reiid+"'>Save</button></td></tr>";
                                             $('#image-table').append(html);
                                            
                                             bootbox.hideAll();
@@ -442,5 +449,5 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 </div>
