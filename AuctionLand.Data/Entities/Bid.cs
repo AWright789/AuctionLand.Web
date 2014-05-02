@@ -9,7 +9,7 @@ namespace AuctionLand.Data.Entities
     public partial class Bid:BaseEntity
     {
         public virtual int RealEstateId { get; set; }
-        public virtual int UserId { get; set; }
+        public virtual string ApplicationUserId { get; set; }
         public virtual decimal BidAmount { get; set; }
         public virtual DateTime CreateDate { get; set; }
         public virtual bool IsAutoBid { get; set; }
@@ -19,8 +19,8 @@ namespace AuctionLand.Data.Entities
         public virtual string PaymentErrorMessage { get; set; }
         public bool AllowSelfOutbid { get; set; }
         public string DeviceType { get; set; }
-        
-       // public User User { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
 
     }

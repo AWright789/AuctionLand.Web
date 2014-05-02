@@ -10,6 +10,7 @@ using AuctionLand.Data.Entities;
 
 namespace AuctionLand.Web.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         readonly IRealEstateService _realEstateService;

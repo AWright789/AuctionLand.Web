@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using AuctionLand.Data.Mapping;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AuctionLand.Data.Entities.DAL
 {
-    public class AuctionLandDbContext: DbContext, IAuctionLandDbContext
+    public class AuctionLandDbContext : IdentityDbContext<ApplicationUser>, IAuctionLandDbContext
     {
         public AuctionLandDbContext():base("AuctionLandDB")
         {

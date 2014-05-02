@@ -28,9 +28,9 @@ namespace AuctionLand.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "625319910894746",
+               appSecret: "aaad3b5124de6be9aeca5e810d8b6efa");
 
             //app.UseGoogleAuthentication();
         }
