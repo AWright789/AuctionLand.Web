@@ -149,10 +149,10 @@
                                             <option value="WY">WY</option>
                                         </select>
                                     </div>
+
                                     <div class="well">
                                         <label class="control-label">Zip: <b id="zipDisplay"></b></label>
                                         <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
-                                        
                                     </div>
                                 </div>
                         
@@ -192,7 +192,7 @@
                                             <option value="1">Single Family</option>
                                             <option value="2">Other</option>
                                             <option value="3">Land</option>
-                                            <option value="4">Condo or Townhome</option>
+                                            <option value="4">CondoTownhome</option>
                                         </select>
                                     </div>
                                </div>
@@ -203,7 +203,7 @@
                     <div class="row col-sm-12">
                         <a class="btn btn-default" data-dismiss="modal">Cancel</a>
                         <a class="btn btn-primary" data-dismiss="modal" id="btn-real-estate-search">Search</a>
-                    </div>
+</div>
                 </div>
 
             </div>
@@ -263,20 +263,19 @@
                     $('#MinBidPrice').val(values[0]);
                     $('#MaxBidPrice').val(values[1]);
 
-                   
                     document.getElementById('minBidDisplay').innerHTML = '$' + values[0];
                     document.getElementById('maxBidDisplay').innerHTML = '$' + values[1];
-
                 })
                     .data('slider');
                 // END Bid Price Range Slider
 
                 // START Search Button inside Filter Pop Up
                 $('#btn-real-estate-search').click(function () {
-                    $('#form-real-estate-search').submit(function(e){
+                    $('#form-real-estate-search').submit(function (e) {
                         var postData = new FormData(document.getElementById("form-real-estate-search"));
                     
                         var formURL = $(this).attr("action");
+
                         $.ajax(
                         {
                             url: formURL,
@@ -291,13 +290,15 @@
                             cache: false,
                             contentType: false,
                             processData: false
+                            
                         });
 
                         e.preventDefault(); //STOP default action
                         e.unbind(); //unbind. to stop multiple form submit.
-
+                        
                     });
                     $('#form-real-estate-search').submit();
+                    
                 });
            
             });

@@ -29,7 +29,7 @@ namespace AuctionLand.Web.Models
         public int? MaxBidPrice { get; set; }
 
 
-        public int? RealEstateTypeId { get; set; }
+        public string RealEstateTypeId { get; set; }
 
 
         public DateTime? AuctionStartDateTime { get; set; }
