@@ -3,8 +3,11 @@
 @{
     ViewBag.Title = "Create";
 }
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 
-<h2>Create Realestate</h2>
+<br/><h2>Create Realestate</h2>
+</div>
 
 @using (Html.BeginForm()) 
 {
