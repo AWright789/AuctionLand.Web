@@ -3,8 +3,11 @@
 @{
     ViewBag.Title = "Details";
 }
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+    <br/><h2>Realestate Details</h2>
+</div>
 
-<h2>Realestate Details</h2>
 
 <div>
     <h4>RealEstate</h4>
@@ -189,6 +192,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" }) |
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" }) 
+    
 </p>
