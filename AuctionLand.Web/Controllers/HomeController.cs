@@ -53,7 +53,10 @@ namespace AuctionLand.Web.Controllers
         {
 
            // var searchResults = _realEstateService.Query(model.City, model.State, model.Zip, model.MinBedrooms, model.MinBaths, model.MinBidPrice, model.MaxBidPrice, model.RealEstateTypeId, null, null, null);
+           // ORIGINAL KEEP AS BACKUP var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
+
             var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
+
             var models = searchResults.ToList().Select(r => r.ToModel());
 
             return PartialView("_SearchResults", models);

@@ -95,6 +95,7 @@
                                         <label class="control-label">State: <b id="stateDisplay"></b></label>
                                         <br />
                                         <select name="State" class="form-control" id="stateDropDown" onclick="clickState()">
+                                            <option value="">Please select a state</option>
                                             <option value="AL">AL</option>
                                             <option value="AK">AK</option>
                                             <option value="AZ">AZ</option>
@@ -185,6 +186,7 @@
                                         <label class="control-label">Select Type: <b id="propertyTypeDisplay"></b></label>
                                         <br />
                                         <select name="RealEstateTypeId" class="form-control" id="propertyDropDown" onclick="clickProperty()">
+                                            <option value="">Please select a type</option>
                                             <option value="0">MultiFamily</option>
                                             <option value="1">Single Family</option>
                                             <option value="2">Other</option>
@@ -322,6 +324,7 @@
             // START type Zip
             function typeZip() {
                 var zipTyped = document.getElementById('search-Zip').value;
+                alert("test");
                 document.getElementById('zipDisplay').innerHTML = zipTyped;
             };
             // END type Zip

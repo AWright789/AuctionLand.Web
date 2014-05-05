@@ -22,15 +22,25 @@ namespace AuctionLand.Service.Implementations
         {
             return _db.RealEstates.Find(id);
         }
+        //public IQueryable<RealEstate> theQuery(string myCity, string myState, int? myZip, int? myMinBedrooms)
+        //{
+        //    return _db.RealEstates.Where(r => 
+        //        (r.City == myCity || myCity == null)
+        //        && (r.State == myState || myState == null)
+        //        && (r.Zip == myZip.Value || myZip == null)
+        //        && (r.Bedrooms == myMinBedrooms.Value || myMinBedrooms == null)
+        //        );
+
+        //}
+
         public IQueryable<RealEstate> theQuery(string myCity, string myState, int? myZip, int? myMinBedrooms)
         {
-            return _db.RealEstates.Where(r => 
+            return _db.RealEstates.Where(r =>
                 (r.City == myCity || myCity == null)
-                && (r.State == myState || myState == null)
-                && (r.Zip == myZip.Value || myZip == null)
-                && (r.Bedrooms == myMinBedrooms.Value || myMinBedrooms == null)
-                );
-
+                 && (r.State == myState || myState == null)
+                 && (r.Zip == myZip.Value || myZip == null)
+                 && (r.Bedrooms >= myMinBedrooms.Value || myMinBedrooms == null)
+               );
         }
 
         public IQueryable<RealEstate> Query(string city, string state, int? zip, int? minBedrooms, int? minBathroom, int? bidPriceMin, int? bidPriceMax, int? realEstateTypeId, DateTime? auctionStart, DateTime? auctionEnd, DateTime? saleDate)
