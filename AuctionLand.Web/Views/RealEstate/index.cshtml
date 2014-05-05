@@ -37,8 +37,9 @@
                     <!-- START social media links-->
                     <div class="btn-group" id="socialMediaSection">
                         <ul class="list-inline">
-                            <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebookBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
-                            <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/ShareBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
+                            
+                            <li class="navbar-text"><a id="our-fb-like-button" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></li>
+                            
                         </ul>
                         <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
                         <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
@@ -69,8 +70,8 @@
             <div class="col-md-12">
                 <div class="btn-group" id="socialMediaSection">
                     <ul class="list-inline">
-                        <li class="navbar-text"><a href="http://www.facebook.com"><img src="~/Images/facebookBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
-                        <li class="navbar-text"><a href="http://www.google.com"><img src="~/Images/ShareBlue.png" class="img-responsive" id="myIconsMd" /></a></li>
+                        <li class="navbar-text"><a id="our-fb-like-button" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></li>
+                        
                     </ul>
                     <p class="hidden-xs">Is this the home you've been looking for? Share it with your friends!</p>
                     <p style="margin-top: -20px!important" class="visible-xs">Is this the home you've been looking for? Share it with your friends!</p>
@@ -151,3 +152,13 @@
 
 </div>
 <!-- end DETAIL VIEW OF REAL ESTATE -->
+@section scripts{
+    <script type="text/javascript" language="javascript">
+    window.onload = function () {
+        var currentUrl = window.location.href;
+        currentUrl = currentUrl.substring(0, currentUrl.length);
+        document.getElementById("our-fb-like-button").setAttribute("data-href", currentUrl);
+    }
+</script>
+
+}
