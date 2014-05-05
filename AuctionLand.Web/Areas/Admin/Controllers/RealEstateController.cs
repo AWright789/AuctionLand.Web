@@ -87,7 +87,7 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,Featured,ListingTypeId,OccupancyStatusId,RealEstateTypeId,Street,City,State,Zip,Location,StartDate,EndDate,SaleDate,StartingBid,EndingBid,BidIncrement")] RealEstate realestate)
+        public ActionResult Edit([Bind(Include = "Id,YearBuilt,Summary,EstateSize,LotSize,Bedrooms,Bathrooms,ListingStatusId,ListingStatus,Featured,ListingType,ListingTypeId,OccupancyStatusId,OccupancyStatus,RealEstateTypeId,RealEstateType,Street,City,State,Zip,Location,StartDate,EndDate,SaleDate,StartingBid,EndingBid,BidIncrement")] RealEstate realestate)
         {
             if (ModelState.IsValid)
             {

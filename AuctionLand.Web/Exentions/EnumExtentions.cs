@@ -37,10 +37,10 @@ namespace AuctionLand.Web.Exentions
                 return value.ToString();
         }
 
-        public static MvcHtmlString EnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TEnum>> expression)
-        {
-            return EnumDropDownListFor(htmlHelper, expression, null);
-        }
+       // public static MvcHtmlString EnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TEnum>> expression)
+       // {
+           // return EnumDropDownListFor(htmlHelper, expression);
+       // }
 
         public static MvcHtmlString EnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TEnum>> expression, object htmlAttributes)
         {
