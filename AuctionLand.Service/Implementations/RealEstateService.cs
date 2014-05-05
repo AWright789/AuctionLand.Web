@@ -22,24 +22,18 @@ namespace AuctionLand.Service.Implementations
         {
             return _db.RealEstates.Find(id);
         }
-        //public IQueryable<RealEstate> theQuery(string myCity, string myState, int? myZip, int? myMinBedrooms)
-        //{
-        //    return _db.RealEstates.Where(r => 
-        //        (r.City == myCity || myCity == null)
-        //        && (r.State == myState || myState == null)
-        //        && (r.Zip == myZip.Value || myZip == null)
-        //        && (r.Bedrooms == myMinBedrooms.Value || myMinBedrooms == null)
-        //        );
 
-        //}
-
-        public IQueryable<RealEstate> theQuery(string myCity, string myState, string myZip, int? myMinBedrooms)
+        public IQueryable<RealEstate> theQuery(string myCity, string myState, string myZip, int? myMinBedrooms, int? myMinBathrooms, int? myBidPriceMin, int? myBidPriceMax, string myRealEstateType)
         {
             return _db.RealEstates.Where(r =>
                 (r.City == myCity || myCity == null)
                  && (r.State == myState || myState == null)
                  && (r.Zip.ToString().Equals(myZip) || myZip == null)
                  && (r.Bedrooms >= myMinBedrooms.Value || myMinBedrooms == null)
+                 && (r.Bathrooms >= myMinBathrooms.Value || myMinBathrooms == null)
+                 && (r.StartingBid >= myBidPriceMin.Value || myBidPriceMin == null)
+                 && (r.EndingBid <= myBidPriceMax.Value || myBidPriceMax == null)
+                 && (r.RealEstateTypeId.ToString().Equals(myRealEstateType) || myRealEstateType == null)
                );
         }
 
