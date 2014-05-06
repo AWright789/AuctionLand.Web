@@ -82,9 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Exceptions\OutBidException.cs" />
+    <Compile Include="Exceptions\OutbidSelfException.cs" />
+    <Compile Include="Implementations\BidService.cs" />
     <Compile Include="Implementations\ImageBlobStorageService.cs" />
     <Compile Include="Implementations\ImageService.cs" />
     <Compile Include="Implementations\RealEstateService.cs" />
+    <Compile Include="Interfaces\IBidService.cs" />
     <Compile Include="Interfaces\IImageBlobStorageService.cs" />
     <Compile Include="Interfaces\IImageService.cs" />
     <Compile Include="Interfaces\IRealEstateService.cs" />

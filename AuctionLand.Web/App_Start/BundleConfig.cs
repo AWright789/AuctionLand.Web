@@ -14,14 +14,15 @@ namespace AuctionLand.Web
             BundleTable.EnableOptimizations = false;
 
             bundles.UseCdn = true;
-            var cssTransformer = new CssTransformer();
-            var jsTransformer = new JsTransformer();
+            var cssTransformer = new CssMinify();
+            var jsTransformer = new JsMinify();
             var nullOrderer = new NullOrderer();
 
             var cssBundle = new CustomStyleBundle("~/bundles/css");
             cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap.less");
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
+            
             bundles.Add(cssBundle);
 
             // CSS for custom slider

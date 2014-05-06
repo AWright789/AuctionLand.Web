@@ -23,5 +23,7 @@ namespace AuctionLand.Data.Entities
         public virtual ApplicationUser ApplicationUser { get; set; }
 
 
+
+        public bool IsWinner { get; set; }
     }
 }
