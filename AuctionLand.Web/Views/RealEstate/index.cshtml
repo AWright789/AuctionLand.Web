@@ -37,7 +37,7 @@
                             <li class="navbar-text" id="myNavBarText">Listing Status:<p style="font-weight:bolder"> @Model.ListingStatus</p></li>
                             <li class="navbar-text" id="myNavBarText">Listing Type:<p style="font-weight:bolder"> @Model.ListingType</p></li>
                             <li class="navbar-text" id="myNavBarText">Occupancy:<p style="font-weight:bolder"> @Model.OccupancyStatus</p></li>
-                            <li class="navbar-text" id="myNavBarText" style="font-size:smaller"><a id="our-fb-like-button" class="fb-like text-center hidden-xs" style="max-width: 50px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></li>
+                            <li class="navbar-text" id="myNavBarText" style="font-size:smaller; max-width:300px!important"><a id="our-fb-like-button" class="fb-like text-center hidden-xs" style="max-width: 50px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></li>
                          </ul>
                     </div>
                 </div>
@@ -50,20 +50,24 @@
         <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
         <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
         <div class="visible-xs text-center" id="BathroomBedroomSizeSection">
-                <ul class="list-inline">
-                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
-                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
-                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="propertyDetailIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
-                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="propertyDetailIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
-                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
-                </ul>
-                <ul class="list-inline">
-                    <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Property Type:<p style="font-weight:bold">@Model.RealEstateType</p></li>
-                    <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Status:<p style="font-weight:bold">@Model.ListingStatus</p></li>
-                    <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Type:<p style="font-weight:bold">@Model.ListingType</p></li>
-                    <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Occupancy:<p style="font-weight:bold">@Model.OccupancyStatus</p></li>
-                </ul>
-            <a id="our-fb-like-button" class="fb-like text-center visible-xs" style="padding: 1px 1px 10px 10px!important; max-width: 50px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></a>
+            <ul class="list-inline">
+                <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
+                <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
+            </ul>   
+            <ul class="list-inline">
+                <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="propertyDetailIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
+                <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="propertyDetailIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
+                <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
+            </ul>
+            <ul class="list-inline">
+                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Property Type:<p style="font-weight:bold">@Model.RealEstateType</p></li>
+                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Status:<p style="font-weight:bold">@Model.ListingStatus</p></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Type:<p style="font-weight:bold">@Model.ListingType</p></li>
+                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Occupancy:<p style="font-weight:bold">@Model.OccupancyStatus</p></li>
+            </ul>
+            <a id="our-fb-like-button" class="fb-like text-center visible-xs" style="padding: 1px 1px 10px 10px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></a>
         </div>
         <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
         <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
