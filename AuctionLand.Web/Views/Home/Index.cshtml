@@ -16,10 +16,10 @@
             <div class="homeThumbnailImage" style="background-image:url(@featuredHome.DefaultImageUrl)"></div>
                  Featured Home @featuredHome.Street
                 <p id="currentBidFeatured">@featuredHome.StartingBid.ToString("C")</p>
-                <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" />@featuredHome.Bedrooms    
-                <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> @featuredHome.Bathrooms
-                <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@featuredHome.EstateSize.ToString("N0") Sq Ft
-                <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@featuredHome.YearBuilt 
+                <img src="~/Images/bedroom.png" id="propertyDetailIcons" />@featuredHome.Bedrooms    
+            <img src="~/Images/bathroom.png" id="propertyDetailIcons" /> @featuredHome.Bathrooms
+                <img src="~/Images/property.png" id="propertyDetailIcons" />@featuredHome.EstateSize.ToString("N0") Sq Ft
+                <img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" />@featuredHome.YearBuilt 
         </div>
        </a>
         }
