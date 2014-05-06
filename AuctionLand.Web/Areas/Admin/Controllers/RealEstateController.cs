@@ -125,10 +125,10 @@ namespace AuctionLand.Web.Areas.Admin.Controllers
         public ActionResult SearchResults(RealEstateSearchModel model)
         {
 
-            // var searchResults = _realEstateService.Query(model.City, model.State, model.Zip, model.MinBedrooms, model.MinBaths, model.MinBidPrice, model.MaxBidPrice, model.RealEstateTypeId, null, null, null);
-            // ORIGINAL KEEP AS BACKUP var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
-
-            var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
+             //var searchResults = _realEstateService.Query(model.City, model.State, model.Zip, model.MinBedrooms, model.MinBaths, model.MinBidPrice, model.MaxBidPrice, model.RealEstateTypeId, null, null, null);
+             //ORIGINAL KEEP AS BACKUP var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
+            var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms, model.MinBaths, model.MinBidPrice, model.MaxBidPrice, model.RealEstateTypeId);
+            //var searchResults = _realEstateService.theQuery(model.City, model.State, model.Zip, model.MinBedrooms);
 
             var models = searchResults.ToList().Select(r => r.ToModel());
 

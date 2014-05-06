@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/cssSlider")
     @Scripts.Render("~/bundles/modernizr")    
     
     
@@ -72,12 +73,275 @@
             <p>&copy; @DateTime.Now.Year - Auction Land.</p>
         </footer>
     </div>
+    <!-- START modal for Filter -->
+    <div class="modal fade" id="searchBOOTSTRAP" role="dialog">
+        <div class="modal-dialog" id="modalDialog100Width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Search</h2>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("SearchResults", "RealEstate", FormMethod.Post, new { id = "form-real-estate-search" }))
+                    {
+
+                        <div class="row">
+                            <div class="col-sm-4" id="locationSearch">
+                                <h4>Location</h4>
+                                <div class="well">
+                                    <label class="control-label">City: <b id="cityDisplay"></b></label>
+                                    <input type="text" class="form-control" placeholder="Enter city" value="" id="search-City" name="City">
+                                </div>
+
+                                <div class="well">
+                                    <label class="control-label">State: <b id="stateDisplay"></b></label>
+                                    <br />
+                                    <select name="State" class="form-control" id="stateDropDown" onclick="clickState()">
+                                        <option value="">Please select a state</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                </div>
+
+                                <div class="well">
+                                    <label class="control-label">Zip: <b id="zipDisplay"></b></label>
+                                    <input type="text" class="form-control" placeholder="Enter zip" value="" id="search-Zip" name="Zip">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4" id="amenitiesSearch">
+                                <h4>Amenities</h4>
+                                <div class="well">
+                                    <label class="control-label">Minimum Bedrooms: <b id="minBedroomsDisplay"></b></label><br />
+
+                                    <input type="hidden" name="minBedsSliderValue" id="minBedsSliderValue" />
+                                    <b>0 </b><input id="minBedSlider" name="MinBedrooms" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
+                                </div>
+                                <div class="well">
+                                    <label class="control-label">Min Bathrooms: <b id="minBathroomsDisplay"></b></label><br />
+
+                                    <input type="hidden" name="minBathsSliderValue" id="minBaths" />
+                                    <b>0 </b><input id="minBathSlider" name="MinBaths" style="width:70%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" /> <b>  5</b>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4" id="pricingSearch">
+                                <h4>Pricing</h4>
+                                <div class="well">
+                                    <label class="control-label">Bid Price Range: <b id="minBidDisplay"></b></label> to <b id="maxBidDisplay"></b><br />
+
+                                    <input type="hidden" name="MinBidPrice" id="MinBidPrice" />
+                                    <input type="hidden" name="MaxBidPrice" id="MaxBidPrice" />
+                                    <b>$0</b> <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[0,5000000]" /> <b> $10,000,000</b>
+                                </div>
+
+                                <h4>Property Type</h4>
+                                <div class="well">
+                                    <label class="control-label">Select Type: <b id="propertyTypeDisplay"></b></label>
+                                    <br />
+                                    <select name="RealEstateTypeId" class="form-control" id="propertyDropDown" onclick="clickProperty()">
+                                        <option value="">Please select a type</option>
+                                        <option value="0">MultiFamily</option>
+                                        <option value="1">Single Family</option>
+                                        <option value="2">Other</option>
+                                        <option value="3">Land</option>
+                                        <option value="4">CondoTownhome</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer" id="myModalFooter">
+                    <div class="row col-sm-12">
+                        <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                        <a class="btn btn-primary" data-dismiss="modal" id="btn-real-estate-search">Search</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END Filter form ver2, ver1 can be found in previous versions or back up code -->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/bootbox")
+    
+    @Scripts.Render("~/bundles/bootSlider")
     @RenderSection("scripts", required: false)
     
+    <script>
+    $(document).ready(function () {
+
+        // START Min BEDroom Slider
+        $('#minBedSlider').slider({
+            formater: function (value) {
+                document.getElementById('minBedroomsDisplay').innerHTML = value;
+                return 'Current value: ' + value;
+            }
+        });
+        // END Min BEDroom Slider
+
+
+        // START Min BEDroom Slider
+        $('#minBedSlider').slider({
+            formater: function (value) {
+                document.getElementById('minBedroomsDisplay').innerHTML = value;
+                return 'Current value: ' + value;
+            }
+        });
+        // END Min BEDroom Slider
+
+
+        // START Min BATHroom Slider
+        $('#minBathSlider').slider({
+            formater: function (value) {
+                document.getElementById('minBathroomsDisplay').innerHTML = value;
+                return 'Current value: ' + value;
+            }
+        });
+        // END Min BATHroom Slider
+
+
+        // START Bid Price Range Slider
+        $("#bidPriceSlider").slider({
+            formater: function (value) {
+                return '$' + value;
+            }
+        }).on('slide', function () {
+            var values = $(this).slider('getValue');
+            $('#MinBidPrice').val(values[0]);
+            $('#MaxBidPrice').val(values[1]);
+
+            document.getElementById('minBidDisplay').innerHTML = '$' + values[0];
+            document.getElementById('maxBidDisplay').innerHTML = '$' + values[1];
+        })
+            .data('slider');
+        // END Bid Price Range Slider
+
+        // START Search Button inside Filter Pop Up
+        $('#btn-real-estate-search').click(function () {
+            $('#form-real-estate-search').submit(function (e) {
+                var postData = new FormData(document.getElementById("form-real-estate-search"));
+
+                var formURL = $(this).attr("action");
+
+                $.ajax(
+                {
+                    url: formURL,
+                    type: "POST",
+                    data: postData,
+                    success: function (data, textStatus, jqXHR) {
+                        $("#admin-realestate-table").html(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //if fails     
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+
+                });
+
+                e.preventDefault(); //STOP default action
+                e.unbind(); //unbind. to stop multiple form submit.
+
+            });
+            $('#form-real-estate-search').submit();
+
+        });
+
+    });
+
+    // START type City
+    function typeCity() {
+        var cityTyped = document.getElementById('search-City').value;
+        document.getElementById('cityDisplay').innerHTML = cityTyped;
+    };
+    // END type City
+
+    // START click State Type Dropdown
+    function clickState() {
+        $(".form-control option").click(function () {
+            var dropDownValue = document.getElementById("stateDropDown");
+            var stateValue = dropDownValue.options[dropDownValue.selectedIndex].value;
+            var stateType = dropDownValue.options[dropDownValue.selectedIndex].text;
+            document.getElementById('stateDisplay').innerHTML = stateType;
+            //alert(thePropertyValue);
+            //alert(thePropertyType);
+        });
+    };
+    // END click State Type Dropdown
+
+    // START type Zip
+    function typeZip() {
+        var zipTyped = document.getElementById('search-Zip').value;
+        alert("test");
+        document.getElementById('zipDisplay').innerHTML = zipTyped;
+    };
+    // END type Zip
+
+    // START click Property Type Dropdown
+    function clickProperty() {
+        $(".form-control option").click(function () {
+            var dropDownValue = document.getElementById("propertyDropDown");
+            var thePropertyValue = dropDownValue.options[dropDownValue.selectedIndex].value;
+            var thePropertyType = dropDownValue.options[dropDownValue.selectedIndex].text;
+            document.getElementById('propertyTypeDisplay').innerHTML = thePropertyType;
+            //alert(thePropertyValue);
+            //alert(thePropertyType);
+        });
+    };
+    // END click Property Type Dropdown
+    </script>
     
 </body>
 </html>
