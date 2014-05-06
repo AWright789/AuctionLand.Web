@@ -36,6 +36,31 @@
                 @Html.Partial("_LoginPartial")
                 
             </div>
+            <!-- START Search Nav Bar -->
+            <div class="input-group" id="searchNavBar">
+                <div class="input-group-btn">
+                    <a data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                        A-Z <span class="caret"></span>
+                    </a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">Bedrooms</a></li>
+                        <li><a href="#">Bathrooms</a></li>
+                        <li><a href="#">Garages</a></li>
+                        <li><a href="#">Property Size</a></li>
+                        <li><a href="#">Bid Price</a></li>
+                    </ul>
+                    <!--
+                Filter Pop Up using Modal and Bootbox <a href="#" class="btn btn-default" onclick="filterPopUp()">Filter BB</a>
+            -->
+                    <a href="#searchBOOTSTRAP" class="btn btn-default" role="button" data-toggle="modal">Filter</a>
+
+                </div>
+                <input type="text" class="form-control" id="searchField" placeholder="Search...">
+                <div class="input-group-btn">
+                    <a role="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                </div>
+            </div>
+            <!-- END Search Nav Bar -->
             
         </div>
     </div>
