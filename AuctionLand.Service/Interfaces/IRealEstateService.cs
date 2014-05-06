@@ -13,7 +13,7 @@ namespace AuctionLand.Service.Interfaces
 
         IQueryable<RealEstate> Query(string city, string state, int? zip, int? bedroom, int? bathroom, int? bidPriceMin, int? bidPriceMax, int? realEstateTypeId, DateTime? auctionStart, DateTime? auctionEnd, DateTime? saleDate);
 
-        IQueryable<RealEstate> theQuery(string myCity, string myState, string myZip, int? myMinBedrooms);
+        IQueryable<RealEstate> theQuery(string myCity, string myState, string myZip, int? myMinBedrooms, int? myMinBathrooms, int? myBidPriceMin, int? myBidPriceMax, string myRealEstateType);
 
         void Update(RealEstate realEstate);
         void Create(RealEstate realEstate);
