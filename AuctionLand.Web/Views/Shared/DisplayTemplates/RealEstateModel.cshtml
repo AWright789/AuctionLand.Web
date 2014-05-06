@@ -8,12 +8,12 @@
             <div class="homeThumbnailImage" style="background-image:url(@Model.DefaultImageUrl)"></div>
             Featured Home @Model.Street
             <p id="currentBidSale">@Model.StartingBid.ToString("C")</p>
-            <img src="~/Images/bedroom.png" id="BathroomBedroomSizeIcons" />@Model.Bedrooms
-            <img src="~/Images/bathroom.png" id="BathroomBedroomSizeIcons" /> @Model.Bathrooms
+            <img src="~/Images/bedroom.png" id="propertyDetailIcons" />@Model.Bedrooms
+            <img src="~/Images/bathroom.png" id="propertyDetailIcons" /> @Model.Bathrooms
         </div>
         <div class="row">
-            <img src="~/Images/property.png" id="BathroomBedroomSizeIcons" />@Model.EstateSize.ToString("N") Sq Ft
-            <img src="~/Images/yearBuilt.png" id="BathroomBedroomSizeIcons" style="max-width: 22px" />@Model.YearBuilt
+            <img src="~/Images/property.png" id="propertyDetailIcons" />@Model.EstateSize.ToString("N") Sq Ft
+            <img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" />@Model.YearBuilt
         </div>
     </div>
 </a>

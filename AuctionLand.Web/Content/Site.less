@@ -1,4 +1,4 @@
-﻿
+﻿// Backgrounds 
 .portfolio_description, #BathroomBedroomSizeSection {
 background: -moz-linear-gradient(top,  rgba(255,250,214,0.1) 0%, rgba(255,249,214,0.89) 9%, rgba(255,244,216,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,250,214,0.1)), color-stop(9%,rgba(255,249,214,0.89)), color-stop(100%,rgba(255,244,216,1))); /* Chrome,Safari4+ */
@@ -57,40 +57,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1afffad6', e
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00edf8ff', endColorstr='#eaf4ff',GradientType=0 ); /* IE6-9 */
 }
 
-.portfolio_description {
-    position:absolute;
-    width: 97%;
-    bottom:0;
-}
-
-#myNavBarText {
-    margin-bottom: 0px!important;
-}
-
-#myBtn {
-    width: 95px;
-    height: 83px;
-}
-
-#myImg {
-    width: 55px;
-    height: 55px;
-}
-
-#btnText {
-   text-align: end;
-}
-
-.Col1 {
-  width: 40%;
-  float: left;
-}
-
-.Col2 {
-  width: 40%;
-  float: right;
-}
-
+// START Home Page aka _Layout.cshtml or Home>Index.cshtml
 #searchNavBar {
    text-align:center;
    padding-top:10px;
@@ -144,18 +111,10 @@ input, select, textarea {
     border:1px double lightgrey;
 }
 
-#imageWithPadding {
-    padding:5px;
-}
-
-#imageWithPadding2 {
-    min-width: 100%!important;
-    padding:5px;
-}
-
-#BathroomBedroomListItems {
-    margin-right: 0px;
-    padding-right: 0px;
+#propertyDetailIcons {
+  max-width:17px;
+  max-height:17px;
+  padding-right: 0px;
 }
 
 #currentBidFeatured {
@@ -168,8 +127,49 @@ input, select, textarea {
     margin-bottom: 0px;
 }
 
-.jumbotron {
-    padding-top: 8px!important;
+#ContainerMaxWidth900 {
+    max-width: 900px!important;
+}
+
+.container {
+    padding: 5px!important;
+}
+
+// END Home Page aka _Layout.cshtml or Home>Index.cshtml
+
+// START Detail view of home aka RealEstate>Index.cshtml
+.portfolio_description {
+    position:absolute;
+    width: 97%;
+    bottom:0;
+}
+
+#myNavBarText {
+    margin-bottom: 0px!important;
+}
+
+#buttonShape {
+    width: 95px;
+    height: 83px;
+}
+
+#buttonImage {
+    width: 55px;
+    height: 55px;
+}
+
+.colFloatLeft {
+  width: 40%;
+  float: left;
+}
+
+.colFloatRight {
+  width: 40%;
+  float: right;
+}
+
+#image100Width {
+    min-width: 100%!important;
 }
 
 #breadCrumbs {
@@ -181,18 +181,6 @@ input, select, textarea {
     margin-top: -5px;
 }
 
-#ContainerMaxWidth900 {
-    max-width: 900px!important;
-}
-
-.container {
-    padding: 5px!important;
-}
-
-#lightGrayText {
-    color: lightgray;
-}
-
 #dividerSpace {
     min-height: 30px;
 }
@@ -200,10 +188,6 @@ input, select, textarea {
 #boxedCol {
    background-color: white;
    padding: 0px!important;
-}
-
-.center-y {
-    vertical-align:middle;
 }
 
 #bolderLargerText {
@@ -226,13 +210,6 @@ input, select, textarea {
   max-height:30px;
 }
 
-#BathroomBedroomSizeIcons {
-  max-width:17px;
-  max-height:17px;
-  padding-right: 0px;
-  margin-left: 7px;
-}
-
 #belowMainImage {
     margin: 10px 0 10px 0;
 }
@@ -241,7 +218,12 @@ input, select, textarea {
     margin: 0px!important 0px 0px 0px;
 }
 
+// END Detail view of home aka RealEstate>Index.cshtml
+
 /* - - - - - - - - - -- My CSS is above - - - - - - - -     */
+
+
+
 
 /*            Default CSS Is Below           */
 
