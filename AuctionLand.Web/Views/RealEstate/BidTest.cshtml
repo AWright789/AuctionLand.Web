@@ -4,11 +4,49 @@
     ViewBag.Title = "BidTest";
 }
 <div class="container" id="ContainerMaxWidth900">
-
     <label>RealEstateId</label>
-    <input id="RealEstateId" type="text" /><br/>
+    <input id="RealEstateId" type="number" /><br/>
     <label>Bid Amount</label>
-    <input type="number" id="BidAmount" /><br/>
-    <input type="button" class="btn btn-success" value="Bid" />
-
+    <input id="BidAmount" type="number" /><br/>
+    
+    <input id="btn-bid" type="button" class="btn btn-success" value="Bid" />
+  
 </div>
+
+@section scripts{
+    <script>
+    // START Search Button inside Filter Pop Up
+    $('#btn-bid').click(function () {
+        
+            var realEstateId = $('#RealEstateId').val();
+            var bidAmount = $('#BidAmount').val();
+            
+            alert(realEstateId);
+            alert(bidAmount);
+            
+             $.ajax(
+            {
+                url: '@Url.Action("Bid","Bids")',
+                type: "POST",
+                data: { RealEstateId: realEstateId, BidAmount: bidAmount},
+                success: function (data, textStatus, jqXHR) {
+                    alert("success "+textStatus);
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //if fails
+                    alert("error "+errorThrown);
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+                            
+            });
+
+            e.preventDefault(); //STOP default action
+            e.unbind(); //unbind. to stop multiple form submit.
+                        
+        });
+        
+    </script>
+}
