@@ -27,6 +27,11 @@ namespace AuctionLand.Web.Controllers
             var model = realEstate.ToModel();
             return View(model);
         }
+        
+        public ActionResult BidTest()
+        {
+            return View();
+        }
 
 
 
