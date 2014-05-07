@@ -83,12 +83,10 @@ namespace AuctionLand.Data.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime? SaleDate { get; set; }
-        public double StartingBid { get; set; }
-        public double EndingBid { get; set; }
-        public double BidIncrement { get; set; }
+        public decimal StartingBid { get; set; }
+        public decimal EndingBid { get; set; }
+        public decimal BidIncrement { get; set; }
 
-
-     
         public virtual List<RealEstateImage> RealEstateImages { get; set; }
     }
 }
