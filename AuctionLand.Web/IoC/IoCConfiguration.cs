@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using AuctionLand.Data.Entities;
+using Autofac;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ using AuctionLand.Service.Implementations;
 using AuctionLand.Web.App_Start;
 using System.Reflection;
 using AuctionLand.Web.Areas.Admin.Controllers;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AuctionLand.Web.IoC
 {
@@ -53,6 +56,12 @@ namespace AuctionLand.Web.IoC
             #region Register Services and DB Context
 
             builder.RegisterType<AuctionLandDbContext>().As<IAuctionLandDbContext>();
+            builder.RegisterType<UserStore<ApplicationUser>>().As<IUserStore<ApplicationUser>>();
+
+            builder.RegisterType<UserManager<ApplicationUser>>();
+
+
+
             builder.RegisterType<RealEstateService>().As<IRealEstateService>();
             builder.RegisterType<ImageService>().As<IImageService>();
             builder.RegisterType<ImageBlobStorageService>().As<IImageBlobStorageService>();

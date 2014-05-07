@@ -90,5 +90,7 @@ namespace AuctionLand.Data.Entities
 
      
         public virtual List<RealEstateImage> RealEstateImages { get; set; }
+
+        public bool HasEnded { get; set; }
     }
 }
