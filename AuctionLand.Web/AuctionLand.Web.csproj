@@ -16,10 +16,13 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44300</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -241,6 +244,8 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealEstateController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealEstateImageController.cs" />
+    <Compile Include="Controllers\api\BidsController.cs" />
+    <Compile Include="DataTransferObjects\BidDto.cs" />
     <Compile Include="Exentions\EnumExtentions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -278,6 +283,10 @@
     <Compile Include="Migrations\201405062234174_AddedBiddingService.cs" />
     <Compile Include="Migrations\201405062234174_AddedBiddingService.Designer.cs">
       <DependentUpon>201405062234174_AddedBiddingService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405071721505_AddedBidFields.cs" />
+    <Compile Include="Migrations\201405071721505_AddedBidFields.Designer.cs">
+      <DependentUpon>201405071721505_AddedBidFields.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
@@ -431,6 +440,7 @@
     <Content Include="Views\Home\Filters.cshtml" />
     <Content Include="Views\Home\_SearchResults.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\RealEstateModel.cshtml" />
+    <Content Include="Views\RealEstate\BidTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -466,6 +476,9 @@
     <EmbeddedResource Include="Migrations\201405062234174_AddedBiddingService.resx">
       <DependentUpon>201405062234174_AddedBiddingService.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405071721505_AddedBidFields.resx">
+      <DependentUpon>201405071721505_AddedBidFields.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -481,7 +494,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44301/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

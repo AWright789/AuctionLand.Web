@@ -88,5 +88,7 @@ namespace AuctionLand.Data.Entities
         public decimal BidIncrement { get; set; }
 
         public virtual List<RealEstateImage> RealEstateImages { get; set; }
+
+        public bool HasEnded { get; set; }
     }
 }
