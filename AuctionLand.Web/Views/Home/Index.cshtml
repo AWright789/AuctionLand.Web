@@ -13,13 +13,17 @@
         {
        <a href="@Url.Action("Index","RealEstate", new { id = featuredHome.Id})">
         <div class="col-sm-4 border" id="featuredHomeCell">
-            <div class="homeThumbnailImage" style="background-image:url(@featuredHome.DefaultImageUrl)"></div>
+            <div class="homeThumbnailImage" style="background-image:url(@featuredHome.DefaultImageUrl)">
+
+            </div>
                  Featured Home @featuredHome.Street
+            <div class="col-sm-12">
                 <p id="currentBidFeatured">@featuredHome.StartingBid.ToString("C")</p>
-                <img src="~/Images/bedroom.png" id="propertyDetailIcons" />@featuredHome.Bedrooms    
-            <img src="~/Images/bathroom.png" id="propertyDetailIcons" /> @featuredHome.Bathrooms
+                <img src="~/Images/bedroom.png" id="propertyDetailIcons" />@featuredHome.Bedrooms
+                <img src="~/Images/bathroom.png" id="propertyDetailIcons" /> @featuredHome.Bathrooms
                 <img src="~/Images/property.png" id="propertyDetailIcons" />@featuredHome.EstateSize.ToString("N0") Sq Ft
-                <img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" />@featuredHome.YearBuilt 
+                <img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" />@featuredHome.YearBuilt
+            </div>
         </div>
        </a>
         }

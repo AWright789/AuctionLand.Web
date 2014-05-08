@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<!-- start DETAIL VIEW OF A REAL ESTATE PROPERTY -->
+<!-- START Container aka DETAIL VIEW OF A REAL ESTATE PROPERTY -->
 <div class="container" id="ContainerMaxWidth900">
 
     <!-- START breadcrumbs-->
@@ -14,153 +14,146 @@
     </ol>
     <!-- END breadcrumbs -->
 
-        <!-- START Detail of Home with Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
-        <!-- START Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
-        <!-- START Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+
+        <!--START left column that will have Home picture and info-->
+        <div class="col-lg-6">
                 <img src="@Model.DefaultImageUrl" class="img-responsive portfolio_frontpage" alt="" id="image100Width">
-
-                <div class="portfolio_description hidden-xs">
-                    <div class="col-xs-12">
-                        <ul class="list-inline">
-                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
-                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
-                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="propertyDetailIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
-                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="propertyDetailIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
-                            <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12">
-                        <ul class="list-inline">
-                            <li class="navbar-text" id="myNavBarText">Property Type:<p style="font-weight:bolder">@Model.RealEstateType</p></li>
-                            <li class="navbar-text" id="myNavBarText">Listing Status:<p style="font-weight:bolder"> @Model.ListingStatus</p></li>
-                            <li class="navbar-text" id="myNavBarText">Listing Type:<p style="font-weight:bolder"> @Model.ListingType</p></li>
-                            <li class="navbar-text" id="myNavBarText">Occupancy:<p style="font-weight:bolder"> @Model.OccupancyStatus</p></li>
-
-                            <!-- Below is for display on phones and tablets-->
-                            <li><a id="our-fb-like-button" class="fb-like text-center visible-xs" style="padding: 1px 1px 10px 10px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></a></li>
-
-                            <!--Below is for display on laptops and desktops-->
-                            <li class="navbar-text hidden-xs hidden-sm" id="myNavBarText" style="font-size:smaller; max-width:300px!important"><a id="our-fb-like-button" class="fb-like text-center hidden-xs" style="max-width: 50px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></li>
-
-                         </ul>
-                    </div>
-                </div>
+         
+            <!-- START Bathroom, Bedrooms info/icons BELOW MAIN IMAGE -->
+            <div class="col-xs-12 hidden-xl text-center" id="BathroomBedroomSizeSection" style="margin-bottom:30px">
+                <ul class="list-inline">
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
+                </ul>
+                <ul class="list-inline">
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="propertyDetailIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize <span style="font-size:smaller">Sq Ft</span> </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="propertyDetailIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize <span style="font-size:smaller">Acres</span> </li>
+                    <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
+                </ul>
+                <ul class="list-inline">
+                    <li class="navbar-text" id="myNavBarText">Property Type:<p style="font-weight:bold">@Model.RealEstateType</p></li>
+                    <li class="navbar-text" id="myNavBarText">Occupancy:<p style="font-weight:bold">@Model.OccupancyStatus</p></li>
+                    <li class="navbar-text" id="myNavBarText">Listing Status:<p style="font-weight:bold">@Model.ListingStatus</p></li>
+                </ul>
+                <ul class="list-inline">
+                    <li class="navbar-text" id="myNavBarText">Listing Type:<p style="font-weight:bold">@Model.ListingType</p></li>
+                    <li class="navbar-text" id="myNavBarText">Occupancy:<p style="font-weight:bold">@Model.OccupancyStatus</p></li>
+                </ul>
+                <a id="our-fb-like-button" class="fb-like text-center visible-xs" style="padding: 1px 1px 10px 10px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></a>
             </div>
-        </div>
-        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
-        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
-        <!-- END Main Image with Bathroom, Bedrooms info and icons ON TOP OF MAIN IMAGE when SM or larger -->
+            <!-- END Bathroom, Bedrooms info/icons BELOW MAIN IMAGE -->
+            <!-- END Bathroom, Bedrooms info/icons BELOW MAIN IMAGE -->
 
-        <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
-        <!-- START Bathroom, Bedrooms etc that is displayed BELOW MAIN IMAGE when on XS -->
-        <div class="visible-xs text-center" id="BathroomBedroomSizeSection">
-            <ul class="list-inline">
-                <li class="navbar-text" id="myNavBarText"><img src="~/Images/bedroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bedroom: </span> @Model.Bedrooms </li>
-                <li class="navbar-text" id="myNavBarText"><img src="~/Images/bathroom.png" id="propertyDetailIcons" /> <span class="hidden-xs">Bathrooms: </span> @Model.Bathrooms </li>
-            </ul>   
-            <ul class="list-inline">
-                <li class="navbar-text" id="myNavBarText"><img src="~/Images/property.png" id="propertyDetailIcons" /> <span class="hidden-xs">Property: </span> @Model.EstateSize Sq Ft </li>
-                <li class="navbar-text" id="myNavBarText"><img src="~/Images/measure.png" id="propertyDetailIcons" /> <span class="hidden-xs">Lot: </span> @Model.LotSize acres </li>
-                <li class="navbar-text" id="myNavBarText"><img src="~/Images/yearBuilt.png" id="propertyDetailIcons" style="max-width: 22px" /> <span class="hidden-xs">Built: </span> @Model.YearBuilt</li>
-            </ul>
-            <ul class="list-inline">
-                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Property Type:<p style="font-weight:bold">@Model.RealEstateType</p></li>
-                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Status:<p style="font-weight:bold">@Model.ListingStatus</p></li>
-            </ul>
-            <ul class="list-inline">
-                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Listing Type:<p style="font-weight:bold">@Model.ListingType</p></li>
-                <li class="navbar-text" id="myNavBarText" style="font-size:smaller">Occupancy:<p style="font-weight:bold">@Model.OccupancyStatus</p></li>
-            </ul>
-            <a id="our-fb-like-button" class="fb-like text-center visible-xs" style="padding: 1px 1px 10px 10px!important" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></a>
         </div>
-        <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
-        <!-- END Bathroom, Bedrooms etc that is displayed BELOW the main image when on XS -->
-
-        <br />
+        <!--START left column that will have Home picture and info-->
+   
+       
         <!-- START Bid and Location Sections -->
-        <div class="row" style="margin:0px!important">
+            <div class="col-lg-6 col-sm-12">
 
-            <!-- START bidding price section-->
-            <div class="col-sm-6" id="boxedCol">
-                <div class="list-group-item list-group-item-warning">
-                    <h4 id="panelHeading">
-                        <img src="~/Images/USD-512.png" id="myIconsLg">
-                        Bidding
-                    </h4>
-                </div>
-                <div class="panel-body">
-                    <div class="col-md-4">
-                        <span class="hidden-xs">Current Bid:</span>
-                        <span class="visible-xs">Current:</span>
-                        <p id ="bolderLargerText">@Model.StartingBid.ToString("C")</p>
+                <!-- START Bid section-->
+                <div class="col-xs-12 col-sm-6 col-lg-12" id="boxedCol" style="margin-bottom:20px;">
 
-                        <span class="hidden-xs">Users Bid:</span>
-                        <span class="visible-xs">User:</span>
-                        <p id="bolderLargerText">@Model.EndingBid.ToString("C")</p>
-
+                    <div class="list-group-item list-group-item-warning">
+                        <h4 id="panelHeading">
+                            <img src="~/Images/USD-512.png" id="myIconsLg">
+                            Bidding
+                        </h4>
                     </div>
 
-                    <!-- START Bid date, time and time left -->
-                    <div class="col-md-4">
+                    <!-- START panel body-->
+                    <div class="panel-body text-center">
+
+                        <div class="col-xs-6">
+                            <div>
+                                <span class="hidden-xs">Current Bid:</span>
+                                <span class="visible-xs">Current:</span>
+                                <p id="bolderLargerText">@Model.StartingBid.ToString("C")</p>
+                            </div>
+                            <span class="hidden-xs">Bid Status:</span>
+                            <span class="visible-xs">Status:</span>
+                            <p id="bolderLargerText">Losing</p>
+                        </div>
+
+                        <!-- START Bid date, time and time left -->
+                        <div class="col-xs-6">
+                            <div>
+                                <span class="hidden-xs">Your Last Bid:</span>
+                                <span class="visible-xs">Yours:</span>
+                                <p id="bolderLargerText">@Model.EndingBid.ToString("C")</p>
+                            </div>
+
                             <span class="hidden-xs">End Date & Time:</span>
-                            <span class="visible-xs">Ends:</span>
+                            <span class="visible-xs">Ending:</span>
                             <p id="bolderLargerText">@Model.EndDate</p>
+                        </div>
+
+                        <!-- START Bid increment section-->
+                        <div class="col-xs-12 well">
+                            <label class="col-xs-12" style="font-size: larger">Bid Amount</label>
+                                <a role="button" class="btn btn-warning col-xs-2">-</a>
+                            <div class="col-xs-8">
+                                <input type="hidden"id="bidAmountHidden" />
+                                <label class="form-control"><b id="bidAmountLabel"></b></label>
+                            </div>
+                                <a role="button" class="btn btn-success col-xs-2">+</a>
+                            <div>
+                                <input type="hidden" name="biddingSlider" id="biddingSliderHidden" />
+                                <input id="biddingSlider" name="biddingSliderNAME" style="width:90%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" />
+                            </div>
+                        </div>
                         
-                        <!-- time left to bid in Days:Hours:Minutes-->
-                            Time left
-                            <p id="bolderLargerText">21:03:12</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <a class="btn btn-primary btn-md" href="https://google.com/" role="button" id="buttonShape">
-                            <img src="~/Images/282-cards@2xWHITE.png" id="buttonImage" />
-                            <p id="smallerText">Bid now</p>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            <!-- END bidding price section-->
-
-            <div class="col-sm-1" id="dividerSpace"> </div>
-
-            <!-- START Location section-->
-            <div class="col-sm-5" id="boxedCol">
-                <div class="list-group-item list-group-item-warning">
-                    <h4 id="panelHeading">
-                        <img src="~/Images/marker-512.png" id="myIconsMd">
-                        Location
-                    </h4>
-                </div>
-
-                <div class="panel-body">
-
-                    <div class="col-sm-6">
-                        <p>@Model.Street</p>
-                        <p>@Model.City, @Model.State @Model.Zip</p>
                         <br />
-                        <p>Location goes here @Model.Location</p>
+                        <!-- END Bid increment section-->
+                        <button type="button" class="btn btn-primary col-xs-12 btn-lg">Bid Now</button>
+
+                    </div>
+                    <!-- END panel body-->
+                </div>
+                <!-- END Bid section-->
+                <div class="col-sm-1"></div>
+                <!-- START Location section-->
+                <div class="col-xs-12  col-sm-5  col-lg-12" id="boxedCol">
+                    <div class="list-group-item list-group-item-warning">
+                        <h4 id="panelHeading">
+                            <img src="~/Images/marker-512.png" id="myIconsMd">
+                            Location
+                        </h4>
                     </div>
 
-                    <div class="col-sm-6">
-                        <a class="btn btn-primary btn-md" href="https://maps.google.com/" role="button" id="buttonShape">
-                            <img src="~/Images/103-map@2xWHITE.png" id="buttonImage" />
-                            <p id="smallerText">View on map</p>
-                        </a>
+                    <div class="panel-body">
+
+                        <div class="col-xs-6">
+                            <p>@Model.Street</p>
+                            <p>@Model.City, @Model.State @Model.Zip</p>
+                            <br />
+                            <p>Location goes here @Model.Location</p>
+                        </div>
+
+                        <!-- START Vieow on Map blue button -->
+                        <div class="col-xs-6">
+                            <a class="btn btn-primary btn-md" href="https://maps.google.com/" role="button" id="buttonShape">
+                                <img src="~/Images/103-map@2xWHITE.png" id="buttonImage" />
+                                <p id="smallerText">View on map</p>
+                            </a>
+                        </div>
+                        <!-- END Vieow on Map blue button -->
+
                     </div>
 
                 </div>
+                <!-- END Location section-->
 
             </div>
-            <!-- END Location section-->
-
-        </div>
         <!-- END Bid AND Location Sections -->
 
+        </div>
+    <!-- END row -->
+
 </div>
-<!-- end DETAIL VIEW OF REAL ESTATE -->
+<!-- END Container aka DETAIL VIEW OF REAL ESTATE-->
+
 @section scripts{
     <script type="text/javascript" language="javascript">
     window.onload = function () {
@@ -168,6 +161,35 @@
         currentUrl = currentUrl.substring(0, currentUrl.length);
         document.getElementById("our-fb-like-button").setAttribute("data-href", currentUrl);
     }
+
+
+    // START subtract bid amount
+    $('#minBathSlider').slider({
+        formater: function (value) {
+            document.getElementById('bidAmountLabel').innerHTML = value;
+           
+        }
+    });
+    // END subtract bid amount
+
+    // START add bid amount
+    $('#minBathSlider').slider({
+        formater: function (value) {
+            document.getElementById('minBathroomsDisplay').innerHTML = value;
+            return 'Current value: ' + value;
+        }
+    });
+    // END add bid amount
+
+    // START Bidding Slider
+    $('#biddingSlider').slider({
+        formater: function (value) {
+            document.getElementById('bidAmountLabel').innerHTML = value;
+            return 'Current value: ' + value;
+        }
+    });
+    // END Bidding Slider
+
 </script>
 
 }

@@ -58,7 +58,7 @@
                 </div>
             </div>
             <!-- END Search Nav Bar -->
-
+          
         </div>
     </div>
 
@@ -68,6 +68,10 @@
         <hr />
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - Auction Land.</p>
+            <p class="visible-xs"> this text is visible in XS </p>
+            <p class="visible-sm"> this text is visible in SM </p>
+            <p class="visible-md"> this text is visible in MD </p>
+            <p class="visible-lg"> this text is visible in LG </p>
         </footer>
     </div>
     <!-- END render body and add footer -->
@@ -175,11 +179,12 @@
                                 <div class="col-sm-4" id="pricingSearch">
                                         <h4>Pricing</h4>
                                     <div class="well">
-                                        <label class="control-label">Bid Price Range: <b id="minBidDisplay"></b></label> to <b id="maxBidDisplay"></b><br />
+                                        <label class="control-label">Bid Price Range: </label><br />
+                                        <b id="minBidDisplay"></b> to <b id="maxBidDisplay"></b><br />
                                        
                                         <input type="hidden" name="MinBidPrice" id="MinBidPrice" />
                                         <input type="hidden" name="MaxBidPrice" id="MaxBidPrice" />
-                                        <b>$0</b> <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[0,5000000]" /> <b> $10,000,000</b>
+                                        <input id="bidPriceSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000000" data-slider-step="10" data-slider-value="[0,5000000]" />
                                     </div>
 
                                     <h4>Property Type</h4>
