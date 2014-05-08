@@ -92,12 +92,19 @@
                         <!-- START Bid increment section-->
                         <div class="col-xs-12 well">
                             <label class="col-xs-12" style="font-size: larger">Bid Amount</label>
-                            <a role="button" class="btn btn-warning col-xs-2">-</a>
+
+                            <!-- Subtract button -->
+                            <a role="button" class="btn btn-warning col-xs-2" id="bidSubtract">-</a>
+
+                            <!-- Bid Amount Display -->
                             <div class="col-xs-8">
                                 <input type="hidden" id="bidAmountHidden" />
-                                <label class="form-control"><b id="bidAmountLabel"></b></label>
+                                <label class="form-control"><b id="bidAmountDisplay"></b></label>
                             </div>
-                            <a role="button" class="btn btn-success col-xs-2">+</a>
+
+                            <!-- Add button -->
+                            <a role="button" class="btn btn-success col-xs-2" id="bidAdd">+</a>
+
                             <div>
                                 <input type="hidden" name="biddingSlider" id="biddingSliderHidden" />
                                 <input id="biddingSlider" name="biddingSliderNAME" style="width:90%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" />
@@ -164,24 +171,13 @@
         document.getElementById("our-fb-like-button").setAttribute("data-href", currentUrl);
     }
 
+    var bidAmount = new Number(@(Model.CurrentBid+Model.BidIncrement));
+    var bidIncrement = new number(@(Model.BidIncrement))
 
-    // START subtract bid amount
-    $('#minBathSlider').slider({
-        formater: function (value) {
-            document.getElementById('bidAmountLabel').innerHTML = value;
-           
-        }
-    });
-    // END subtract bid amount
-
-    // START add bid amount
-    $('#minBathSlider').slider({
-        formater: function (value) {
-            document.getElementById('minBathroomsDisplay').innerHTML = value;
-            return 'Current value: ' + value;
-        }
-    });
-    // END add bid amount
+        // START Subtract Button
+        $('#bidSubtract').click(function () {
+            alert(bidAmount)
+        });
 
     // START Bidding Slider
     $('#biddingSlider').slider({

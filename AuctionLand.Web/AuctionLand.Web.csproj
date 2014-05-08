@@ -295,6 +295,7 @@
     <Compile Include="Mappings\MappingExtensions.cs" />
     <Compile Include="Mappings\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BidModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\RealEstateImageModel.cs" />
     <Compile Include="Models\RealEstateModel.cs" />
@@ -381,6 +382,7 @@
     </None>
     <Content Include="Content\Site.less" />
     <Content Include="Scripts\auctionland-1.0.js" />
+    <Content Include="Models\ViewPage1.cshtml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\property.png" />
     <Content Include="Images\facebook-512.png" />
@@ -445,6 +447,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Views\BidModel\" />
+    <Folder Include="Views\Bid\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

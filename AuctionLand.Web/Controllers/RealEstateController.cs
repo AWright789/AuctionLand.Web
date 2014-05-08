@@ -11,9 +11,12 @@ namespace AuctionLand.Web.Controllers
     public class RealEstateController : Controller
     {
         readonly IRealEstateService _realEstateService;
-        public RealEstateController(IRealEstateService realEstateService)
+        readonly IBidService _bidService;
+         
+        public RealEstateController(IRealEstateService realEstateService, IBidService bidService)
         {
             _realEstateService = realEstateService;
+            _bidService = bidService;
         }
         //
         // GET: /RealEstate/
@@ -24,7 +27,15 @@ namespace AuctionLand.Web.Controllers
             {
                 RedirectToAction("Index", "Home");
             }
+
             var model = realEstate.ToModel();
+            var maxBid = _bidService.GetMaxBid(id);
+            if (maxBid != null)
+            {
+
+                model.MaxBid = maxBid.ToModel();
+            }
+            
             return View(model);
         }
         
@@ -32,6 +43,7 @@ namespace AuctionLand.Web.Controllers
         {
             return View();
         }
+
 
 
 

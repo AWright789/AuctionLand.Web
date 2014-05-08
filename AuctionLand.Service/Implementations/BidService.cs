@@ -19,6 +19,7 @@ namespace AuctionLand.Service.Implementations
         public BidService(IAuctionLandDbContext db)
         {
             _db = db;
+           
         }
 
 

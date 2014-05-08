@@ -20,6 +20,10 @@ namespace AuctionLand.Web.Mappings
              Mapper.CreateMap<RealEstate, RealEstateModel>()
                  .ForMember(dest => dest.RealEstateImageModels, opt => opt.MapFrom(src => src.RealEstateImages));
              Mapper.CreateMap<RealEstateImage, RealEstateImageModel>();
+
+             Mapper.CreateMap<Bid, BidModel>()
+                 .ForMember(dest => dest.BidderName, opt => opt.Ignore())
+                 .ForMember(dest => dest.BidderId, opt => opt.MapFrom(src => src.ApplicationUserId));
          }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using AuctionLand.Data.Entities;
+﻿using AuctionLand.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -53,6 +52,22 @@ namespace AuctionLand.Web.Models
         public double EndingBid { get; set; }
         public double BidIncrement { get; set; }
 
+        public BidModel MaxBid { get; set; }
+
+        public double CurrentBid
+        {
+            get
+            {
+                if (MaxBid == null)
+                {
+                    return StartingBid;
+                }
+                else {
+                    return MaxBid.BidAmount;
+                }
+            }
+            private set { }
+        }
 
         public string DefaultImageUrl
         {

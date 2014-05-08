@@ -34,6 +34,11 @@ namespace AuctionLand.Web.Mappings
         {
             return Mapper.Map<RealEstateImageModel, RealEstateImage>(model, entity);
         }
+
+        public static BidModel ToModel(this Bid entity)
+        {
+            return Mapper.Map<Bid, BidModel>(entity);
+        }
         
 
     }

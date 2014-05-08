@@ -66,6 +66,8 @@ namespace AuctionLand.Web.IoC
             builder.RegisterType<ImageService>().As<IImageService>();
             builder.RegisterType<ImageBlobStorageService>().As<IImageBlobStorageService>();
             builder.RegisterType<RealEstateImageController>().InstancePerDependency();
+            builder.RegisterType<BidService>().As <IBidService>();
+           
             #endregion
 
             builder.RegisterType<AuctionLand.Web.Controllers.HomeController>().InstancePerDependency();
