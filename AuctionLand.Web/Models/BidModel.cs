@@ -10,7 +10,7 @@ namespace AuctionLand.Web.Models
     {
         public int RealEstateId { get; set; }
         public string BidderName { get; set; }
-        public int BidderId { get; set; }
+        public string BidderId { get; set; }
         public double BidAmount { get; set; }
         public bool IsWinningBid { get; set; }
         public DateTime CreateDate { get; set; }

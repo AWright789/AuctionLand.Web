@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Autofac.Integration.Mvc;
-//using Autofac.Integration.WebApi;
+using Autofac.Integration.WebApi;
 using System.Web.Mvc;
 using AuctionLand.Data.Entities.DAL;
 using AuctionLand.Service.Interfaces;
@@ -15,7 +15,7 @@ using System.Reflection;
 using AuctionLand.Web.Areas.Admin.Controllers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+using System.Web.Http;
 namespace AuctionLand.Web.IoC
 {
     public class IoCConfiguration
@@ -38,7 +38,7 @@ namespace AuctionLand.Web.IoC
             // Also, if you register controllers manually and choose to specify lifetimes, you must register them as InstancePerDependency() or InstancePerHttpRequest() - 
             // ASP.NET MVC will throw an exception if you try to reuse a controller instance for multiple requests. 
             builder.RegisterControllers(typeof(MvcApplication).Assembly).InstancePerDependency();
-            //builder.RegisterApiControllers(typeof(MvcApplication).Assembly).InstancePerHttpRequest();
+            builder.RegisterApiControllers(typeof(MvcApplication).Assembly).InstancePerHttpRequest();
 
            // builder.RegisterControllers(Assembly.GetExecutingAssembly()).InjectActionInvoker().InstancePerHttpRequest();
             
@@ -94,6 +94,8 @@ namespace AuctionLand.Web.IoC
             #region Set the MVC dependency resolver to use Autofac
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            var webApiResolver = new AutofacWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = webApiResolver;
             #endregion
 
         }

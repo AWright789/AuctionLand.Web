@@ -12,9 +12,9 @@ namespace AuctionLand.Data.Entities.DAL
 {
     public class AuctionLandDbContext : IdentityDbContext<ApplicationUser>, IAuctionLandDbContext
     {
-        public AuctionLandDbContext():base("AuctionLandDB")
+        public AuctionLandDbContext():base("AuctionLandDB",false)
         {
-
+           
         }
 
         public DbSet<RealEstate> RealEstates { get; set; }

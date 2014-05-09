@@ -69,11 +69,11 @@
                             <div>
                                 <span class="hidden-xs">Current Bid:</span>
                                 <span class="visible-xs">Current:</span>
-                                <p id="bolderLargerText">@Model.StartingBid.ToString("C")</p>
+                                <p id="bolderLargerText" class="bolderLargerText">@Model.CurrentBid.ToString("C")</p>
                             </div>
                             <span class="hidden-xs">Bid Status:</span>
                             <span class="visible-xs">Status:</span>
-                            <p id="bolderLargerText">Losing</p>
+                            <p id="bid-status" class="bolderLargerText">@Model.MaxBid.IsWinningBid</p>
                         </div>
 
                         <!-- START Bid date, time and time left -->
@@ -81,12 +81,12 @@
                             <div>
                                 <span class="hidden-xs">Your Last Bid:</span>
                                 <span class="visible-xs">Yours:</span>
-                                <p id="bolderLargerText">@Model.EndingBid.ToString("C")</p>
+                                <p id="bolderLargerText" class="bolderLargerText">@Model.MaxBid.CreateDate</p>
                             </div>
 
                             <span class="hidden-xs">End Date & Time:</span>
                             <span class="visible-xs">Ending:</span>
-                            <p id="bolderLargerText">@Model.EndDate</p>
+                            <p id="bolderLargerText" class="bolderLargerText">@Model.EndDate</p>
                         </div>
 
                         <!-- START Bid increment section-->
@@ -99,21 +99,22 @@
                             <!-- Bid Amount Display -->
                             <div class="col-xs-8">
                                 <input type="hidden" id="bidAmountHidden" />
-                                <label class="form-control"><b id="bidAmountDisplay"></b></label>
+                                <label class="form-control"><b id="bidAmountDisplay">@((Model.CurrentBid + Model.BidIncrement).ToString("C"))</b></label>
                             </div>
 
                             <!-- Add button -->
                             <a role="button" class="btn btn-success col-xs-2" id="bidAdd">+</a>
-
+                            <!--
                             <div>
                                 <input type="hidden" name="biddingSlider" id="biddingSliderHidden" />
                                 <input id="biddingSlider" name="biddingSliderNAME" style="width:90%;" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" />
                             </div>
+                            -->
                         </div>
 
                         <br />
                         <!-- END Bid increment section-->
-                        <button type="button" class="btn btn-primary col-xs-12 btn-lg">Bid Now</button>
+                        <button id="btn-bid" type="button" class="btn btn-primary col-xs-12 btn-lg">Bid Now</button>
 
                     </div>
                     <!-- END panel body-->
@@ -159,7 +160,7 @@
 
         </div>
     <!-- END row -->
-
+    <input class="hidden" id="realEstateId" value="@Model.Id"/>
 </div>
 <!-- END Container aka DETAIL VIEW OF REAL ESTATE-->
 
@@ -170,15 +171,60 @@
         currentUrl = currentUrl.substring(0, currentUrl.length);
         document.getElementById("our-fb-like-button").setAttribute("data-href", currentUrl);
     }
+        
+        //Money Formatter
+    Number.prototype.formatMoney = function (decPlaces, thouSeparator, decSeparator, currencySymbol) {
+        // check the args and supply defaults:
+        decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces;
+        decSeparator = decSeparator == undefined ? "." : decSeparator;
+        thouSeparator = thouSeparator == undefined ? "," : thouSeparator;
+        currencySymbol = currencySymbol == undefined ? "$" : currencySymbol;
 
-    var bidAmount = new Number(@(Model.CurrentBid+Model.BidIncrement));
-    var bidIncrement = new number(@(Model.BidIncrement))
+        var n = this,
+            sign = n < 0 ? "-" : "",
+            i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+            j = (j = i.length) > 3 ? j % 3 : 0;
+
+        return sign + currencySymbol + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+    };
+    var startAmount = new Number(@(Model.CurrentBid+Model.BidIncrement))
+    var bidIncrement = new Number(@(Model.BidIncrement))
+        var bidAmount = new Number(@(Model.CurrentBid+Model.BidIncrement))
+        var isWinning = $("#bid-status").html();
+        if(isWinning != "False")
+        {
+            document.getElementById("bid-status").innerHTML = "Winning"
+        }
+        else
+        {
+            document.getElementById("bid-status").innerHTML = "Losing"
+        }
+        
+        
 
         // START Subtract Button
-        $('#bidSubtract').click(function () {
-            alert(bidAmount)
+        $('#bidSubtract').click(function ()
+        {
+            if(bidAmount > startAmount)
+            {
+                bidAmount -= bidIncrement;
+                moneyConversion = bidAmount.formatMoney(2, ",", ".", "$")
+                document.getElementById("bidAmountDisplay").innerHTML = moneyConversion
+            }
+            else
+            {
+                alert("Cannot bid below current bid.")
+            }  
         });
+        // START Add Button
+        $('#bidAdd').click(function ()
+        {
+            bidAmount += bidIncrement;
+            moneyConversion = bidAmount.formatMoney(2,",",".","$")
+            document.getElementById("bidAmountDisplay").innerHTML = moneyConversion
 
+        });
+/*
     // START Bidding Slider
     $('#biddingSlider').slider({
         formater: function (value) {
@@ -187,7 +233,34 @@
         }
     });
     // END Bidding Slider
+   */
+        $('#btn-bid').click(function () {
 
+            var realEstateId = $('#realEstateId').val();
+            //var bidAmount = $('#bidAmountDisplay').val();
+
+            $.ajax(
+           {
+               url: '/api' + '@Url.Action("Post","Bids")',
+               type: "POST",
+               data: { RealEstateId: realEstateId, BidAmount: bidAmount.toString() },
+               success: function (data, textStatus, jqXHR) {
+                   alert("success " + textStatus);
+
+               },
+               error: function (jqXHR, textStatus, errorThrown) {
+                   //if fails
+                   alert("error " + errorThrown);
+               },
+              
+               contentType: "json",
+             
+
+           });
+
+            
+
+        });
 </script>
 
 }
