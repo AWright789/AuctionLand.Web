@@ -23,7 +23,7 @@ namespace AuctionLand.Web.Controllers
             UserManager = userManager;
         }
 
-        public UserManager<ApplicationUser> UserManager { get; private set; }
+        private UserManager<ApplicationUser> UserManager;
 
         //
         // GET: /Account/Login
